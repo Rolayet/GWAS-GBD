@@ -1,0 +1,279 @@
+---
+title: "Example analysis of Rayan's project"
+output: html_notebook
+---
+
+
+Read in the data
+
+```{r}
+library(dplyr)
+library(data.table)
+library(tidyr)
+library(stringr)
+
+# a <- fread("~/Downloads/gwas_catalog_v1.0.2.1-studies_r2024-03-11.tsv")
+
+a <- fread("/Users/rayanaloliet/Desktop/GWAS Catalog/gwas_catalog_v1.0.2.1-studies_r2024-06-07.csv")
+
+```
+
+
+
+Have a look at the data
+
+```{r}
+hist(a$`ASSOCIATION COUNT`, breaks=100)
+```
+
+Sometimes there is more than one EFO term (comma separated). Split them into separate lines
+
+```{r}
+
+head(a, 10)
+
+a <- a %>%
+    tidyr::separate_rows(MAPPED_TRAIT_URI, sep = ", ")
+
+head(a, 10)
+
+```
+
+Get the number of EFO terms per publication
+
+```{r}
+pubmed_count <- a %>% group_by(PUBMEDID) %>% 
+    summarise(
+        n_efo = length(unique(MAPPED_TRAIT_URI))
+    ) %>% arrange(desc(n_efo))
+
+pubmed_count
+```
+
+Add the EFO count per PUBMEDID to the data frame
+
+```{r}
+a <- left_join(a, pubmed_count, by="PUBMEDID")
+str(a)
+```
+
+Step 1. Develop the attention scores
+
+- n = number of studies with that EFO term
+- weighted_n = weighted by number of EFO terms in the study in total
+- nhits = number of GWAS hits reported for that EFO term
+- weighted_nhits = nhits weighted by number of EFO terms in the study in total
+
+```{r}
+attention <- a %>% group_by(
+    MAPPED_TRAIT_URI
+) %>% 
+    summarise(
+        n = n(), 
+        weighted_n = sum(1/n_efo),
+        nhits = sum(`ASSOCIATION COUNT`),
+        weighted_nhits = sum(`ASSOCIATION COUNT` / n_efo)
+    )
+
+str(attention)
+```
+
+
+Removing extra whitespace, cleaning the Impact factor values and ensure the values are numeric 
+
+```{r}
+# Remove extra whitespace
+a$`Impact factor` <- trimws(a$`Impact factor`)
+
+# Replace non-standard characters
+a$`Impact factor` <- gsub("·", ".", a$`Impact factor`)
+
+# Convert to numeric, forcing non-numeric values to NA (for those with no impact factors)
+a$`Impact factor` <- as.numeric(a$`Impact factor`)
+
+# Replace NA values with 0
+a$`Impact factor`[is.na(a$`Impact factor`)] <- 0
+
+# Verify the changes
+str(a)
+unique(a$`Impact factor`)
+summary(a$`Impact factor`)
+
+
+```
+ Including the impact factor values after preparing and cleaning to the attention scores
+ 
+```{r}
+
+attention <- a %>% 
+  group_by(MAPPED_TRAIT_URI) %>% 
+  summarise(
+    n = n(), 
+    weighted_n = sum(1 / n_efo),
+    nhits = sum(`ASSOCIATION COUNT`),
+    weighted_nhits = sum(`ASSOCIATION COUNT` / n_efo),
+    weighted_attention_score_impact_factor = sum((1 / n_efo) * `Impact factor`, na.rm = TRUE)
+  )
+
+str(attention)
+str(a)
+
+```
+ 
+Step 2. Merging the GWAS attention scores with the GBD disease burden results
+
+```{r}
+
+gbd_data <- fread("/Users/rayanaloliet/Desktop/GWAS Catalog/GDB.csv")
+str(gbd_data)
+
+```
+
+Specify columns that may contain EFO terms
+
+```{r}
+
+efo_columns <- c("EFO 1", "EFO 2", "EFO 3", "EFO 4", "EFO 5", "EFO 6", 
+                 "EFO 7", "EFO 8", "EFO 9", "EFO 10", "EFO 11", "EFO 12",
+                 "EFO 13", "EFO 14", "EFO 15", "EFO 16", "EFO 17", "EFO 18",
+                 "EFO 19", "EFO 20", "EFO 21", "EFO 22", "EFO 23", "EFO 24",
+                 "EFO 25", "EFO 26", "EFO 27", "EFO 28", "EFO 29", "EFO 30")
+```
+
+
+Reshape the GBD data to gather all relevant columns into key-value pairs and drop rows with NA EFO terms
+
+```{r}
+gbd_long <- gbd_data %>%
+  pivot_longer(cols = all_of(efo_columns), names_to = "EFO_number", values_to = "MAPPED_TRAIT_URI") %>%
+  drop_na(MAPPED_TRAIT_URI) 
+
+gbd_long
+```
+
+Separate rows based on a separator (assuming comma-separated EFO terms) and Trim whitespace
+
+```{r}
+gbd_long <- gbd_long %>%
+  separate_rows(MAPPED_TRAIT_URI, sep = ",") %>%
+  mutate(MAPPED_TRAIT_URI = trimws(MAPPED_TRAIT_URI))  
+
+gbd_long
+```
+
+Ensure consistent formatting, cleaning and standardize MAPPED_TRAIT_URI in gbd_long (GBD file)
+
+*There are many functions because each time I attempted to find a matching, I was unable to do so due to the differences in the two datasets. For example, in GWAS, the identifiers have underscores, while in GBD they have colons, and so on... Therefore, the functions below are intended to unify these differences. 
+
+```{r}
+
+# Ensure consistent formatting
+gbd_long$MAPPED_TRAIT_URI <- tolower(trimws(gbd_long$MAPPED_TRAIT_URI))
+
+# Ensure lowercase
+gbd_long$MAPPED_TRAIT_URI <- tolower(gbd_long$MAPPED_TRAIT_URI) 
+
+# Trim leading/trailing whitespace
+gbd_long$MAPPED_TRAIT_URI <- trimws(gbd_long$MAPPED_TRAIT_URI) 
+
+# Remove all spaces
+gbd_long$MAPPED_TRAIT_URI <- gsub("\\s+", "", gbd_long$MAPPED_TRAIT_URI) 
+
+# Remove all internal spaces explicitly
+gbd_long$MAPPED_TRAIT_URI <- gsub(" ", "", gbd_long$MAPPED_TRAIT_URI) 
+
+# Convert to lowercase and remove spaces 
+gbd_long$MAPPED_TRAIT_URI <- tolower(gsub("\\s+", "", gbd_long$MAPPED_TRAIT_URI)) 
+
+# Remove colons and spaces
+gbd_long$MAPPED_TRAIT_URI <- gsub("[:\\s]", "", gbd_long$MAPPED_TRAIT_URI)  
+
+# Remove quotation marks
+gbd_long$MAPPED_TRAIT_URI <- gsub("\"", "", gbd_long$MAPPED_TRAIT_URI) 
+
+# Replace _ with : 
+gbd_long$MAPPED_TRAIT_URI <- gsub("_", ":", gbd_long$MAPPED_TRAIT_URI) 
+
+# Remove all extra spaces
+gbd_long$MAPPED_TRAIT_URI <- str_squish(gbd_long$MAPPED_TRAIT_URI) 
+
+print(head(gbd_long$MAPPED_TRAIT_URI, 20))
+
+```
+
+
+```{r}
+
+(head(attention))
+#rm(list = ls())
+
+```
+
+
+
+
+Ensure consistent formatting, cleaning and standardize MAPPED_TRAIT_URI in attention (GWAS file)
+
+```{r}
+
+# Function to clean and standardize MAPPED_TRAIT_URI
+clean_mapped_trait_uri <- function(uri) {
+  # Convert to lowercase
+  uri <- tolower(uri)
+  # Trim leading/trailing whitespace
+  uri <- trimws(uri)
+  # Remove all internal spaces explicitly
+  uri <- gsub("\\s+", "", uri)
+  # Remove quotation marks
+  uri <- gsub("\"", "", uri)
+  # Replace _ with :
+  uri <- gsub("_", ":", uri)
+  # Remove colons and spaces
+  uri <- gsub("[:\\s]", "", uri)
+  # Remove prefixes and ensure consistency
+  uri <- sub(".*[:/]", "", uri)
+  return(uri)
+}
+
+# Apply the function to MAPPED_TRAIT_URI column
+attention$MAPPED_TRAIT_URI <- clean_mapped_trait_uri(attention$MAPPED_TRAIT_URI)
+
+# Print the first 20 cleaned URIs
+print(head(attention$MAPPED_TRAIT_URI, 20))
+
+
+```
+
+
+Matching GWAS to GBD via MAPPED_TRAIT_URI after cleaning 
+
+```{r}
+# Merge the data frames
+merged_data <- merge(attention, gbd_long, by = "MAPPED_TRAIT_URI", all.x = TRUE)
+
+# Display the first few rows of the merged data frame
+head(merged_data)
+
+# Identify unmatched rows in attention
+unmatched_attention <- anti_join(attention, gbd_long, by = "MAPPED_TRAIT_URI")
+unmatched_attention
+(head(unmatched_attention, 20))
+
+
+# Identify unmatched rows in gbd_long
+unmatched_gbd <- anti_join(gbd_long, attention, by = "MAPPED_TRAIT_URI")
+unmatched_gbd
+(head(unmatched_gbd, 20))
+
+
+# Identify matched rows
+matched_rows <- inner_join(attention, gbd_long, by = "MAPPED_TRAIT_URI")
+matched_rows 
+(head(matched_rows, 20))
+write.csv(matched_rows, "matched_rows.csv", row.names = FALSE)
+
+
+```
+
+
+
