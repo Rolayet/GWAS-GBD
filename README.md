@@ -37,3 +37,8 @@ Next step:
 E. Assessing the Relationship Between GWAS Attention and Global Need
 For example, using an inequality measure such as Gini coefficients (example code below).
 
+library(DescTools)
+gwas_attention = score for each EFO term
+gbd_daly = impact of each EFO term on disease burden
+Gini(x = gwas_attention, weights = gbd_daly, conf.level = 0.95)
+
