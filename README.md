@@ -2,7 +2,7 @@ Project Title: The Gap Between the Research We Do and the Research the World Nee
 
 Project Plan:
 
-A. Mapping GBD Health Outcomes and Risk Factors to Ontologies in OLS
+A. Mapping GBD Health Outcomes and Risk Factors to Ontologies in OLS. 
 A copy of the file is attached here as well, named "GDB.csv".
 Update: For those entries with NA values, broader EFO terms have been used alternatively.
 
