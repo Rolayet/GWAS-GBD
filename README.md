@@ -43,7 +43,29 @@ If there are no matches for a GBD trait, the attention score = 0.
 Scripts and matched terms files are uploaded here as well.
 
 ## Note
-Hodgkin lymphoma is listed in the unmatch GBD terms, but in GWAS file, there is a study with more specific type of the disease "nodular sclerosis Hodgkin lymphoma"
+Hodgkin lymphoma is listed in the unmatch GBD terms, but in GWAS file, there is a study with more specific type of the disease "nodular sclerosis Hodgkin lymphoma". Similarly, for the traits that mapped with different identifiers that is not used when we mapped the GBD tools ontologies. 
+
+proposed sugesstion: 
+We employed a partial matching approach to handle unmatched GDB terms. This is achieved using the str_detect function, which checks if a pattern (in this case, the unmatched GDB term) is present within a string of traits in the GWAS file by identifying substrings. Utilizing this function, we mapped an additional 71 GDB terms that were not mapped when using the "mapping identifiers" method. Some examples of these mapped terms are listed below:
+
+due to General Vs specified disease/treats
+
+| No  | unmatched GBD       |             traits in GWAS                     |
+| --- | ------------------- | ---------------------------------------------- |
+| 1   | psoriasis           | generalized pustular psoriasi                  |
+| 2   | cataract            | agerelated cataracts                           |
+| 3   | male infertility    | male infertility sertoli cellonly              |
+
+
+or, due to the same disease but different identifiers were used (In GWAS vs GBD)
+
+| No  | unmatched GBD            |             traits in GWAS                     |
+| --- | ------------------------ | ---------------------------------------------- |
+| 1   | measles                  | measles                                        |
+| 2   | chronic myeloid leukemia | chronic myeloid leukemia                       |
+
+
+
 
 
 
