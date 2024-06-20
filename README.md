@@ -29,8 +29,16 @@ Aim to match as comprehensively as possible.
 If multiple EFO terms match one GBD trait, sum the attention score across those EFO terms (as long as they are from independent publications).
 If there are no matches for a GBD trait, the attention score = 0.
 
-Update: GBD terms are mapped with GWAS, resulting in a total of 183 matched EFOs (164 after removing the duplicates).
+Update: GBD terms are mapped with GWAS, the results are shown below .
 Scripts and matched terms files are uploaded here as well.
+
+the results of matching GWAS to GBD: 
+
+|            Matched EFOs           | unmatched GWAS      |             unmatched GBD                      |
+| --------------------------------- | ------------------- | ---------------------------------------------- |
+| 183 matched EFOs                  | 15074 unmatched EFO | 963 unmatched EFO                              |
+| 164 after removing the duplicates | no duplicates       | 884 after removing the duplicates              |
+|                                   |                     | 408 after removing the duplicates by "GBD term"|
 
 
 
