@@ -115,6 +115,20 @@ attention <- a %>%
     weighted_attention_score_impact_factor = sum((1 / n_efo) * `Impact factor`, na.rm = TRUE)
   )
 
+
+# For partial matching, `DISEASE/TRAIT is added (when the GDP terms' identifiers are not matched with GWAS's identifiers, we will use (`DISEASE/TRAIT`) column for partial matching )
+
+attention <- a %>% 
+  group_by(MAPPED_TRAIT_URI) %>% 
+  summarise(
+    n = n(), 
+    weighted_n = sum(1 / n_efo),
+    nhits = sum(`ASSOCIATION COUNT`),
+    weighted_nhits = sum(`ASSOCIATION COUNT` / n_efo),
+    weighted_attention_score_impact_factor = sum((1 / n_efo) * `Impact factor`, na.rm = TRUE),
+    DISEASE_TRAIT = first(`DISEASE/TRAIT`)
+  )
+
 str(attention)
 str(a)
 
@@ -129,7 +143,7 @@ str(gbd_data)
 
 ```
 
-Specify columns that may contain EFO terms
+Specify columns that contain EFO terms
 
 ```{r}
 
@@ -238,8 +252,7 @@ clean_mapped_trait_uri <- function(uri) {
 # Apply the function to MAPPED_TRAIT_URI column
 attention$MAPPED_TRAIT_URI <- clean_mapped_trait_uri(attention$MAPPED_TRAIT_URI)
 
-# Print the first 20 cleaned URIs
-print(head(attention$MAPPED_TRAIT_URI, 20))
+(head(attention$MAPPED_TRAIT_URI, 20))
 
 
 ```
@@ -319,9 +332,6 @@ unmatched_attention <- anti_join(attention, gbd_long, by = "MAPPED_TRAIT_URI") %
 unmatched_gbd <- anti_join(gbd_long, attention, by = "MAPPED_TRAIT_URI") %>%
   distinct(MAPPED_TRAIT_URI, .keep_all = TRUE)
 
-# removing duplicates in the gbd_long by "GDB term" not MAPPED_TRAIT_URI
-unmatched_gbd <- anti_join(gbd_long, attention, by = "MAPPED_TRAIT_URI") %>%
-  distinct(`GBD term`, .keep_all = TRUE)
  
 #check for any duplicates
 duplicates <- unmatched_gbd[duplicated(unmatched_gbd$MAPPED_TRAIT_URI), ]
@@ -349,6 +359,11 @@ if (nrow(duplicates) > 0) {
 }
 
 
+# removing duplicates in the gbd_long by "GDB term" not MAPPED_TRAIT_URI
+unmatched_gbd <- anti_join(gbd_long, attention, by = "MAPPED_TRAIT_URI") %>%
+  distinct(`GBD term`, .keep_all = TRUE)
+
+
 # save the files 
 
 #write.csv(matched_rows, "matched_rows.csv", row.names = FALSE)
@@ -356,5 +371,75 @@ if (nrow(duplicates) > 0) {
 #write.csv(unmatched_gbd, "unmatched_gbd.csv", row.names = FALSE)
 
 ```
+
+Ensure consistent formatting and standardize of DISEASE/TRAIT in unmatched GBD terms and unmatched attention ie., both lower case for comparison 
+
+```{r}
+
+
+# Create a new column for disease names to facilitate partial matching in unmatched_attention
+unmatched_attention <- unmatched_attention %>%
+  mutate(MAPPED_TRAIT_NAME = tolower(trimws(gsub("[^a-zA-Z0-9 ]", "", DISEASE_TRAIT))))
+
+# Create a new column for disease names to facilitate partial matching in gbd_long
+unmatched_gbd <- unmatched_gbd%>%
+  mutate(GBD_TERM_NAME = tolower(trimws(gsub("[^a-zA-Z0-9 ]", "", unmatched_gbd$`GBD term`))))
+
+# Perform partial matching between MAPPED_TRAIT_NAME in unmatched_attention and GBD_TERM_NAME in gbd_long without identifiers 
+
+#partial_matches <- unmatched_gbd %>%
+  cross_join(unmatched_attention) %>%
+  filter(str_detect(MAPPED_TRAIT_NAME, GBD_TERM_NAME)) %>%
+  select(GBD_TERM_NAME, MAPPED_TRAIT_NAME) %>%
+  distinct()
+
+
+# with identifiers in both GWAS and GDB 
+  
+partial_matches <- unmatched_gbd %>%
+  cross_join(unmatched_attention) %>%
+  filter(str_detect(MAPPED_TRAIT_NAME, GBD_TERM_NAME)) %>%
+  select(GBD_TERM_NAME, MAPPED_TRAIT_NAME, GBD_TRAIT_URI = MAPPED_TRAIT_URI.x, ATTENTION_TRAIT_URI = MAPPED_TRAIT_URI.y) %>%
+  distinct()
+
+
+partial_matches_unique <- partial_matches %>%
+  distinct(GBD_TERM_NAME, .keep_all = TRUE)
+print(head(partial_matches, 20))
+
+
+write.csv(partial_matches_unique, "partial_matches_unique.csv", row.names = FALSE)
+
+
+```
+
+Finally identify the GDB terms that are not mapped via identifiers or trait with GWAS
+
+```{r}
+
+# Identify the rows that were matched partially
+matched_partial_gbd <- partial_matches %>% 
+  select(GBD_TRAIT_URI) %>% 
+  distinct() %>% 
+  rename(MAPPED_TRAIT_URI = GBD_TRAIT_URI)
+
+matched_partial_attention <- partial_matches %>% 
+  select(ATTENTION_TRAIT_URI) %>% 
+  distinct() %>% 
+  rename(MAPPED_TRAIT_URI = ATTENTION_TRAIT_URI)
+
+# Get final unmatched rows
+final_unmatched_gbd <- anti_join(unmatched_gbd, matched_partial_gbd, by = "MAPPED_TRAIT_URI")
+final_unmatched_attention <- anti_join(unmatched_attention, matched_partial_attention, by = "MAPPED_TRAIT_URI")
+
+final_unmatched <- bind_rows(final_unmatched_gbd, final_unmatched_attention)
+(head(final_unmatched, 20))
+
+# Save the results to a CSV file
+#write.csv(final_unmatched, "final_unmatched.csv", row.names = FALSE)
+
+
+```
+
 
 
