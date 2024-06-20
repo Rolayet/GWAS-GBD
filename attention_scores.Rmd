@@ -319,8 +319,10 @@ unmatched_attention <- anti_join(attention, gbd_long, by = "MAPPED_TRAIT_URI") %
 unmatched_gbd <- anti_join(gbd_long, attention, by = "MAPPED_TRAIT_URI") %>%
   distinct(MAPPED_TRAIT_URI, .keep_all = TRUE)
 
-
-
+# removing duplicates in the gbd_long by "GDB term" not MAPPED_TRAIT_URI
+unmatched_gbd <- anti_join(gbd_long, attention, by = "MAPPED_TRAIT_URI") %>%
+  distinct(`GBD term`, .keep_all = TRUE)
+ 
 #check for any duplicates
 duplicates <- unmatched_gbd[duplicated(unmatched_gbd$MAPPED_TRAIT_URI), ]
 if (nrow(duplicates) > 0) {
