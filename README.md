@@ -59,10 +59,11 @@ due to General Vs specified disease/treats
 
 or, due to the same disease but different identifiers were used (In GWAS vs GBD)
 
-| No  | unmatched GBD            |             traits in GWAS                     |
-| --- | ------------------------ | ---------------------------------------------- |
-| 1   | measles                  | measles                                        |
-| 2   | chronic myeloid leukemia | chronic myeloid leukemia                       |
+| No  | unmatched GBD            |             traits in GWAS                     | GBD identifiers    | GWAS identifiers |
+| --- | ------------------------ | ---------------------------------------------- | -------------------| ---------------- |
+| 1   | measles                  | measles                                        | mondo0004619       | efo0008414       |
+| 2   | chronic myeloid leukemia | chronic myeloid leukemia                       | doid8552           | efo0000339       |
+
 
 
 
