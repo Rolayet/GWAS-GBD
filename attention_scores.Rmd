@@ -270,10 +270,89 @@ unmatched_gbd
 matched_rows <- inner_join(attention, gbd_long, by = "MAPPED_TRAIT_URI")
 matched_rows 
 (head(matched_rows, 20))
-write.csv(matched_rows, "matched_rows.csv", row.names = FALSE)
+
 
 
 ```
 
+
+Verification and Checking for unique identifiers
+
+```{r}
+# Check the number of matched rows
+num_matched_rows <- nrow(matched_rows)
+(paste("Number of matched rows:", num_matched_rows))
+
+
+# Check the number of unmatched rows in attention
+num_unmatched_attention <- nrow(unmatched_attention)
+(paste("Number of unmatched rows in attention:", num_unmatched_attention))
+
+# Check the number of unmatched rows in gbd_long
+num_unmatched_gbd <- nrow(unmatched_gbd)
+(paste("Number of unmatched rows in gbd_long:", num_unmatched_gbd))
+
+
+# Check for unique identifiers in the matched rows
+unique_identifiers <- n_distinct(matched_rows$MAPPED_TRAIT_URI)
+(paste("Number of unique identifiers in matched rows:", unique_identifiers))
+
+# Check for unique identifiers in unmatched rows in gbd_long
+gbd_long_unique_identifiers <- n_distinct(unmatched_gbd$MAPPED_TRAIT_URI)
+(paste("Number of unique identifiers in unmatched rows in gbd_long:", gbd_long_unique_identifiers))
+
+# Check for unique identifiers in the matched rows in attention
+attention_unique_identifiers <- n_distinct(unmatched_attention$MAPPED_TRAIT_URI)
+(paste("Number of unique identifiers in unmatched rows in attention:", attention_unique_identifiers))
+
+
+```
+
+save the files after removing the duplicates
+
+```{r}
+#  Removing the duplicates 
+matched_rows <- inner_join(attention, gbd_long, by = "MAPPED_TRAIT_URI") %>%
+  distinct(MAPPED_TRAIT_URI, .keep_all = TRUE)
+unmatched_attention <- anti_join(attention, gbd_long, by = "MAPPED_TRAIT_URI") %>%
+  distinct(MAPPED_TRAIT_URI, .keep_all = TRUE)
+unmatched_gbd <- anti_join(gbd_long, attention, by = "MAPPED_TRAIT_URI") %>%
+  distinct(MAPPED_TRAIT_URI, .keep_all = TRUE)
+
+
+
+#check for any duplicates
+duplicates <- unmatched_gbd[duplicated(unmatched_gbd$MAPPED_TRAIT_URI), ]
+if (nrow(duplicates) > 0) {
+  print("Duplicates found in unmatched_gbd:")
+  print(duplicates)
+} else {
+  print("No duplicates found in unmatched_gbd.")
+}
+
+duplicates <- unmatched_attention[duplicated(unmatched_attention$MAPPED_TRAIT_URI), ]
+if (nrow(duplicates) > 0) {
+  print("Duplicates found in unmatched_attention:")
+  print(duplicates)
+} else {
+  print("No duplicates found in unmatched_attention.")
+}
+
+duplicates <- matched_rows[duplicated(matched_rows$MAPPED_TRAIT_URI), ]
+if (nrow(duplicates) > 0) {
+  print("Duplicates found in matched rows:")
+  print(duplicates)
+} else {
+  print("No duplicates found in matched rows.")
+}
+
+
+# save the files 
+
+#write.csv(matched_rows, "matched_rows.csv", row.names = FALSE)
+#write.csv(unmatched_attention, "unmatched_attention.csv", row.names = FALSE)
+#write.csv(unmatched_gbd, "unmatched_gbd.csv", row.names = FALSE)
+
+```
 
 
