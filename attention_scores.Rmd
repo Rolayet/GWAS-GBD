@@ -497,9 +497,11 @@ if (nrow(duplicates_combined_matches) > 0) {
 #write.csv(final_unmatched, "final_unmatched.csv", row.names = FALSE)
 
 
+# unique combine matches for all matched terms either by identifiers or by partial matching
+#write.csv(unique_combined_matches, "unique combined_matches.csv", row.names = FALSE)
 
-
-
+# final unmatched GBD for those unmatched neither by identifiers nor by partial matching
+#write.csv(final_unmatched_gbd, "final unmatched_gbd.csv", row.names = FALSE)
 
 
 ```
