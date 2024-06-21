@@ -1,0 +1,174 @@
+"MAPPED_TRAIT_URI","n","weighted_n","nhits","weighted_nhits","weighted_attention_score_impact_factor","DISEASE_TRAIT","GBD term","EFO_number","Match_Type","GBD_TERM_NAME","MAPPED_TRAIT_NAME","GBD_TRAIT_URI","ATTENTION_TRAIT_URI"
+"hp0000023",31,10.7026177017978,2295,660.143446088795,77.9359365362102,"ICD10 K40: Inguinal hernia","Inguinal, femoral, and abdominal hernia","EFO 1","Identifier",NA,NA,NA,NA
+"hp0000202",9,3.83333333333333,62,38.5,17.25,"Orofacial cleft x maternal periconceptional smoking interaction (1df)","Orofacial clefts","EFO 1","Identifier",NA,NA,NA,NA
+"hp0000572",1,0.00127877237851662,0,0,0.039386189258312,"Eye problems/disorders: Injury or trauma resulting in loss of vision (UKB data field 6148_3)","Blindness and vision loss","EFO 5","Identifier",NA,NA,NA,NA
+"hp0000989",8,0.340409207161125,1,0.333333333333333,2.11503836317136,"Pruritus in nonalcoholic steatohepatitis","Pruritus","EFO 1","Identifier",NA,NA,NA,NA
+"hp0002140",62,17.8941712006677,488,186.405721668512,315.614744892227,"Ischemic stroke","Ischemic stroke","EFO 1","Identifier",NA,NA,NA,NA
+"hp0003419",8,0.00772946859903382,0,0,0.500869565217391,"ICD10 M54.5: Low back pain","Low back pain","EFO 2","Identifier",NA,NA,NA,NA
+"hp0012228",1,0.00127877237851662,0,0,0.039386189258312,"Tension headache (PheCode 306.9)","Tension-type headache","EFO 1","Identifier",NA,NA,NA,NA
+"hp0030833",9,0.870058642692914,5,2.33333333333333,4.04587382779199,"Neck pain or shoulder pain","Neck pain","EFO 1","Identifier",NA,NA,NA,NA
+"hp0031456",5,1.06058109795991,2,2,6.60089781716529,"Ectopic pregnancy","Ectopic pregnancy","EFO 1","Identifier",NA,NA,NA,NA
+"hp0040187",1,1,6,6,4.4,"Sepsis in extremely premature infants","Neonatal sepsis and other neonatal infections","EFO 1","Identifier",NA,NA,NA,NA
+"hp0100716",27,1.59167377095766,213,71.1666666666667,11.8187212276215,"Self-harm x Caesarean-section interaction","Self-harm by other specified means","EFO 1","Identifier",NA,NA,NA,NA
+"mondo0000916",3,0.00321113952827508,0,0,0.16460358056266,"Intestinal infection (PheCode 8)","Other intestinal infectious diseases","EFO 1","Identifier",NA,NA,NA,NA
+"mondo0001187",16,6.6692242114237,26,9.5,26.5454390451833,"Recurrence-free survival in non-muscle-invasive bladder cancer","Bladder cancer","EFO 1","Identifier",NA,NA,NA,NA
+"mondo0001302",1,0.00510204081632653,0,0,0.0362244897959184,"Hypertensive heart disease (Union I11)","Hypertensive heart disease","EFO 1","Identifier",NA,NA,NA,NA
+"mondo0001627",14,3.10386473429952,146,36.7666666666667,23.2004347826087,"Parkinsonâ€™s disease progression to dementia","Alzheimer's disease and other dementias","EFO 3","Identifier",NA,NA,NA,NA
+"mondo0001672",1,0.00127877237851662,0,0,0.039386189258312,"Cancer of bronchus; lung (PheCode 165.1)","Tracheal, bronchus, and lung cancer","EFO 2","Identifier",NA,NA,NA,NA
+"mondo0002009",31,7.14497459062676,731,387.199242424242,72.7981413514022,"Major depressive disorder","Major depressive disorder","EFO 2","Identifier",NA,NA,NA,NA
+"mondo0002108",6,0.29456881566856,16,0.887445887445887,2.10280610267823,"Thyroid cancer","Thyroid cancer","EFO 1","Identifier",NA,NA,NA,NA
+"mondo0002367",1,0.05,10,0.5,0.83,"Kidney cancer","Kidney cancer","EFO 1","Identifier",NA,NA,NA,NA
+"mondo0002406",7,0.0146466589713993,0,0,0.5225548287803,"Eczema or dermatitis","Dermatitis","EFO 4","Identifier",NA,NA,NA,NA
+"mondo0002462",4,0.0186046511627907,3,0.013953488372093,0.573023255813954,"Chronic glomerulonephritis","Chronic kidney disease due to glomerulonephritis","EFO 1","Identifier",NA,NA,NA,NA
+"mondo0002691",1,0.00127877237851662,0,0,0.039386189258312,"Malignant neoplasm of liver, primary (PheCode 155.1)","Liver cancer","EFO 1","Identifier",NA,NA,NA,NA
+"mondo0002715",1,0.0714285714285714,3,0.214285714285714,0.507142857142857,"Uterine cancer","Uterine cancer","EFO 1","Identifier",NA,NA,NA,NA
+"mondo0002974",4,1.75,34,25,6.125,"Cervical cancer","Cervical cancer","EFO 1","Identifier",NA,NA,NA,NA
+"mondo0004247",13,2.66666666666667,126,31.7833333333333,51.1933333333333,"Alzheimer's disease or peptic ulcer disease","Peptic ulcer disease","EFO 1","Identifier",NA,NA,NA,NA
+"mondo0004627",2,0.00193236714975845,0,0,0.125217391304348,"ICD10 K29.8: Duodenitis (Gene-based burden)","Gastritis and duodenitis","EFO 4","Identifier",NA,NA,NA,NA
+"mondo0004647",3,0.00321113952827508,0,0,0.16460358056266,"Behaviour of cancer tumour: carcinoma in situ, PHESANT recoding (UKB data field 40012_2)","Other benign and in situ neoplasms","EFO 2","Identifier",NA,NA,NA,NA
+"mondo0004678",7,0.229205094422486,0,0,3.89794466403162,"Dermatophytosis","Fungal skin diseases","EFO 1","Identifier",NA,NA,NA,NA
+"mondo0004979",163,70.07930326325,2530,1367.44863157686,1503.40614061477,"Bronchial hyperresponsiveness in asthma","Asthma","EFO 2","Identifier",NA,NA,NA,NA
+"mondo0004985",122,51.5709584887974,1483,565.166666666667,587.26529198636,"Bipolar disorder","Bipolar disorder","EFO 1","Identifier",NA,NA,NA,NA
+"mondo0005041",47,11.3401316895188,356,209.110472648783,152.466837652122,"ICD10 H40: Glaucoma","Glaucoma","EFO 1","Identifier",NA,NA,NA,NA
+"mondo0005090",168,82.7729139514418,5079,3741.17434813249,1308.24152229104,"Cognitive ability, years of educational attainment or schizophrenia (pleiotropy)","Schizophrenia","EFO 4","Identifier",NA,NA,NA,NA
+"mondo0005129",49,6.16204172038028,201,132.883610781455,62.7726763658379,"Cataract (time to event)","Cataract","EFO 4","Identifier",NA,NA,NA,NA
+"mondo0005148",238,135.295524525948,5501,3478.65328770357,2269.50660605095,"Alzheimer's disease or cardiovascular risk factors (pleiotropy)","Diabetes mellitus type 2","EFO 1","Identifier",NA,NA,NA,NA
+"mondo0005178",90,32.6181259446757,527,389.642948717949,992.99616576601,"Osteoarthritis","Osteoarthritis","EFO 1","Identifier",NA,NA,NA,NA
+"mondo0005180",83,52.4368568144896,698,605.813223894209,855.930472479806,"Parkinson's disease","Parkinson's disease","EFO 1","Identifier",NA,NA,NA,NA
+"mondo0005277",48,20.8180954693256,732,413.477124183007,233.975589781892,"Migraine","Migraine","EFO 3","Identifier",NA,NA,NA,NA
+"mondo0005301",62,30.7821906945308,774,697.911764705882,738.239193926298,"Multiple sclerosis","Multiple sclerosis","EFO 1","Identifier",NA,NA,NA,NA
+"mondo0005351",25,8.37475218018696,253,59.9136363636364,131.974363354037,"Anorexia nervosa","Anorexia nervosa","EFO 1","Identifier",NA,NA,NA,NA
+"mondo0007254",27,7.13900630080754,266,51.6712121212121,45.5138265978328,"Breast cancer","Breast cancer","EFO 1","Identifier",NA,NA,NA,NA
+"mondo0008315",9,3.92050298380222,252,62.0884484228474,41.4848252344416,"Conversion from active surveillance to active treatment in prostate cancer","Prostate cancer","EFO 1","Identifier",NA,NA,NA,NA
+"mondo0015926",3,0.509302325581395,3,1.5,2.03651162790698,"Pneumoconiosis in silica exposure","Pneumoconiosis","EFO 1","Identifier",NA,NA,NA,NA
+"mondo0018076",36,19.4138846150234,160,116.166666666667,188.931498841168,"Tuberculosis susceptibility in HIV infection","Tuberculosis","EFO 1","Identifier",NA,NA,NA,NA
+"mondo0021108",1,0.142857142857143,8,1.14285714285714,0.8,"Meningitis","Meningitis","EFO 1","Identifier",NA,NA,NA,NA
+"mondo0021205",1,0.00884955752212389,0,0,0.146902654867257,"Ear disorder","Other disorders of ear","EFO 1","Identifier",NA,NA,NA,NA
+"mondo0024647",15,1.16487376026018,82,17.5130675526024,17.3624204939544,"ICD10 N20, N21: kidney stones (CNV duplication-only model)","Urolithiasis","EFO 4","Identifier",NA,NA,NA,NA
+"mondo0041086",3,0.11304347826087,0,0,0.402995169082126,"ICD10 F41.2: Mixed anxiety and depressive disorder","Depressive disorders","EFO 5","Identifier",NA,NA,NA,NA
+"mondo0042487",5,0.00576868428530833,0,0,0.243375959079284,"Cervical intraepithelial neoplasia [CIN] [Cervical dysplasia] (PheCode 180.3)","Benign and in situ cervical and uterine neoplasms","EFO 5","Identifier",NA,NA,NA,NA
+"efo0000095",21,8.51246295619697,198,139.068599033816,179.390498112288,"Chronic lymphocytic leukemia","Chronic lymphoid leukemia","EFO 1","Identifier",NA,NA,NA,NA
+"efo0000183",12,7.81208135428084,112,81.8095238095238,123.631010473755,"Hodgkin's lymphoma","Hodgkin lymphoma","EFO 1","Identifier",NA,NA,NA,NA
+"efo0000220",18,15.1,90,82.5,276.1055,"Acute lymphoblastic leukemia","Acute lymphoid leukemia","EFO 1","Identifier",NA,NA,NA,NA
+"efo0000222",10,6.00255754475703,1749,1748.5,52.3467723785166,"Acute myeloid leukemia","Acute myeloid leukemia","EFO 1","Identifier",NA,NA,NA,NA
+"efo0000274",30,16.5865279984592,424,366.349028199079,318.645497135153,"Atopic dermatitis","Contact dermatitis","EFO 2","Identifier",NA,NA,NA,NA
+"efo0000275",48,28.3688218612397,971,770.728008422783,822.808904913519,"Atrial fibrillation","Atrial fibrillation and flutter","EFO 2","Identifier",NA,NA,NA,NA
+"efo0000278",11,1.13868253738975,16,5.2640826873385,32.3596825282186,"ICD10 K85: Acute pancreatitis","Pancreatitis","EFO 1","Identifier",NA,NA,NA,NA
+"efo0000284",17,3.01604264894364,60,24.7551020408163,19.801697635576,"Hyperplasia of prostate (Union N40)","Benign prostatic hyperplasia","EFO 1","Identifier",NA,NA,NA,NA
+"efo0000318",20,2.49437253162134,2,0.571428571428571,94.7458867315042,"ICD10 I42: Cardiomyopathy","Cardiomyopathy and myocarditis","EFO 1","Identifier",NA,NA,NA,NA
+"efo0000319",41,8.65093462474038,484,95.4234006734007,178.032057234435,"Cardiovascular disease","Cardiovascular diseases","EFO 1","Identifier",NA,NA,NA,NA
+"efo0000326",13,10,104,59.6666666666667,146,"Glioma","Brain and central nervous system cancer","EFO 3","Identifier",NA,NA,NA,NA
+"efo0000341",86,29.5349765004609,1140,835.759911406423,417.333197652493,"Chronic obstructive pulmonary disease in never smokers","Chronic obstructive pulmonary disease","EFO 1","Identifier",NA,NA,NA,NA
+"efo0000389",10,3.50321113952828,300,125.834612105712,75.6646035805627,"Neuroblastoma or malignant cutaneous melanoma","Malignant skin melanoma","EFO 1","Identifier",NA,NA,NA,NA
+"efo0000400",43,3.3764391367465,344,10.3178011784424,27.7884665119667,"Diabetes mellitus","Diabetes mellitus","EFO 1","Identifier",NA,NA,NA,NA
+"efo0000405",27,0.486004477461114,11,3.44444444444444,12.4705195798981,"ICD10 K31: Other diseases of stomach and duodenum","Other digestive diseases","EFO 1","Identifier",NA,NA,NA,NA
+"efo0000465",5,0.0992222712536925,0,0,1.63719170672221,"ICD10 I38: Endocarditis, valve unspecified","Endocarditis","EFO 1","Identifier",NA,NA,NA,NA
+"efo0000540",3,2.00884955752212,21,21,15.8469026548673,"Myasthenia gravis","Endocrine, metabolic, blood, and immune disorders","EFO 10","Identifier",NA,NA,NA,NA
+"efo0000565",3,0.00765958557335978,0,0,0.114996868312542,"Leukaemia of unspecified cell type (Union C95)","Leukemia","EFO 1","Identifier",NA,NA,NA,NA
+"efo0000588",1,1,0,0,5.3,"Malignant mesothelioma","Mesothelioma","EFO 1","Identifier",NA,NA,NA,NA
+"efo0000618",14,0.0456852434445626,0,0,1.16725256320304,"Neurological disease","Neurological disorders","EFO 2","Identifier",NA,NA,NA,NA
+"efo0000660",22,15.1685990338164,95,73.9666666666667,187.691884057971,"Polycystic ovary syndrome","Polycystic ovarian syndrome","EFO 1","Identifier",NA,NA,NA,NA
+"efo0000668",39,11.4920317941804,97,61.25,368.529047859791,"Preeclampsia","Maternal hypertensive disorders","EFO 2","Identifier",NA,NA,NA,NA
+"efo0000676",55,22.7773873732466,817,511.984716732543,352.486947287719,"Cutaneous psoriasis","Psoriasis","EFO 1","Identifier",NA,NA,NA,NA
+"efo0000685",111,46.9425405357997,2787,1632.79336347647,985.835118655661,"Rheumatoid arthritis (ACPA-positive)","Rheumatoid arthritis","EFO 1","Identifier",NA,NA,NA,NA
+"efo0000701",59,4.04844400375024,12,6.66666666666667,27.3279655343141,"Severe skin toxicity response to cetuximab in stage 3 colon cancer","Skin and subcutaneous diseases","EFO 1","Identifier",NA,NA,NA,NA
+"efo0000707",12,4.66987780619494,103,51.5,60.3646035805627,"Multiple cancers (lung cancer, gastric cancer, and squamous cell carcinoma)","Non-melanoma skin cancer (squamous-cell carcinoma)","EFO 1","Identifier",NA,NA,NA,NA
+"efo0000712",72,23.422107324397,297,117.204761904762,623.457754183595,"Stroke","Stroke","EFO 1","Identifier",NA,NA,NA,NA
+"efo0000713",11,0.394547873075755,2,0.00930232558139535,3.7625570895699,"ICD10 I60: Nontraumatic subarachnoid hemorrhage","Subarachnoid hemorrhage","EFO 1","Identifier",NA,NA,NA,NA
+"efo0000731",22,7.29335739688528,308,122.518106312292,86.7792237562366,"Age at menarche or uterine leiomyomata (pleiotropy)","Uterine fibroids","EFO 1","Identifier",NA,NA,NA,NA
+"efo0000764",3,2.25,9,3.75,22.575,"HIV progression (CD4 and viral load)","HIV/AIDS","EFO 2","Identifier",NA,NA,NA,NA
+"efo0001054",11,9.5,111,101.5,268.75,"Crohn's disease or Leprosy","Leprosy","EFO 1","Identifier",NA,NA,NA,NA
+"efo0001065",46,20.6186507026134,655,379.208527131783,270.654229967417,"Endometriosis","Endometriosis","EFO 1","Identifier",NA,NA,NA,NA
+"efo0001068",12,9.00193236714976,158,154,194.125217391304,"Recurrence of malaria infection (mild or asymptomatic)","Malaria","EFO 1","Identifier",NA,NA,NA,NA
+"efo0001365",46,28.3270363481361,420,252.727272727273,294.877113461986,"Age-related macular degeneration","Age-related macular degeneration","EFO 1","Identifier",NA,NA,NA,NA
+"efo0001378",29,11.5930194198198,158,115.309523809524,231.149353947529,"Multiple myeloma","Multiple myeloma","EFO 1","Identifier",NA,NA,NA,NA
+"efo0001422",23,6.27115662468451,89,33.2622144037932,107.741836368849,"ICD10 K74: Fibrosis and cirrhosis of liver","Cirrhosis and other chronic liver diseases","EFO 1","Identifier",NA,NA,NA,NA
+"efo0001666",7,0.0150710098667037,7,0.0325581395348837,0.529887586986261,"Aortic aneurysm (PheCode 442.1)","Aortic aneurysm","EFO 1","Identifier",NA,NA,NA,NA
+"efo0003035",20,0.128569952355119,0,0,2.92482058436023,"Cellulitis and abscess of fingers/toes (PheCode 681.1)","Cellulitis","EFO 1","Identifier",NA,NA,NA,NA
+"efo0003103",16,0.627160913685142,0,0,6.92269084366056,"Urinary tract infection","Urinary tract infections and interstitial nephritis","EFO 1","Identifier",NA,NA,NA,NA
+"efo0003756",36,14.4399350649351,1275,455.178787878788,169.971785714286,"Autism spectrum disorder","Autism spectrum disorders","EFO 2","Identifier",NA,NA,NA,NA
+"efo0003767",47,13.0658787460091,700,227.141176470588,477.316735805519,"Inflammatory bowel disease","Inflammatory bowel disease","EFO 1","Identifier",NA,NA,NA,NA
+"efo0003832",9,0.0210274721662424,0,0,0.59816550783453,"ICD10 K82: Other diseases of gallbladder","Gallbladder and biliary diseases","EFO 1","Identifier",NA,NA,NA,NA
+"efo0003884",75,26.6366565916279,260,127.078349944629,268.395965084189,"Chronic kidney disease","Chronic kidney disease","EFO 1","Identifier",NA,NA,NA,NA
+"efo0003888",87,45.128823953824,1916,754.733838383838,496.728452380952,"Attention deficit hyperactivity disorder symptoms (maternal expressed emotions interaction)","Attention-deficit/hyperactivity disorder","EFO 1","Identifier",NA,NA,NA,NA
+"efo0003890",16,11.0131386427169,34,32.0093023255814,44.0236701956819,"Drug abuse","Drug use disorders","EFO 1","Identifier",NA,NA,NA,NA
+"efo0003894",9,6.0473869126043,137,129.363636363636,71.9343083003953,"acne vulgaris","Acne vulgaris","EFO 1","Identifier",NA,NA,NA,NA
+"efo0003948",33,3.73244300139537,321,91.3577871740662,51.8967708348812,"ICD10 K21: Gastro-esophageal reflux disease","Gastroesophageal reflux disease","EFO 1","Identifier",NA,NA,NA,NA
+"efo0003966",37,0.220341911293182,37,6.16666666666667,4.07194256463647,"Ocular disease","Disorders of the globe","EFO 2","Identifier",NA,NA,NA,NA
+"efo0004192",4,4,43,43,93.1,"Alopecia areata","Alopecia areata","EFO 1","Identifier",NA,NA,NA,NA
+"efo0004193",21,11.6730889457232,600,353,171.179207161125,"Basal cell carcinoma","Non-melanoma skin cancer (basal-cell carcinoma)","EFO 1","Identifier",NA,NA,NA,NA
+"efo0004216",6,3.5,73,48,35.4,"Conduct disorder (maternal expressed emotions interaction)","Conduct disorder","EFO 1","Identifier",NA,NA,NA,NA
+"efo0004238",42,15.2015197659172,237,118.197962164919,112.405093321454,"Hearing impairment","Age-related and other hearing loss","EFO 2","Identifier",NA,NA,NA,NA
+"efo0004239",11,4.58073089700997,29,25.5093023255814,44.336511627907,"Chronic hepatitis B infection","Chronic hepatitis B including cirrhosis","EFO 2","Identifier",NA,NA,NA,NA
+"efo0004244",18,6.75636433879248,65,49.9083056478405,132.039837566978,"Subpleural-predominant interstitial lung abnormalities","Interstitial lung disease and pulmonary sarcoidosis","EFO 1","Identifier",NA,NA,NA,NA
+"efo0004265",21,8.05692137320044,240,111.617940199336,88.5031782945736,"Type 2 diabetes or peripheral artery disease (MTAG)","Lower extremity peripheral arterial disease","EFO 3","Identifier",NA,NA,NA,NA
+"efo0004274",54,21.2681277523329,264,216.334302891117,429.52826120563,"Gout vs. Hyperuricemia","Gout","EFO 1","Identifier",NA,NA,NA,NA
+"efo0004352",47,18.5210111317254,416,242.291666666667,176.44508812616,"Breast cancer specific mortality in breast cancer","All causes","EFO 1","Identifier",NA,NA,NA,NA
+"efo0004616",43,12.1444133120969,252,92.35,265.759813577605,"Knee osteoarthritis","Osteoarthritis knee","EFO 1","Identifier",NA,NA,NA,NA
+"efo0004992",11,6.08719806763285,33,32.0833333333333,31.9504347826087,"Otitis media","Otitis media","EFO 1","Identifier",NA,NA,NA,NA
+"efo0005045",2,1.05555555555556,1,1,30.9166666666667,"Multiple traits (pleiotropy)","Visceral leishmaniasis","EFO 1","Identifier",NA,NA,NA,NA
+"efo0005046",1,1,14,14,11.8,"Cutaneous leishmaniasis","Cutaneous and mucocutaneous leishmaniasis","EFO 6","Identifier",NA,NA,NA,NA
+"efo0005203",5,2.5,49,24.5,14.85,"Anorexia nervosa","Eating disorders","EFO 1","Identifier",NA,NA,NA,NA
+"efo0005204",1,0.5,23,11.5,2.75,"Bulimia nervosa","Bulimia nervosa","EFO 1","Identifier",NA,NA,NA,NA
+"efo0005207",7,3.33333333333333,39,15.1666666666667,41.3833333333333,"Obstructive heart defect","Congenital heart anomalies","EFO 1","Identifier",NA,NA,NA,NA
+"efo0005531",9,3.345846798443,33,22.0232558139535,27.7511152084696,"ICD10 L50: Urticaria","Urticaria","EFO 1","Identifier",NA,NA,NA,NA
+"efo0005549",2,0.00930232558139535,0,0,0.286511627906977,"Diphtheria","Diphtheria","EFO 1","Identifier",NA,NA,NA,NA
+"efo0005570",8,1.8692242114237,39,12.7333333333333,48.9187723785166,"Oral cavity cancer","Lip and oral cavity cancer","EFO 1","Identifier",NA,NA,NA,NA
+"efo0005577",3,0.509302325581395,4,2,2.28651162790698,"Oropharyngeal or hypopharyngeal squamous cell carcinoma","Other pharynx cancer","EFO 1","Identifier",NA,NA,NA,NA
+"efo0005669",18,4.81121453974242,10,4.51860465116279,43.5214737562366,"Intracerebral hemorrhage","Intracerebral hemorrhage","EFO 1","Identifier",NA,NA,NA,NA
+"efo0005741",12,0.753707210728334,0,0,8.75900097245516,"Other and unspecified infectious diseases (Union B99)","Other unspecified infectious diseases","EFO 2","Identifier",NA,NA,NA,NA
+"efo0005952",16,1.21080374178657,31,3.89285714285714,13.253210240618,"ICD10 C85.7: Other specified types of non-Hodgkin lymphoma","Non-Hodgkin lymphoma","EFO 1","Identifier",NA,NA,NA,NA
+"efo0006510",15,5.11318358039433,40,25.5093023255814,47.5438994549532,"Response to tofacitinib treatment in rheumatoid arthritis (herpes zoster)(time to event)","Varicella and herpes zoster","EFO 1","Identifier",NA,NA,NA,NA
+"efo0006788",25,7.7718101733447,45,27.8333333333333,133.7531543052,"Anxiety disorders","Anxiety disorders","EFO 2","Identifier",NA,NA,NA,NA
+"efo0006789",3,1.0093023255814,2,1.0046511627907,31.086511627907,"Enteric fever","Typhoid fever","EFO 1","Identifier",NA,NA,NA,NA
+"efo0007067",3,0.00703440796608498,0,0,0.161441881100266,"Decubitus ulcer (Union L89)","Decubitus ulcer","EFO 1","Identifier",NA,NA,NA,NA
+"efo0007149",27,5.40982876343374,26,24.1428571428571,40.6143634257369,"ICD10 K35: Acute appendicitis","Appendicitis","EFO 1","Identifier",NA,NA,NA,NA
+"efo0007338",6,6,8,8,169.8,"Lassa fever susceptibility","Lassa fever","EFO 1","Identifier",NA,NA,NA,NA
+"efo0008546",32,0.0327934072179596,0,0,1.86414322250639,"Toxic effect of venom (PheCode 913)","Poisonings","EFO 1","Identifier",NA,NA,NA,NA
+"efo0008560",8,0.507075873827792,2,1,15.8150383631714,"Endometriosis-associated infertility","Female infertility","EFO 1","Identifier",NA,NA,NA,NA
+"efo0009117",1,0.00127877237851662,0,0,0.039386189258312,"Bacterial pneumonia (PheCode 480.1)","Typhus fever","EFO 1","Identifier",NA,NA,NA,NA
+"efo0009259",1,0.00127877237851662,0,0,0.039386189258312,"Cancer code, self-reported: skin cancer (UKB data field 20001_1003)","Non-melanoma skin cancer","EFO 1","Identifier",NA,NA,NA,NA
+"efo0009449",3,0.00703440796608498,0,0,0.161441881100266,"ICD10 H16: Keratitis","Keratitis, corneal opacity and other disorders of cornea, disorders of conjunctiva, inflammation of eyelids, other disorders of eyelids, disorders of the lacrimal system, disorders of the orbit, disorders of optic nerve and visual pathways","EFO 1","Identifier",NA,NA,NA,NA
+"efo0009550",5,0.0386162106476319,0,0,0.200828070358578,"ICD10 G44: Other headache syndromes","Headache disorders","EFO 2","Identifier",NA,NA,NA,NA
+"efo0009609",3,0.509302325581395,4,2,3.68651162790698,"Myocarditis","Myocarditis","EFO 1","Identifier",NA,NA,NA,NA
+"efo0009690",24,0.0499430885498895,0,0,1.43129815454774,"ICD10 N39: Other disorders of urinary system","Urinary diseases and male infertility","EFO 6","Identifier",NA,NA,NA,NA
+"efo0009691",8,0.0121779146441185,0,0,0.451262852967274,"ICD10 H81: Disorders of vestibular function","Vertiginous syndromes and other disorders of vestibular system","EFO 2","Identifier",NA,NA,NA,NA
+"efo0010445",6,2,10,3.33333333333333,5,"Cocaine use disorder","Cocaine use disorders","EFO 1","Identifier",NA,NA,NA,NA
+"efo0010702",19,16.6,108,72.8,271.04,"Opioid use disorder (MTAG)","Opioid use disorders","EFO 1","Identifier",NA,NA,NA,NA
+"efo0600095",4,3.5,25,22,14.7,"Primary dental caries (decayed and filled teeth)","Caries of deciduous teeth","EFO 1","Identifier",NA,NA,NA,NA
+"efo0600096",1,0.5,6,3,0,"Permanent dental caries (decayed and filled teeth)","Caries of permanent teeth","EFO 1","Identifier",NA,NA,NA,NA
+"efo1000657",13,1.39485765320621,46,7.85,14.0954316509212,"Survival in rectal cancer","Colon and rectum cancer","EFO 1","Identifier",NA,NA,NA,NA
+"efo1000764",3,1.00193236714976,12,12,6.62521739130435,"Seborrheic dermatitis","Seborrhoeic dermatitis","EFO 1","Identifier",NA,NA,NA,NA
+"efo1000786",31,6.0963658322354,216,74.4,200.830036231884,"Osteoarthritis of the hip or knee (with total joint replacement)","Osteoarthritis hip","EFO 1","Identifier",NA,NA,NA,NA
+"efo1000787",4,0.575,5,1,25.5875,"Spine osteoarthritis","Osteoarthritis other (toe & spine osteoarthritiswere included)","EFO 3","Identifier",NA,NA,NA,NA
+"efo1000789",15,7.125,51,43.125,215.1625,"Osteoarthritis of the hand","Osteoarthritis hand","EFO 1","Identifier",NA,NA,NA,NA
+"efo1000802",5,3.66666666666667,20,18,63.9333333333333,"Alcohol dependence or chronic alcoholic pancreatitis or alcohol-related liver cirrhosis","Cirrhosis due to alcohol","EFO 1","Identifier",NA,NA,NA,NA
+"efo1001161",5,5,23,23,93.2,"Rheumatic heart disease","Rheumatic heart disease","EFO 1","Identifier",NA,NA,NA,NA
+"efo1001322",4,0.00386473429951691,0,0,0.250434782608696,"ICD10 W44: Foreign body entering into or through eye or natural orifice causing accidental injury","Foreign body in eyes","EFO 1","Identifier",NA,NA,NA,NA
+"efo1001491",6,0.0131670598809123,0,0,0.536946410515672,"Abortion","Maternal abortion and miscarriage","EFO 1","Identifier",NA,NA,NA,NA
+"efo1002025",4,0.00386473429951691,0,0,0.250434782608696,"Measles morbillivirus","Measles","EFO 1","Identifier",NA,NA,NA,NA
+NA,1,1,12,12,5.6,NA,"Chagas disease",NA,"Partial","chagas disease","adverse response to benznidazole in chagas disease","mondo0001444","efo0600031"
+NA,1,1,4,4,30.8,NA,"Dengue",NA,"Partial","dengue","dengue shock syndrome","efo0005547","efo0004227"
+NA,2,0.00930232558139535,0,0,0.286511627906977,NA,"Acute hepatitis A",NA,"Partial","acute hepatitis a","acute hepatitis a infection","nomed25102003","efo0007305"
+NA,16,5.07060616061655,51,21.4919712070875,152.390985536464,NA,"Esophageal cancer",NA,"Partial","esophageal cancer","esophageal cancer","doid5041","efo0002916"
+NA,10,2.0843137254902,123,30.6578431372549,8.42092156862745,NA,"Ovarian cancer",NA,"Partial","ovarian cancer","progression free survival in epithelial ovarian cancer treated with carboplatin and paclitaxel","ordo213500","go0097328"
+NA,13,6.05642227905655,57,41.8,158.659207161125,NA,"Testicular cancer",NA,"Partial","testicular cancer","testicular cancer","mondo0005447","efo0005088"
+NA,2,0.00930232558139535,0,0,0.286511627906977,NA,"Acute hepatitis",NA,"Partial","acute hepatitis","acute hepatitis a infection","hp0200119","efo0007305"
+NA,2,2,9,9,17.6,NA,"Encephalitis",NA,"Partial","encephalitis","antinmethyldaspartate receptor encephalitis","ncitc26760","mondo0021081"
+NA,4,0.00386473429951691,0,0,0.250434782608696,NA,"Pertussis",NA,"Partial","pertussis","whooping cough pertussis genebased burden","mondo0005077","efo0000650"
+NA,1,0.2,1,0.2,1.76,NA,"Tetanus",NA,"Partial","tetanus","tetanus toxoid igg concentrations post childhood immunization","efo0005593","efo0010085"
+NA,1,0.25,3,0.75,3.325,NA,"Ischemic heart disease",NA,"Partial","ischemic heart disease","ischemic heart disease in rheumatoid arthritis","ncitc50625","efo0001425"
+NA,2,1.5,1,1,4.9,NA,"Down syndrome",NA,"Partial","down syndrome","atrioventricular septal defects in down syndrome","efo0001064","hp0006695"
+NA,25,0.0269678886047173,0,0,1.35621483375959,NA,"Self-harm",NA,"Partial","selfharm","actions taken following selfharm see anyone from psychiatric or mental health services including liaison services ukb data field 205541","ncitc118206","efo0000727"
+NA,4,1.00383631713555,2,2,20.4181585677749,NA,"Chronic myeloid leukemia",NA,"Partial","chronic myeloid leukemia","chronic myeloid leukemia","doid8552","efo0000339"
+NA,5,0.00896677511584344,0,0,0.286659272404614,NA,"Paralytic ileus and intestinal obstruction",NA,"Partial","paralytic ileus and intestinal obstruction","icd10 k56 paralytic ileus and intestinal obstruction without hernia","hp0002590","hp0004796"
+NA,6,0.00579710144927536,0,0,0.375652173913043,NA,"Falls",NA,"Partial","falls","icd10 r296 repeated falls","hp0002527","hp0100022"
+NA,1,0.5,7,3.5,2.45,NA,"Pyoderma",NA,"Partial","pyoderma","pyoderma gangrenosum in inflammatory bowel disease","mondo0002922","efo0006835"
+NA,2,0.5,6,1.66666666666667,3.75,NA,"Lymphatic filariasis",NA,"Partial","lymphatic filariasis","lymphatic filariasis with lymphedema","ordo2035","mondo0019297"
+NA,5,1.04973970000382,6,5.03846153846154,5.18955959116057,NA,"Trachoma",NA,"Partial","trachoma","seropositivity for chlamydia trachomatis peptide agilent239721","omit0014981","efo0009330"
+NA,1,0.333333333333333,2,0.666666666666667,1.96666666666667,NA,"Male infertility",NA,"Partial","male infertility","male infertility sertoli cellonly","efo0004248","efo1001422"
+NA,7,6.33333333333333,11,6.33333333333333,90.7333333333333,NA,"Atopic dermatitis",NA,"Partial","atopic dermatitis","allergic march atopic dermatitis to allergic rhinitis","hp0001047","efo0007755"
+NA,6,0.017615505925997,11,0.0511627906976744,0.487339698265555,NA,"Genital prolapse",NA,"Partial","genital prolapse","icd10 n81 female genital prolapse","go011827","efo1001864"
+NA,2,0.00638081319484315,0,0,0.0756106790542304,NA,"Neoplasms",NA,"Partial","neoplasms","other benign neoplasms of uterus union d26","omit0010397","efo0003859"
+NA,3,0.00321113952827508,0,0,0.16460358056266,NA,"Upper respiratory infections",NA,"Partial","upper respiratory infections","acute upper respiratory infections of multiple or unspecified sites phecode 465","ncitc35650","efo0007214"
+NA,3,0.00321113952827508,0,0,0.16460358056266,NA,"Disorders of external ear",NA,"Partial","disorders of external ear","disorders of external ear phecode 380","mondo0002776","efo0009668"
