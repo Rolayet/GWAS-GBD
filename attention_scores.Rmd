@@ -286,6 +286,7 @@ matched_rows
 
 
 
+
 ```
 
 
@@ -309,6 +310,7 @@ num_unmatched_gbd <- nrow(unmatched_gbd)
 # Check for unique identifiers in the matched rows
 unique_identifiers <- n_distinct(matched_rows$MAPPED_TRAIT_URI)
 (paste("Number of unique identifiers in matched rows:", unique_identifiers))
+
 
 # Check for unique identifiers in unmatched rows in gbd_long
 gbd_long_unique_identifiers <- n_distinct(unmatched_gbd$MAPPED_TRAIT_URI)
@@ -358,21 +360,27 @@ if (nrow(duplicates) > 0) {
   print("No duplicates found in matched rows.")
 }
 
+# Alternatively here we could have unique by GBD term
 
-# removing duplicates in the gbd_long by "GDB term" not MAPPED_TRAIT_URI
+# removing duplicates in the gbd_long by "GDB term" NOT MAPPED_TRAIT_URI
 unmatched_gbd <- anti_join(gbd_long, attention, by = "MAPPED_TRAIT_URI") %>%
   distinct(`GBD term`, .keep_all = TRUE)
-
+ 
+  # unique matched rows  by GBD term
+matched_rows <- matched_rows %>%
+  distinct(`GBD term`, .keep_all = TRUE)
 
 # save the files 
-
 #write.csv(matched_rows, "matched_rows.csv", row.names = FALSE)
 #write.csv(unmatched_attention, "unmatched_attention.csv", row.names = FALSE)
 #write.csv(unmatched_gbd, "unmatched_gbd.csv", row.names = FALSE)
 
+
 ```
 
-Ensure consistent formatting and standardize of DISEASE/TRAIT in unmatched GBD terms and unmatched attention ie., both lower case for comparison 
+Here we could follow a partial matching approach to handle unmatched GDB terms using "str_detect" function to detect for matching but with different identifiers or GBD present within a string of traits in GWAS
+
+To ensure consistent formatting and standardize of DISEASE/TRAIT in unmatched GBD terms and unmatched attention (GWAS) ie., both lower case for comparison, we will create new columns in both data sets 
 
 ```{r}
 
@@ -385,31 +393,31 @@ unmatched_attention <- unmatched_attention %>%
 unmatched_gbd <- unmatched_gbd%>%
   mutate(GBD_TERM_NAME = tolower(trimws(gsub("[^a-zA-Z0-9 ]", "", unmatched_gbd$`GBD term`))))
 
-# Perform partial matching between MAPPED_TRAIT_NAME in unmatched_attention and GBD_TERM_NAME in gbd_long without identifiers 
 
-#partial_matches <- unmatched_gbd %>%
-  cross_join(unmatched_attention) %>%
-  filter(str_detect(MAPPED_TRAIT_NAME, GBD_TERM_NAME)) %>%
-  select(GBD_TERM_NAME, MAPPED_TRAIT_NAME) %>%
-  distinct()
+# Perform partial matching between MAPPED_TRAIT_NAME in unmatched_attention and GBD_TERM_NAME in gbd_long with the rest of the information 
 
-
-# with identifiers in both GWAS and GDB 
-  
 partial_matches <- unmatched_gbd %>%
   cross_join(unmatched_attention) %>%
   filter(str_detect(MAPPED_TRAIT_NAME, GBD_TERM_NAME)) %>%
-  select(GBD_TERM_NAME, MAPPED_TRAIT_NAME, GBD_TRAIT_URI = MAPPED_TRAIT_URI.x, ATTENTION_TRAIT_URI = MAPPED_TRAIT_URI.y) %>%
+  select(
+    GBD_TERM_NAME, 
+    MAPPED_TRAIT_NAME, 
+    GBD_TRAIT_URI = MAPPED_TRAIT_URI.x, 
+    ATTENTION_TRAIT_URI = MAPPED_TRAIT_URI.y,
+    n, 
+    weighted_n, 
+    nhits, 
+    weighted_nhits, 
+    weighted_attention_score_impact_factor,
+    `GBD term`
+  ) %>%
   distinct()
-
 
 partial_matches_unique <- partial_matches %>%
   distinct(GBD_TERM_NAME, .keep_all = TRUE)
 print(head(partial_matches, 20))
 
-
-write.csv(partial_matches_unique, "partial_matches_unique.csv", row.names = FALSE)
-
+#write.csv(partial_matches_unique, "partial_matches_unique.csv", row.names = FALSE)
 
 ```
 
@@ -432,14 +440,67 @@ matched_partial_attention <- partial_matches %>%
 final_unmatched_gbd <- anti_join(unmatched_gbd, matched_partial_gbd, by = "MAPPED_TRAIT_URI")
 final_unmatched_attention <- anti_join(unmatched_attention, matched_partial_attention, by = "MAPPED_TRAIT_URI")
 
+# Check for duplicates in final_unmatched_gbd
+duplicates_final_unmatched_gbd <- final_unmatched_gbd[duplicated(final_unmatched_gbd$`GBD term`), ]
+if (nrow(duplicates_final_unmatched_gbd) > 0) {
+  print("Duplicates found in final_unmatched_gbd:")
+  print(duplicates_final_unmatched_gbd)
+} else {
+  print("No duplicates found in final_unmatched_gbd.")
+}
+
+
+
+# final unmatched 
+
 final_unmatched <- bind_rows(final_unmatched_gbd, final_unmatched_attention)
 (head(final_unmatched, 20))
+
+
+
+
+# final matched (combined)
+
+combined_matches <- bind_rows(
+  matched_rows %>% mutate(Match_Type = "Identifier"),
+  partial_matches_unique %>% mutate(Match_Type = "Partial")
+)
+
+
+# Check for duplicates in combined_matches
+duplicates_combined_matches <- combined_matches[duplicated(combined_matches$`GBD term`), ]
+if (nrow(duplicates_combined_matches) > 0) {
+  print("Duplicates found in combined_matches:")
+  print(duplicates_combined_matches)
+} else {
+  print("No duplicates found in combined_matches.")
+}
+
+
+
+# Get unique rows in combined_matches based on the "GBD term" column
+unique_combined_matches <- combined_matches %>% 
+  distinct(`GBD term`, .keep_all = TRUE)
+
+# Check if duplicates still exist
+duplicates_combined_matches <- unique_combined_matches[duplicated(unique_combined_matches$`GBD term`), ]
+if (nrow(duplicates_combined_matches) > 0) {
+  print("Duplicates found in unique_combined_matches:")
+  print(duplicates_combined_matches)
+} else {
+  print("No duplicates found in unique_combined_matches.")
+}
+
+
 
 # Save the results to a CSV file
 #write.csv(final_unmatched, "final_unmatched.csv", row.names = FALSE)
 
 
+
+
+
+
+
 ```
-
-
 
