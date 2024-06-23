@@ -1,0 +1,748 @@
+Location,Year,Age,Sex,Cause of death or injury,Measure,Value,Lower bound,Upper bound
+Global,2021,All ages,Both,All causes,Percent of total DALYs,1,1,1
+Global,1990 - 2021,All ages,Both,All causes,DALYs annual % change,0,,
+Global,2021,All ages,Both,"Communicable, maternal, neonatal, and nutritional diseases",Percent of total DALYs,0.28833590210296484,0.2694545396077303,0.3079805926558168
+Global,1990 - 2021,All ages,Both,"Communicable, maternal, neonatal, and nutritional diseases",DALYs annual % change,-0.01419508664343462,,
+Global,2021,All ages,Both,Tuberculosis,Percent of total DALYs,0.016314541793168304,0.014666440513064568,0.018126734324802465
+Global,1990 - 2021,All ages,Both,Tuberculosis,DALYs annual % change,-0.021718382067961565,,
+Global,2021,All ages,Both,HIV/AIDS,Percent of total DALYs,0.013988312279223016,0.01276501759111669,0.015613371687575768
+Global,1990 - 2021,All ages,Both,HIV/AIDS,DALYs annual % change,0.02131141810161553,,
+Global,2021,All ages,Both,HIV/AIDS resulting in other diseases,Percent of total DALYs,0.010207980237827565,0.008968214863021172,0.011707246327932777
+Global,1990 - 2021,All ages,Both,HIV/AIDS resulting in other diseases,DALYs annual % change,0.026161216695902025,,
+Global,2021,All ages,Both,Diarrheal diseases,Percent of total DALYs,0.020470067374179376,0.016468751385924088,0.02499120910221214
+Global,1990 - 2021,All ages,Both,Diarrheal diseases,DALYs annual % change,-0.04164478154285815,,
+Global,2021,All ages,Both,Typhoid fever,Percent of total DALYs,0.0024606394594888885,0.0012193816580308736,0.0043084418394243006
+Global,1990 - 2021,All ages,Both,Typhoid fever,DALYs annual % change,-0.027373887649063986,,
+Global,2021,All ages,Both,Paratyphoid fever,Percent of total DALYs,0.0003513169541562786,0.0001506734689373372,0.0006927597087584396
+Global,1990 - 2021,All ages,Both,Paratyphoid fever,DALYs annual % change,-0.04065028636015782,,
+Global,2021,All ages,Both,Other intestinal infectious diseases,Percent of total DALYs,0.0000365638679328712,0.000027006133994581593,0.00004796088297096245
+Global,1990 - 2021,All ages,Both,Other intestinal infectious diseases,DALYs annual % change,-0.03617563961314862,,
+Global,2021,All ages,Both,Lower respiratory infections,Percent of total DALYs,0.028668016260024992,0.024801429598961235,0.03243065438696429
+Global,1990 - 2021,All ages,Both,Lower respiratory infections,DALYs annual % change,-0.03269761250088017,,
+Global,2021,All ages,Both,Upper respiratory infections,Percent of total DALYs,0.0019623774511000596,0.0011851336703369545,0.0028013724516363623
+Global,1990 - 2021,All ages,Both,Upper respiratory infections,DALYs annual % change,-0.0031300303511558126,,
+Global,2021,All ages,Both,Otitis media,Percent of total DALYs,0.0008559465652985793,0.0005306852725564845,0.0012845315908269024
+Global,1990 - 2021,All ages,Both,Otitis media,DALYs annual % change,0.0014402863409745104,,
+Global,2021,All ages,Both,Meningitis,Percent of total DALYs,0.005037761310436602,0.003941324516832821,0.006504607625376778
+Global,1990 - 2021,All ages,Both,Meningitis,DALYs annual % change,-0.03000462895149012,,
+Global,2021,All ages,Both,Encephalitis,Percent of total DALYs,0.001719885874886081,0.0014200238448360291,0.0019833173866018556
+Global,1990 - 2021,All ages,Both,Encephalitis,DALYs annual % change,-0.0100157776939519,,
+Global,2021,All ages,Both,Diphtheria,Percent of total DALYs,0.00011043363244892935,0.00007530431950728166,0.00015383652768904737
+Global,1990 - 2021,All ages,Both,Diphtheria,DALYs annual % change,-0.0651078789842322,,
+Global,2021,All ages,Both,Pertussis,Percent of total DALYs,0.0016018038380907187,0.0007215009252338055,0.0032315158128666307
+Global,1990 - 2021,All ages,Both,Pertussis,DALYs annual % change,-0.055829178857646385,,
+Global,2021,All ages,Both,Tetanus,Percent of total DALYs,0.0004659695785611635,0.00021197775316637778,0.0007378736310366022
+Global,1990 - 2021,All ages,Both,Tetanus,DALYs annual % change,-0.08392714213476495,,
+Global,2021,All ages,Both,Measles,Percent of total DALYs,0.0016933499796969122,0.0009594152146882289,0.002616209956188583
+Global,1990 - 2021,All ages,Both,Measles,DALYs annual % change,-0.08395144369680355,,
+Global,2021,All ages,Both,Varicella and herpes zoster,Percent of total DALYs,0.00030720330612609727,0.0002650802373239542,0.00034990404967296556
+Global,1990 - 2021,All ages,Both,Varicella and herpes zoster,DALYs annual % change,-0.009457574449572966,,
+Global,2021,All ages,Both,Neglected tropical diseases and malaria,Percent of total DALYs,0.024835793161183013,0.013644840758264656,0.042270051610451324
+Global,1990 - 2021,All ages,Both,Neglected tropical diseases and malaria,DALYs annual % change,-0.009933814596116223,,
+Global,2021,All ages,Both,Malaria,Percent of total DALYs,0.01914274165411497,0.007797755991141667,0.03707617705166615
+Global,1990 - 2021,All ages,Both,Malaria,DALYs annual % change,-0.0050582382515183604,,
+Global,2021,All ages,Both,Chagas disease,Percent of total DALYs,0.00008281961522759702,0.0000723193978903806,0.00009237934006071954
+Global,1990 - 2021,All ages,Both,Chagas disease,DALYs annual % change,-0.021212584915337982,,
+Global,2021,All ages,Both,Leishmaniasis,Percent of total DALYs,0.0002705533387082228,0.00016736144144912813,0.0005707779112967251
+Global,1990 - 2021,All ages,Both,Leishmaniasis,DALYs annual % change,-0.06128153469584567,,
+Global,2021,All ages,Both,Visceral leishmaniasis,Percent of total DALYs,0.00013492444596053271,0.00004267185860300198,0.0004308005749621655
+Global,1990 - 2021,All ages,Both,Visceral leishmaniasis,DALYs annual % change,-0.08235445428857287,,
+Global,2021,All ages,Both,Cutaneous and mucocutaneous leishmaniasis,Percent of total DALYs,0.00013562889274769022,0.00009908888944057765,0.0001757679963513486
+Global,1990 - 2021,All ages,Both,Cutaneous and mucocutaneous leishmaniasis,DALYs annual % change,0.019009498809641978,,
+Global,2021,All ages,Both,African trypanosomiasis,Percent of total DALYs,0.000021539618514335616,0.000007529797432939416,0.00006110302804488553
+Global,1990 - 2021,All ages,Both,African trypanosomiasis,DALYs annual % change,-0.09584864053393977,,
+Global,2021,All ages,Both,Schistosomiasis,Percent of total DALYs,0.000603929768065612,0.00038004535971044185,0.0010162893564867968
+Global,1990 - 2021,All ages,Both,Schistosomiasis,DALYs annual % change,-0.007040792954371255,,
+Global,2021,All ages,Both,Cysticercosis,Percent of total DALYs,0.00042804997322590954,0.0002887109859730329,0.0006163062487874607
+Global,1990 - 2021,All ages,Both,Cysticercosis,DALYs annual % change,0.0007058008949576633,,
+Global,2021,All ages,Both,Cystic echinococcosis,Percent of total DALYs,0.00003639573571758832,0.000028409688616102998,0.000045019348928125946
+Global,1990 - 2021,All ages,Both,Cystic echinococcosis,DALYs annual % change,-0.032577733290043646,,
+Global,2021,All ages,Both,Lymphatic filariasis,Percent of total DALYs,0.0004532691536792511,0.00028210007355707864,0.0007300498739374519
+Global,1990 - 2021,All ages,Both,Lymphatic filariasis,DALYs annual % change,-0.04011991351201103,,
+Global,2021,All ages,Both,Onchocerciasis,Percent of total DALYs,0.00043603904876091153,0.00028807439797614605,0.0006199812469844112
+Global,1990 - 2021,All ages,Both,Onchocerciasis,DALYs annual % change,-0.00620546301000093,,
+Global,2021,All ages,Both,Trachoma,Percent of total DALYs,0.00004255214480037513,0.000029515718185231857,0.0000580584420587545
+Global,1990 - 2021,All ages,Both,Trachoma,DALYs annual % change,-0.01712019953673602,,
+Global,2021,All ages,Both,Dengue,Percent of total DALYs,0.0007206107216259224,0.0003677446080208842,0.0010499129941918773
+Global,1990 - 2021,All ages,Both,Dengue,DALYs annual % change,0.012918710584447267,,
+Global,2021,All ages,Both,Yellow fever,Percent of total DALYs,0.00011027349279764073,0.000041496105395976164,0.00024196986438808967
+Global,1990 - 2021,All ages,Both,Yellow fever,DALYs annual % change,-0.040075952491757265,,
+Global,2021,All ages,Both,Rabies,Percent of total DALYs,0.00019784909425840042,0.00011064712825510985,0.0002861473309958907
+Global,1990 - 2021,All ages,Both,Rabies,DALYs annual % change,-0.031771554029618905,,
+Global,2021,All ages,Both,Intestinal nematode infections,Percent of total DALYs,0.0004774810780076661,0.00033114818792070143,0.0006716459839053317
+Global,1990 - 2021,All ages,Both,Intestinal nematode infections,DALYs annual % change,-0.050868343097362045,,
+Global,2021,All ages,Both,Ascariasis,Percent of total DALYs,0.00022411318290673057,0.00015890407069989458,0.00030698200993990374
+Global,1990 - 2021,All ages,Both,Ascariasis,DALYs annual % change,-0.053456462514137264,,
+Global,2021,All ages,Both,Trichuriasis,Percent of total DALYs,0.0000669426042072784,0.000038057012824908966,0.00010559955683743409
+Global,1990 - 2021,All ages,Both,Trichuriasis,DALYs annual % change,-0.038625774288371974,,
+Global,2021,All ages,Both,Hookworm disease,Percent of total DALYs,0.0001864252908936564,0.00012218562490995134,0.0002732112770548133
+Global,1990 - 2021,All ages,Both,Hookworm disease,DALYs annual % change,-0.05128424852286787,,
+Global,2021,All ages,Both,Food-borne trematodiases,Percent of total DALYs,0.00034462989757796047,0.00020376512357783564,0.0005487886730575852
+Global,1990 - 2021,All ages,Both,Food-borne trematodiases,DALYs annual % change,-0.010826310295846192,,
+Global,2021,All ages,Both,Other neglected tropical diseases,Percent of total DALYs,0.0014587076469405624,0.0011278582258182884,0.0017945616463302064
+Global,1990 - 2021,All ages,Both,Other neglected tropical diseases,DALYs annual % change,0.0022454900284492956,,
+Global,2021,All ages,Both,Maternal disorders,Percent of total DALYs,0.004275816895083163,0.0036775869602479047,0.005147536550360396
+Global,1990 - 2021,All ages,Both,Maternal disorders,DALYs annual % change,-0.021910076988904254,,
+Global,2021,All ages,Both,Maternal hemorrhage,Percent of total DALYs,0.0010265291590035872,0.0008723069525732691,0.0012430470445572138
+Global,1990 - 2021,All ages,Both,Maternal hemorrhage,DALYs annual % change,-0.03181295804059962,,
+Global,2021,All ages,Both,Maternal sepsis and other maternal infections,Percent of total DALYs,0.00039730675065067616,0.0003357502176334133,0.00047464150043883744
+Global,1990 - 2021,All ages,Both,Maternal sepsis and other maternal infections,DALYs annual % change,-0.015877485348841227,,
+Global,2021,All ages,Both,Maternal hypertensive disorders,Percent of total DALYs,0.0008575728085721387,0.0007241823607484072,0.001034478924109372
+Global,1990 - 2021,All ages,Both,Maternal hypertensive disorders,DALYs annual % change,-0.014547536503087218,,
+Global,2021,All ages,Both,Maternal obstructed labor and uterine rupture,Percent of total DALYs,0.00037022292060375926,0.00031868502982612055,0.0004301769396591051
+Global,1990 - 2021,All ages,Both,Maternal obstructed labor and uterine rupture,DALYs annual % change,-0.02025705981378033,,
+Global,2021,All ages,Both,Ectopic pregnancy,Percent of total DALYs,0.0001377932268593835,0.00011402110840861463,0.00016704271367239736
+Global,1990 - 2021,All ages,Both,Ectopic pregnancy,DALYs annual % change,0.006843387226825788,,
+Global,2021,All ages,Both,Indirect maternal deaths,Percent of total DALYs,0.00039499762993126255,0.0003347013584177615,0.0004702887552824416
+Global,1990 - 2021,All ages,Both,Indirect maternal deaths,DALYs annual % change,-0.022670533809284785,,
+Global,2021,All ages,Both,Late maternal deaths,Percent of total DALYs,0.00011551725422410128,0.00009136698697867856,0.00014280161844094962
+Global,1990 - 2021,All ages,Both,Late maternal deaths,DALYs annual % change,-0.006997317228171397,,
+Global,2021,All ages,Both,Other direct maternal disorders,Percent of total DALYs,0.0006011410699916183,0.0005106509833743211,0.0007241741063570426
+Global,1990 - 2021,All ages,Both,Other direct maternal disorders,DALYs annual % change,-0.01013927387335415,,
+Global,2021,All ages,Both,Neonatal disorders,Percent of total DALYs,0.06468315330132648,0.05669561678133452,0.07219216121623753
+Global,1990 - 2021,All ages,Both,Neonatal disorders,DALYs annual % change,-0.01616983402295558,,
+Global,2021,All ages,Both,Neonatal preterm birth,Percent of total DALYs,0.02787817424127386,0.02440857230837452,0.03133097326504377
+Global,1990 - 2021,All ages,Both,Neonatal preterm birth,DALYs annual % change,-0.017599309340089315,,
+Global,2021,All ages,Both,Neonatal encephalopathy due to birth asphyxia and trauma,Percent of total DALYs,0.02033171914897691,0.017325372088499554,0.02330109158693804
+Global,1990 - 2021,All ages,Both,Neonatal encephalopathy due to birth asphyxia and trauma,DALYs annual % change,-0.013966690515543249,,
+Global,2021,All ages,Both,Neonatal sepsis and other neonatal infections,Percent of total DALYs,0.00814056625871233,0.007011752903688874,0.009370490542712022
+Global,1990 - 2021,All ages,Both,Neonatal sepsis and other neonatal infections,DALYs annual % change,-0.009826846004211619,,
+Global,2021,All ages,Both,Hemolytic disease and other neonatal jaundice,Percent of total DALYs,0.0013029345882695372,0.0010569807508863877,0.0016009487192220318
+Global,1990 - 2021,All ages,Both,Hemolytic disease and other neonatal jaundice,DALYs annual % change,-0.03398405079546876,,
+Global,2021,All ages,Both,Other neonatal disorders,Percent of total DALYs,0.007029759064093786,0.005113808781086436,0.008469125234013407
+Global,1990 - 2021,All ages,Both,Other neonatal disorders,DALYs annual % change,-0.01869238628475511,,
+Global,2021,All ages,Both,Nutritional deficiencies,Percent of total DALYs,0.016905327441747428,0.013340714366080562,0.02119271207548687
+Global,1990 - 2021,All ages,Both,Nutritional deficiencies,DALYs annual % change,-0.01890163929313877,,
+Global,2021,All ages,Both,Protein-energy malnutrition,Percent of total DALYs,0.004101522721794489,0.0035310996631568907,0.004674146034436624
+Global,1990 - 2021,All ages,Both,Protein-energy malnutrition,DALYs annual % change,-0.044410050502499014,,
+Global,2021,All ages,Both,Iodine deficiency,Percent of total DALYs,0.0007757401915079205,0.00042825617898267586,0.0013381595823593142
+Global,1990 - 2021,All ages,Both,Iodine deficiency,DALYs annual % change,-0.006401649847694347,,
+Global,2021,All ages,Both,Vitamin A deficiency,Percent of total DALYs,0.0003812477632737507,0.00026709792583475694,0.0005017355052455092
+Global,1990 - 2021,All ages,Both,Vitamin A deficiency,DALYs annual % change,-0.022197053376362928,,
+Global,2021,All ages,Both,Dietary iron deficiency,Percent of total DALYs,0.011152228362774751,0.008058514393205287,0.014966366214384876
+Global,1990 - 2021,All ages,Both,Dietary iron deficiency,DALYs annual % change,0.0006236360898291735,,
+Global,2021,All ages,Both,Other nutritional deficiencies,Percent of total DALYs,0.0004945884023965016,0.00043903482005099503,0.0005686307009855117
+Global,1990 - 2021,All ages,Both,Other nutritional deficiencies,DALYs annual % change,-0.03537384985310305,,
+Global,2021,All ages,Both,Sexually transmitted infections excluding HIV,Percent of total DALYs,0.002762705248600092,0.0013190023979170206,0.005083236799198584
+Global,1990 - 2021,All ages,Both,Sexually transmitted infections excluding HIV,DALYs annual % change,-0.0067095606520495635,,
+Global,2021,All ages,Both,Syphilis,Percent of total DALYs,0.0023267697344589093,0.0009122029839305347,0.004609222868404849
+Global,1990 - 2021,All ages,Both,Syphilis,DALYs annual % change,-0.009161438722400201,,
+Global,2021,All ages,Both,Chlamydial infection,Percent of total DALYs,0.0000565509769851141,0.00004334620860664403,0.00007298177977280264
+Global,1990 - 2021,All ages,Both,Chlamydial infection,DALYs annual % change,0.008159110699342678,,
+Global,2021,All ages,Both,Gonococcal infection,Percent of total DALYs,0.000024994162511706693,0.00001907822685644375,0.00003371033374403585
+Global,1990 - 2021,All ages,Both,Gonococcal infection,DALYs annual % change,0.004173054717726422,,
+Global,2021,All ages,Both,Trichomoniasis,Percent of total DALYs,0.00009473489805114327,0.000039970986506763647,0.00019203266958568613
+Global,1990 - 2021,All ages,Both,Trichomoniasis,DALYs annual % change,0.01408263380576101,,
+Global,2021,All ages,Both,Genital herpes,Percent of total DALYs,0.00008970843513299817,0.000039128476732592085,0.0001806543548766176
+Global,1990 - 2021,All ages,Both,Genital herpes,DALYs annual % change,0.015837736460180267,,
+Global,2021,All ages,Both,Other sexually transmitted infections,Percent of total DALYs,0.00016994704146022153,0.00013257261351225244,0.00021829429796093084
+Global,1990 - 2021,All ages,Both,Other sexually transmitted infections,DALYs annual % change,0.009019637182593486,,
+Global,2021,All ages,Both,Acute hepatitis,Percent of total DALYs,0.0014681432781199948,0.0011584841478567147,0.0019383402125773969
+Global,1990 - 2021,All ages,Both,Acute hepatitis,DALYs annual % change,-0.03074108163242568,,
+Global,2021,All ages,Both,Acute hepatitis A,Percent of total DALYs,0.0006311840320776399,0.00044544622436064557,0.0009947074010604661
+Global,1990 - 2021,All ages,Both,Acute hepatitis A,DALYs annual % change,-0.04385510906385046,,
+Global,2021,All ages,Both,Acute hepatitis B,Percent of total DALYs,0.000664963413712581,0.0004965425639435529,0.0008278624012131548
+Global,1990 - 2021,All ages,Both,Acute hepatitis B,DALYs annual % change,-0.015469621989716912,,
+Global,2021,All ages,Both,Acute hepatitis C,Percent of total DALYs,0.00009239998544428116,0.000040570911068592774,0.0001564455461334481
+Global,1990 - 2021,All ages,Both,Acute hepatitis C,DALYs annual % change,-0.023711543423232687,,
+Global,2021,All ages,Both,Acute hepatitis E,Percent of total DALYs,0.00007959584688549196,0.00004554369183927872,0.00013194746943269155
+Global,1990 - 2021,All ages,Both,Acute hepatitis E,DALYs annual % change,-0.001205017080324566,,
+Global,2021,All ages,Both,Leprosy,Percent of total DALYs,0.000007391777327833509,0.0000050684732901531894,0.000010277965081842603
+Global,1990 - 2021,All ages,Both,Leprosy,DALYs annual % change,-0.010731725219945164,,
+Global,2021,All ages,Both,Other unspecified infectious diseases,Percent of total DALYs,0.0020268234528508225,0.0013885607020574214,0.0026586546113569224
+Global,1990 - 2021,All ages,Both,Other unspecified infectious diseases,DALYs annual % change,-0.006092024468265461,,
+Global,2021,All ages,Both,Non-communicable diseases,Percent of total DALYs,0.5987648821626604,0.5784994625959217,0.6213615048281866
+Global,1990 - 2021,All ages,Both,Non-communicable diseases,DALYs annual % change,0.009611010532244254,,
+Global,2021,All ages,Both,Neoplasms,Percent of total DALYs,0.08801693813638005,0.07992322673002086,0.0966574769218089
+Global,1990 - 2021,All ages,Both,Neoplasms,DALYs annual % change,0.009418604400552354,,
+Global,2021,All ages,Both,Esophageal cancer,Percent of total DALYs,0.004516470343701271,0.0039047996397219243,0.005199793813761237
+Global,1990 - 2021,All ages,Both,Esophageal cancer,DALYs annual % change,0.005794344222747914,,
+Global,2021,All ages,Both,Stomach cancer,Percent of total DALYs,0.00791735551713652,0.006759959364000995,0.009242701913406665
+Global,1990 - 2021,All ages,Both,Stomach cancer,DALYs annual % change,-0.004103812544344139,,
+Global,2021,All ages,Both,Liver cancer,Percent of total DALYs,0.004477781258530201,0.003955635169996547,0.005111224119353426
+Global,1990 - 2021,All ages,Both,Liver cancer,DALYs annual % change,0.013760659465752736,,
+Global,2021,All ages,Both,Liver cancer due to hepatitis B,Percent of total DALYs,0.001968946169606564,0.0016144169784925774,0.0023888957551110087
+Global,1990 - 2021,All ages,Both,Liver cancer due to hepatitis B,DALYs annual % change,0.009865076594745328,,
+Global,2021,All ages,Both,Liver cancer due to hepatitis C,Percent of total DALYs,0.0010767717800827692,0.0009036180051568182,0.0012582601982791442
+Global,1990 - 2021,All ages,Both,Liver cancer due to hepatitis C,DALYs annual % change,0.018419187712492062,,
+Global,2021,All ages,Both,Liver cancer due to alcohol use,Percent of total DALYs,0.0008050946507062313,0.0006420148725500809,0.0009834235457389727
+Global,1990 - 2021,All ages,Both,Liver cancer due to alcohol use,DALYs annual % change,0.022291390164406743,,
+Global,2021,All ages,Both,Liver cancer due to other causes,Percent of total DALYs,0.00020691991008356926,0.0001644720959500506,0.0002572432573875998
+Global,1990 - 2021,All ages,Both,Liver cancer due to other causes,DALYs annual % change,0.012697314760395925,,
+Global,2021,All ages,Both,Larynx cancer,Percent of total DALYs,0.0010921213460708711,0.0009856742912315623,0.001195254579642543
+Global,1990 - 2021,All ages,Both,Larynx cancer,DALYs annual % change,0.004223386514551945,,
+Global,2021,All ages,Both,"Tracheal, bronchus, and lung cancer",Percent of total DALYs,0.01617301680332857,0.01408208134142457,0.018238740264569515
+Global,1990 - 2021,All ages,Both,"Tracheal, bronchus, and lung cancer",DALYs annual % change,0.012395269963515127,,
+Global,2021,All ages,Both,Breast cancer,Percent of total DALYs,0.007169153529861039,0.006483186655774676,0.00781523269335985
+Global,1990 - 2021,All ages,Both,Breast cancer,DALYs annual % change,0.016293781297497343,,
+Global,2021,All ages,Both,Cervical cancer,Percent of total DALYs,0.0034438108155344176,0.0030994333331641147,0.0038636478976705095
+Global,1990 - 2021,All ages,Both,Cervical cancer,DALYs annual % change,0.005879445098639444,,
+Global,2021,All ages,Both,Uterine cancer,Percent of total DALYs,0.0008904188445900069,0.0007834043296267843,0.0009945327800299252
+Global,1990 - 2021,All ages,Both,Uterine cancer,DALYs annual % change,0.013777212945288273,,
+Global,2021,All ages,Both,Prostate cancer,Percent of total DALYs,0.0028283528607357406,0.0024580609014594112,0.0031156597198746016
+Global,1990 - 2021,All ages,Both,Prostate cancer,DALYs annual % change,0.01828724980650576,,
+Global,2021,All ages,Both,Colon and rectum cancer,Percent of total DALYs,0.008478247249518503,0.007615331452843699,0.009319001136126749
+Global,1990 - 2021,All ages,Both,Colon and rectum cancer,DALYs annual % change,0.013545881119145894,,
+Global,2021,All ages,Both,Lip and oral cavity cancer,Percent of total DALYs,0.0020410880705343045,0.0018048998544011243,0.0022585454610529096
+Global,1990 - 2021,All ages,Both,Lip and oral cavity cancer,DALYs annual % change,0.018894189180921735,,
+Global,2021,All ages,Both,Nasopharynx cancer,Percent of total DALYs,0.0008652078636210542,0.0007566479101891477,0.0009885085222040254
+Global,1990 - 2021,All ages,Both,Nasopharynx cancer,DALYs annual % change,-0.001762494316487425,,
+Global,2021,All ages,Both,Other pharynx cancer,Percent of total DALYs,0.0009882240517454486,0.0008830032887894336,0.0010974103099333516
+Global,1990 - 2021,All ages,Both,Other pharynx cancer,DALYs annual % change,0.02002622746086448,,
+Global,2021,All ages,Both,Gallbladder and biliary tract cancer,Percent of total DALYs,0.0012971342010451915,0.0010460764912081926,0.0015058913079830268
+Global,1990 - 2021,All ages,Both,Gallbladder and biliary tract cancer,DALYs annual % change,0.011785795320261536,,
+Global,2021,All ages,Both,Pancreatic cancer,Percent of total DALYs,0.0039331916273707595,0.003492894381288294,0.004385874795049419
+Global,1990 - 2021,All ages,Both,Pancreatic cancer,DALYs annual % change,0.021550154773899984,,
+Global,2021,All ages,Both,Malignant skin melanoma,Percent of total DALYs,0.0005833159314119617,0.0005079275646183197,0.000654544989711201
+Global,1990 - 2021,All ages,Both,Malignant skin melanoma,DALYs annual % change,0.01179743428696752,,
+Global,2021,All ages,Both,Non-melanoma skin cancer,Percent of total DALYs,0.0004214565883951258,0.00036125145320062486,0.00047758943737730863
+Global,1990 - 2021,All ages,Both,Non-melanoma skin cancer,DALYs annual % change,0.02230053928388577,,
+Global,2021,All ages,Both,Ovarian cancer,Percent of total DALYs,0.0017943424921722073,0.0015917897703477185,0.0019975202855944934
+Global,1990 - 2021,All ages,Both,Ovarian cancer,DALYs annual % change,0.015034436889277915,,
+Global,2021,All ages,Both,Testicular cancer,Percent of total DALYs,0.0001948363313999217,0.00017970925730445656,0.000209667356014922
+Global,1990 - 2021,All ages,Both,Testicular cancer,DALYs annual % change,0.00825745263271144,,
+Global,2021,All ages,Both,Kidney cancer,Percent of total DALYs,0.0013956208466465992,0.0012732016911368826,0.001526136703448536
+Global,1990 - 2021,All ages,Both,Kidney cancer,DALYs annual % change,0.01462391059479911,,
+Global,2021,All ages,Both,Bladder cancer,Percent of total DALYs,0.0015276619637650177,0.001374937307650198,0.0017057419438331863
+Global,1990 - 2021,All ages,Both,Bladder cancer,DALYs annual % change,0.011864885644887382,,
+Global,2021,All ages,Both,Brain and central nervous system cancer,Percent of total DALYs,0.003097001005444776,0.0026521131881422104,0.0036371661405107183
+Global,1990 - 2021,All ages,Both,Brain and central nervous system cancer,DALYs annual % change,0.009513192852626156,,
+Global,2021,All ages,Both,Thyroid cancer,Percent of total DALYs,0.0004328565541426752,0.00038215285719478745,0.00048162070389564987
+Global,1990 - 2021,All ages,Both,Thyroid cancer,DALYs annual % change,0.017680279334875034,,
+Global,2021,All ages,Both,Mesothelioma,Percent of total DALYs,0.0002396021225191445,0.000214032732574001,0.00026918201537852113
+Global,1990 - 2021,All ages,Both,Mesothelioma,DALYs annual % change,0.015168439266548497,,
+Global,2021,All ages,Both,Hodgkin lymphoma,Percent of total DALYs,0.000415748091122668,0.000298949668632079,0.0005408501860808498
+Global,1990 - 2021,All ages,Both,Hodgkin lymphoma,DALYs annual % change,-0.006760702572940076,,
+Global,2021,All ages,Both,Non-Hodgkin lymphoma,Percent of total DALYs,0.002698059773000557,0.0024303854267971256,0.003022090663561507
+Global,1990 - 2021,All ages,Both,Non-Hodgkin lymphoma,DALYs annual % change,0.009462666481273356,,
+Global,2021,All ages,Both,Multiple myeloma,Percent of total DALYs,0.0009022421223924826,0.0007801608457084516,0.0010472415693725924
+Global,1990 - 2021,All ages,Both,Multiple myeloma,DALYs annual % change,0.02357734415114768,,
+Global,2021,All ages,Both,Leukemia,Percent of total DALYs,0.003815793157292403,0.003174691439638519,0.004356256597969564
+Global,1990 - 2021,All ages,Both,Leukemia,DALYs annual % change,-0.005681921700733737,,
+Global,2021,All ages,Both,Other malignant neoplasms,Percent of total DALYs,0.0022427150161683394,0.0019561051554852276,0.0025129138856656193
+Global,1990 - 2021,All ages,Both,Other malignant neoplasms,DALYs annual % change,0.003626664424202913,,
+Global,2021,All ages,Both,Other neoplasms,Percent of total DALYs,0.00042191601141530706,0.0003728536159859263,0.000497833033776258
+Global,1990 - 2021,All ages,Both,Other neoplasms,DALYs annual % change,0.024525973813413014,,
+Global,2021,All ages,Both,Cardiovascular diseases,Percent of total DALYs,0.14880578836807418,0.1362416679829974,0.16128830168478892
+Global,1990 - 2021,All ages,Both,Cardiovascular diseases,DALYs annual % change,0.008281691632937224,,
+Global,2021,All ages,Both,Rheumatic heart disease,Percent of total DALYs,0.004658739883447029,0.0041356911761638694,0.005367677771102498
+Global,1990 - 2021,All ages,Both,Rheumatic heart disease,DALYs annual % change,-0.009717703568176306,,
+Global,2021,All ages,Both,Ischemic heart disease,Percent of total DALYs,0.06545789890758272,0.0589805552894012,0.07165247071498354
+Global,1990 - 2021,All ages,Both,Ischemic heart disease,DALYs annual % change,0.011298827132000751,,
+Global,2021,All ages,Both,Stroke,Percent of total DALYs,0.05574340276834111,0.05033796217880945,0.06084286941494948
+Global,1990 - 2021,All ages,Both,Stroke,DALYs annual % change,0.00552234559951954,,
+Global,2021,All ages,Both,Ischemic stroke,Percent of total DALYs,0.024438492981145202,0.02194612752237847,0.026811312345151703
+Global,1990 - 2021,All ages,Both,Ischemic stroke,DALYs annual % change,0.010106989486828508,,
+Global,2021,All ages,Both,Intracerebral hemorrhage,Percent of total DALYs,0.027608406667311132,0.024553878843815023,0.030384188480419856
+Global,1990 - 2021,All ages,Both,Intracerebral hemorrhage,DALYs annual % change,0.003913730936803693,,
+Global,2021,All ages,Both,Subarachnoid hemorrhage,Percent of total DALYs,0.0036965031198847205,0.0032292608080679982,0.004263747790209852
+Global,1990 - 2021,All ages,Both,Subarachnoid hemorrhage,DALYs annual % change,-0.0074281033983872044,,
+Global,2021,All ages,Both,Hypertensive heart disease,Percent of total DALYs,0.008847789528824866,0.007444992726037886,0.00991131414221684
+Global,1990 - 2021,All ages,Both,Hypertensive heart disease,DALYs annual % change,0.01259290651034413,,
+Global,2021,All ages,Both,Cardiomyopathy and myocarditis,Percent of total DALYs,0.00404923034513844,0.0036493512850840114,0.004473209461249076
+Global,1990 - 2021,All ages,Both,Cardiomyopathy and myocarditis,DALYs annual % change,0.0064251879207525035,,
+Global,2021,All ages,Both,Atrial fibrillation and flutter,Percent of total DALYs,0.0028982787217040843,0.002469246306167267,0.003368211355891968
+Global,1990 - 2021,All ages,Both,Atrial fibrillation and flutter,DALYs annual % change,0.02592645034065941,,
+Global,2021,All ages,Both,Aortic aneurysm,Percent of total DALYs,0.0010803566546835946,0.000954686578873922,0.0012178716672035213
+Global,1990 - 2021,All ages,Both,Aortic aneurysm,DALYs annual % change,0.012680859410127945,,
+Global,2021,All ages,Both,Lower extremity peripheral arterial disease,Percent of total DALYs,0.0005403586002499541,0.00044413314269593285,0.0006885264793664756
+Global,1990 - 2021,All ages,Both,Lower extremity peripheral arterial disease,DALYs annual % change,0.013751137940360267,,
+Global,2021,All ages,Both,Endocarditis,Percent of total DALYs,0.000721443202909235,0.0006288299758236313,0.0008079895645807566
+Global,1990 - 2021,All ages,Both,Endocarditis,DALYs annual % change,0.01080310362046199,,
+Global,2021,All ages,Both,Non-rheumatic valvular heart disease,Percent of total DALYs,0.0011247638599269708,0.0009879645111445414,0.0012517324008314214
+Global,1990 - 2021,All ages,Both,Non-rheumatic valvular heart disease,DALYs annual % change,0.015610180971036034,,
+Global,2021,All ages,Both,Other cardiovascular and circulatory diseases,Percent of total DALYs,0.003460416267870841,0.0031049719952120115,0.003968785383898565
+Global,1990 - 2021,All ages,Both,Other cardiovascular and circulatory diseases,DALYs annual % change,0.00963310763614463,,
+Global,2021,All ages,Both,Chronic respiratory diseases,Percent of total DALYs,0.037676616998311735,0.03472353966080073,0.040819735553537795
+Global,1990 - 2021,All ages,Both,Chronic respiratory diseases,DALYs annual % change,0.004444042041649957,,
+Global,2021,All ages,Both,Chronic obstructive pulmonary disease,Percent of total DALYs,0.02771992050832935,0.024706776867919535,0.030275710872432096
+Global,1990 - 2021,All ages,Both,Chronic obstructive pulmonary disease,DALYs annual % change,0.007455225670437587,,
+Global,2021,All ages,Both,Pneumoconiosis,Percent of total DALYs,0.00015522893010232257,0.0001360473167084051,0.00017625596640494869
+Global,1990 - 2021,All ages,Both,Pneumoconiosis,DALYs annual % change,-0.004545332388278979,,
+Global,2021,All ages,Both,Silicosis,Percent of total DALYs,0.00009070143075978728,0.00007460293567559996,0.0001071181472876539
+Global,1990 - 2021,All ages,Both,Silicosis,DALYs annual % change,-0.004456770996707907,,
+Global,2021,All ages,Both,Asbestosis,Percent of total DALYs,0.0000236075580848937,0.000018533444638647086,0.00002846626739179963
+Global,1990 - 2021,All ages,Both,Asbestosis,DALYs annual % change,0.01728039489406697,,
+Global,2021,All ages,Both,Coal workers pneumoconiosis,Percent of total DALYs,0.00002014870836863991,0.00001676807098517997,0.000028640982161336527
+Global,1990 - 2021,All ages,Both,Coal workers pneumoconiosis,DALYs annual % change,-0.02125262143571826,,
+Global,2021,All ages,Both,Other pneumoconiosis,Percent of total DALYs,0.000020771232889001667,0.000016760775483790337,0.000027472937704138706
+Global,1990 - 2021,All ages,Both,Other pneumoconiosis,DALYs annual % change,-0.0015935947421016788,,
+Global,2021,All ages,Both,Asthma,Percent of total DALYs,0.0074207244648456265,0.006262451577870847,0.008957266835937155
+Global,1990 - 2021,All ages,Both,Asthma,DALYs annual % change,-0.005597082177647327,,
+Global,2021,All ages,Both,Interstitial lung disease and pulmonary sarcoidosis,Percent of total DALYs,0.0014044501985149731,0.001197136531708375,0.0016113673492699739
+Global,1990 - 2021,All ages,Both,Interstitial lung disease and pulmonary sarcoidosis,DALYs annual % change,0.028483789748225193,,
+Global,2021,All ages,Both,Other chronic respiratory diseases,Percent of total DALYs,0.0009762928965194568,0.0008101575066043365,0.001188119224673309
+Global,1990 - 2021,All ages,Both,Other chronic respiratory diseases,DALYs annual % change,-0.007753704195642525,,
+Global,2021,All ages,Both,Cirrhosis and other chronic liver diseases,Percent of total DALYs,0.01612926893131795,0.01439473245773738,0.017905353367589312
+Global,1990 - 2021,All ages,Both,Cirrhosis and other chronic liver diseases,DALYs annual % change,0.004471647139799072,,
+Global,2021,All ages,Both,Chronic hepatitis B including cirrhosis,Percent of total DALYs,0.0048230704881179086,0.004028363229028012,0.005581982268991146
+Global,1990 - 2021,All ages,Both,Chronic hepatitis B including cirrhosis,DALYs annual % change,-0.000025814816631176412,,
+Global,2021,All ages,Both,Chronic hepatitis C including cirrhosis,Percent of total DALYs,0.004108549198883937,0.0034260553025758827,0.00489552543632118
+Global,1990 - 2021,All ages,Both,Chronic hepatitis C including cirrhosis,DALYs annual % change,0.006678408974424878,,
+Global,2021,All ages,Both,Cirrhosis due to alcohol,Percent of total DALYs,0.0038741057036671745,0.0031974617525388186,0.004555438164848918
+Global,1990 - 2021,All ages,Both,Cirrhosis due to alcohol,DALYs annual % change,0.010387456216606899,,
+Global,2021,All ages,Both,Cirrhosis due to other causes,Percent of total DALYs,0.002394796622779844,0.0019662121554201157,0.0028751590040657997
+Global,1990 - 2021,All ages,Both,Cirrhosis due to other causes,DALYs annual % change,-0.002269071430732138,,
+Global,2021,All ages,Both,Digestive diseases,Percent of total DALYs,0.031245831190631138,0.029323354414191278,0.03341552056228028
+Global,1990 - 2021,All ages,Both,Digestive diseases,DALYs annual % change,0.0028791139725253658,,
+Global,2021,All ages,Both,Peptic ulcer disease,Percent of total DALYs,0.0021041813168145027,0.0017548320840727056,0.0024520718920559856
+Global,1990 - 2021,All ages,Both,Peptic ulcer disease,DALYs annual % change,-0.014008746421314004,,
+Global,2021,All ages,Both,Gastritis and duodenitis,Percent of total DALYs,0.0009734514472138631,0.0007849685891930854,0.001179933284309913
+Global,1990 - 2021,All ages,Both,Gastritis and duodenitis,DALYs annual % change,0.0029394428426483712,,
+Global,2021,All ages,Both,Appendicitis,Percent of total DALYs,0.000461657489925401,0.00040678653873278214,0.0005310518604696533
+Global,1990 - 2021,All ages,Both,Appendicitis,DALYs annual % change,-0.01732557369416638,,
+Global,2021,All ages,Both,Paralytic ileus and intestinal obstruction,Percent of total DALYs,0.0023155070974464694,0.0019973828220037786,0.002606729879807819
+Global,1990 - 2021,All ages,Both,Paralytic ileus and intestinal obstruction,DALYs annual % change,-0.0027600471045440543,,
+Global,2021,All ages,Both,"Inguinal, femoral, and abdominal hernia",Percent of total DALYs,0.000812598800843137,0.0007084514762782873,0.0009477346476541287
+Global,1990 - 2021,All ages,Both,"Inguinal, femoral, and abdominal hernia",DALYs annual % change,-0.006760966189391247,,
+Global,2021,All ages,Both,Inflammatory bowel disease,Percent of total DALYs,0.0005238435673254268,0.0004693149012945569,0.0005843127456746911
+Global,1990 - 2021,All ages,Both,Inflammatory bowel disease,DALYs annual % change,0.011508064125046706,,
+Global,2021,All ages,Both,Vascular intestinal disorders,Percent of total DALYs,0.0005938093453521892,0.0005288641153170151,0.0006627888458104142
+Global,1990 - 2021,All ages,Both,Vascular intestinal disorders,DALYs annual % change,0.008779125308873224,,
+Global,2021,All ages,Both,Gallbladder and biliary diseases,Percent of total DALYs,0.0026776363317725983,0.002150678072258688,0.003469941054283345
+Global,1990 - 2021,All ages,Both,Gallbladder and biliary diseases,DALYs annual % change,0.011019647915086262,,
+Global,2021,All ages,Both,Pancreatitis,Percent of total DALYs,0.001424684135596315,0.001243058355568007,0.0016548971555998752
+Global,1990 - 2021,All ages,Both,Pancreatitis,DALYs annual % change,0.011434551570516293,,
+Global,2021,All ages,Both,Gastroesophageal reflux disease,Percent of total DALYs,0.0021867815397382043,0.0011442229129806137,0.0037024256101530224
+Global,1990 - 2021,All ages,Both,Gastroesophageal reflux disease,DALYs annual % change,0.0158657173185803,,
+Global,2021,All ages,Both,Other digestive diseases,Percent of total DALYs,0.0010424111872850562,0.0009213590908340128,0.001197929753396034
+Global,1990 - 2021,All ages,Both,Other digestive diseases,DALYs annual % change,0.0004983861387304911,,
+Global,2021,All ages,Both,Neurological disorders,Percent of total DALYs,0.038732895762497714,0.0232865703713713,0.060137351610504056
+Global,1990 - 2021,All ages,Both,Neurological disorders,DALYs annual % change,0.01607367619887026,,
+Global,2021,All ages,Both,Alzheimer's disease and other dementias,Percent of total DALYs,0.012597010519892211,0.0061778596801478226,0.026430639561546163
+Global,1990 - 2021,All ages,Both,Alzheimer's disease and other dementias,DALYs annual % change,0.02824224059172716,,
+Global,2021,All ages,Both,Parkinson's disease,Percent of total DALYs,0.0025948665253291126,0.0023356910539064296,0.002831373644653888
+Global,1990 - 2021,All ages,Both,Parkinson's disease,DALYs annual % change,0.027565851966167308,,
+Global,2021,All ages,Both,Idiopathic epilepsy,Percent of total DALYs,0.004812409357833749,0.0038229174381213234,0.005851629876936274
+Global,1990 - 2021,All ages,Both,Idiopathic epilepsy,DALYs annual % change,0.002909511892818067,,
+Global,2021,All ages,Both,Multiple sclerosis,Percent of total DALYs,0.00033764742231133434,0.0002978046662094263,0.0003801637621359062
+Global,1990 - 2021,All ages,Both,Multiple sclerosis,DALYs annual % change,0.013529269135299475,,
+Global,2021,All ages,Both,Migraine,Percent of total DALYs,0.014930361051264348,0.002282670112063154,0.03149420421696842
+Global,1990 - 2021,All ages,Both,Migraine,DALYs annual % change,0.011238010802224228,,
+Global,2021,All ages,Both,Tension-type headache,Percent of total DALYs,0.0015876539073263651,0.0004904624641099754,0.005006956212595448
+Global,1990 - 2021,All ages,Both,Tension-type headache,DALYs annual % change,0.011921266636263852,,
+Global,2021,All ages,Both,Motor neuron disease,Percent of total DALYs,0.00036162917196897,0.0003223171538417238,0.00040331371982123363
+Global,1990 - 2021,All ages,Both,Motor neuron disease,DALYs annual % change,0.01978551908736436,,
+Global,2021,All ages,Both,Other neurological disorders,Percent of total DALYs,0.0015113178065716527,0.0012859729702937544,0.0017549653004720676
+Global,1990 - 2021,All ages,Both,Other neurological disorders,DALYs annual % change,0.023482176105116968,,
+Global,2021,All ages,Both,Mental disorders,Percent of total DALYs,0.053770186059199275,0.04341792733723733,0.0653595610667965
+Global,1990 - 2021,All ages,Both,Mental disorders,DALYs annual % change,0.01426725563488167,,
+Global,2021,All ages,Both,Schizophrenia,Percent of total DALYs,0.0051394633612720855,0.0037985007326681317,0.006526999708434475
+Global,1990 - 2021,All ages,Both,Schizophrenia,DALYs annual % change,0.013456410980716385,,
+Global,2021,All ages,Both,Alcohol use disorders,Percent of total DALYs,0.005879844733392896,0.004921804328964572,0.007029490914005253
+Global,1990 - 2021,All ages,Both,Alcohol use disorders,DALYs annual % change,0.005139338815813891,,
+Global,2021,All ages,Both,Drug use disorders,Percent of total DALYs,0.005397562396219956,0.004601497729499146,0.006086859914072503
+Global,1990 - 2021,All ages,Both,Drug use disorders,DALYs annual % change,0.014508997068623656,,
+Global,2021,All ages,Both,Opioid use disorders,Percent of total DALYs,0.0038924004433541857,0.003231837312634185,0.004504659488721116
+Global,1990 - 2021,All ages,Both,Opioid use disorders,DALYs annual % change,0.020014885645002808,,
+Global,2021,All ages,Both,Cocaine use disorders,Percent of total DALYs,0.0003930247143075746,0.00032335845977651167,0.00048290943975886583
+Global,1990 - 2021,All ages,Both,Cocaine use disorders,DALYs annual % change,0.017939400956227005,,
+Global,2021,All ages,Both,Amphetamine use disorders,Percent of total DALYs,0.0005814232363949512,0.0004199056529115054,0.0007820894008265739
+Global,1990 - 2021,All ages,Both,Amphetamine use disorders,DALYs annual % change,-0.004012142546792827,,
+Global,2021,All ages,Both,Cannabis use disorders,Percent of total DALYs,0.00022568730015961791,0.00014422543911739798,0.00032707109372221083
+Global,1990 - 2021,All ages,Both,Cannabis use disorders,DALYs annual % change,0.005640191719650609,,
+Global,2021,All ages,Both,Other drug use disorders,Percent of total DALYs,0.000305026702003628,0.00028264618203983747,0.0003295566617931433
+Global,1990 - 2021,All ages,Both,Other drug use disorders,DALYs annual % change,0.0032040519474435185,,
+Global,2021,All ages,Both,Depressive disorders,Percent of total DALYs,0.019472238599131234,0.014578153610871093,0.025399274685922762
+Global,1990 - 2021,All ages,Both,Depressive disorders,DALYs annual % change,0.017155775620193256,,
+Global,2021,All ages,Both,Major depressive disorder,Percent of total DALYs,0.01591086990616084,0.011418522257735094,0.021243887458267163
+Global,1990 - 2021,All ages,Both,Major depressive disorder,DALYs annual % change,0.01769272352753219,,
+Global,2021,All ages,Both,Dysthymia,Percent of total DALYs,0.003561368692970389,0.002430760291020925,0.004891058703978811
+Global,1990 - 2021,All ages,Both,Dysthymia,DALYs annual % change,0.01486038569498795,,
+Global,2021,All ages,Both,Bipolar disorder,Percent of total DALYs,0.0027723533595426777,0.001851952268343943,0.0039026910281810346
+Global,1990 - 2021,All ages,Both,Bipolar disorder,DALYs annual % change,0.012146104957290455,,
+Global,2021,All ages,Both,Anxiety disorders,Percent of total DALYs,0.014704423089515476,0.010636726470199398,0.019119844716685163
+Global,1990 - 2021,All ages,Both,Anxiety disorders,DALYs annual % change,0.01630704761961259,,
+Global,2021,All ages,Both,Eating disorders,Percent of total DALYs,0.001175538338311122,0.0007436976095300986,0.00174962461083063
+Global,1990 - 2021,All ages,Both,Eating disorders,DALYs annual % change,0.011438399123455217,,
+Global,2021,All ages,Both,Anorexia nervosa,Percent of total DALYs,0.00027595182055783655,0.0001787133839763713,0.000421893835652594
+Global,1990 - 2021,All ages,Both,Anorexia nervosa,DALYs annual % change,0.007020975349729195,,
+Global,2021,All ages,Both,Bulimia nervosa,Percent of total DALYs,0.0008995865177532842,0.0005350088930265379,0.001427474731472396
+Global,1990 - 2021,All ages,Both,Bulimia nervosa,DALYs annual % change,0.012924331700676119,,
+Global,2021,All ages,Both,Autism spectrum disorders,Percent of total DALYs,0.004010733789525755,0.0027890052625006542,0.005597384867367242
+Global,1990 - 2021,All ages,Both,Autism spectrum disorders,DALYs annual % change,0.008897807085161217,,
+Global,2021,All ages,Both,Attention-deficit/hyperactivity disorder,Percent of total DALYs,0.0003558265572648674,0.0002057259703986033,0.0005523480470505587
+Global,1990 - 2021,All ages,Both,Attention-deficit/hyperactivity disorder,DALYs annual % change,0.0019695413796186004,,
+Global,2021,All ages,Both,Conduct disorder,Percent of total DALYs,0.0017272008721907657,0.0009906440615570532,0.002599815132082352
+Global,1990 - 2021,All ages,Both,Conduct disorder,DALYs annual % change,0.0038354611433229816,,
+Global,2021,All ages,Both,Idiopathic developmental intellectual disability,Percent of total DALYs,0.00131449586536614,0.0006309762065969364,0.0021927044447868334
+Global,1990 - 2021,All ages,Both,Idiopathic developmental intellectual disability,DALYs annual % change,0.0013240964085238542,,
+Global,2021,All ages,Both,Other mental disorders,Percent of total DALYs,0.003097912227079138,0.002128201663873467,0.004395937722064105
+Global,1990 - 2021,All ages,Both,Other mental disorders,DALYs annual % change,0.014877041398161716,,
+Global,2021,All ages,Both,Diabetes mellitus,Percent of total DALYs,0.027341160737610844,0.024601316099392437,0.030467476793658535
+Global,1990 - 2021,All ages,Both,Diabetes mellitus,DALYs annual % change,0.030488604502717637,,
+Global,2021,All ages,Both,Acute glomerulonephritis,Percent of total DALYs,0.00010852822797446513,0.00007173836501923238,0.00014059537826676484
+Global,1990 - 2021,All ages,Both,Acute glomerulonephritis,DALYs annual % change,-0.022728023541256775,,
+Global,2021,All ages,Both,Chronic kidney disease,Percent of total DALYs,0.01543667398013155,0.0141896034264789,0.016641562957315406
+Global,1990 - 2021,All ages,Both,Chronic kidney disease,DALYs annual % change,0.02112207619408611,,
+Global,2021,All ages,Both,Chronic kidney disease due to hypertension,Percent of total DALYs,0.0037695354654498827,0.0031941009215445976,0.004378825086886945
+Global,1990 - 2021,All ages,Both,Chronic kidney disease due to hypertension,DALYs annual % change,0.026058801721865442,,
+Global,2021,All ages,Both,Chronic kidney disease due to glomerulonephritis,Percent of total DALYs,0.002417849182219071,0.002064795507842429,0.002814925302998572
+Global,1990 - 2021,All ages,Both,Chronic kidney disease due to glomerulonephritis,DALYs annual % change,0.01646983039378837,,
+Global,2021,All ages,Both,Chronic kidney disease due to other and unspecified causes,Percent of total DALYs,0.003985865708914862,0.0035715159165019767,0.004334203334266597
+Global,1990 - 2021,All ages,Both,Chronic kidney disease due to other and unspecified causes,DALYs annual % change,0.015928871894963507,,
+Global,2021,All ages,Both,Urinary diseases and male infertility,Percent of total DALYs,0.003938181249329359,0.0035008214520975325,0.004338687534535592
+Global,1990 - 2021,All ages,Both,Urinary diseases and male infertility,DALYs annual % change,0.0178877460853868,,
+Global,2021,All ages,Both,Urinary tract infections and interstitial nephritis,Percent of total DALYs,0.0023794727499288123,0.00210562090223248,0.002630586113064505
+Global,1990 - 2021,All ages,Both,Urinary tract infections and interstitial nephritis,DALYs annual % change,0.019181258308574322,,
+Global,2021,All ages,Both,Urolithiasis,Percent of total DALYs,0.00024041280649430844,0.00019906475023668857,0.0002867246947383556
+Global,1990 - 2021,All ages,Both,Urolithiasis,DALYs annual % change,0.007376160572814173,,
+Global,2021,All ages,Both,Benign prostatic hyperplasia,Percent of total DALYs,0.0007717498351956834,0.0004998105547494844,0.0011313103173910878
+Global,1990 - 2021,All ages,Both,Benign prostatic hyperplasia,DALYs annual % change,0.022050313077891407,,
+Global,2021,All ages,Both,Male infertility,Percent of total DALYs,0.00010968262604509489,0.00004109067552414945,0.00024241399514963598
+Global,1990 - 2021,All ages,Both,Male infertility,DALYs annual % change,0.014467583745183341,,
+Global,2021,All ages,Both,Other urinary diseases,Percent of total DALYs,0.00043686323166546476,0.0003345102804727159,0.0005122587790792694
+Global,1990 - 2021,All ages,Both,Other urinary diseases,DALYs annual % change,0.012334026503986453,,
+Global,2021,All ages,Both,Gynecological diseases,Percent of total DALYs,0.009581672404902061,0.007257655624025602,0.012501179241228552
+Global,1990 - 2021,All ages,Both,Gynecological diseases,DALYs annual % change,0.009958639238952474,,
+Global,2021,All ages,Both,Uterine fibroids,Percent of total DALYs,0.000049505478938459165,0.00003611402611127762,0.00006360533211221807
+Global,1990 - 2021,All ages,Both,Uterine fibroids,DALYs annual % change,0.01475275560513783,,
+Global,2021,All ages,Both,Polycystic ovarian syndrome,Percent of total DALYs,0.00020955772645190124,0.00009606495569205047,0.0004102066144407898
+Global,1990 - 2021,All ages,Both,Polycystic ovarian syndrome,DALYs annual % change,0.016768348865088274,,
+Global,2021,All ages,Both,Female infertility,Percent of total DALYs,0.00020754987970884314,0.00007539774849122261,0.0004915528389063148
+Global,1990 - 2021,All ages,Both,Female infertility,DALYs annual % change,0.016212914590989932,,
+Global,2021,All ages,Both,Endometriosis,Percent of total DALYs,0.0007081074156609198,0.0004349952383923369,0.0010446675962812485
+Global,1990 - 2021,All ages,Both,Endometriosis,DALYs annual % change,0.00014311870828929638,,
+Global,2021,All ages,Both,Genital prolapse,Percent of total DALYs,0.00013443676019113697,0.00007020390290932296,0.00024893322634462426
+Global,1990 - 2021,All ages,Both,Genital prolapse,DALYs annual % change,0.013110664428856758,,
+Global,2021,All ages,Both,Premenstrual syndrome,Percent of total DALYs,0.0027989461367758954,0.001805671737562678,0.004148493837818658
+Global,1990 - 2021,All ages,Both,Premenstrual syndrome,DALYs annual % change,0.009250314231414423,,
+Global,2021,All ages,Both,Other gynecological diseases,Percent of total DALYs,0.005473569007174901,0.003927032469847504,0.007249411315368129
+Global,1990 - 2021,All ages,Both,Other gynecological diseases,DALYs annual % change,0.011270709371180972,,
+Global,2021,All ages,Both,Hemoglobinopathies and hemolytic anemias,Percent of total DALYs,0.004124371259060837,0.0033887913774484444,0.004902509749751581
+Global,1990 - 2021,All ages,Both,Hemoglobinopathies and hemolytic anemias,DALYs annual % change,0.001840898293758551,,
+Global,2021,All ages,Both,Thalassemias,Percent of total DALYs,0.0002841166776905578,0.00020463723546653968,0.0003638273646612031
+Global,1990 - 2021,All ages,Both,Thalassemias,DALYs annual % change,-0.020364726377927283,,
+Global,2021,All ages,Both,Sickle cell disorders,Percent of total DALYs,0.0010471231390393621,0.000792907218075957,0.0013053965275843299
+Global,1990 - 2021,All ages,Both,Sickle cell disorders,DALYs annual % change,0.008660229517012032,,
+Global,2021,All ages,Both,G6PD deficiency,Percent of total DALYs,0.00013086045857675963,0.00009354732433733011,0.00017928266323626653
+Global,1990 - 2021,All ages,Both,G6PD deficiency,DALYs annual % change,0.006051174477947482,,
+Global,2021,All ages,Both,Other hemoglobinopathies and hemolytic anemias,Percent of total DALYs,0.0013776287671680425,0.0010951564381396445,0.0017017071538069214
+Global,1990 - 2021,All ages,Both,Other hemoglobinopathies and hemolytic anemias,DALYs annual % change,0.0024403367889470565,,
+Global,2021,All ages,Both,"Endocrine, metabolic, blood, and immune disorders",Percent of total DALYs,0.004452936856539242,0.0035731592295352096,0.005665024920597754
+Global,1990 - 2021,All ages,Both,"Endocrine, metabolic, blood, and immune disorders",DALYs annual % change,0.01108059387392241,,
+Global,2021,All ages,Both,Musculoskeletal disorders,Percent of total DALYs,0.0559366235738043,0.04399867907876333,0.06993252969738664
+Global,1990 - 2021,All ages,Both,Musculoskeletal disorders,DALYs annual % change,0.016770497727629695,,
+Global,2021,All ages,Both,Rheumatoid arthritis,Percent of total DALYs,0.0010647676091172563,0.0008452796609910416,0.0013271506486336668
+Global,1990 - 2021,All ages,Both,Rheumatoid arthritis,DALYs annual % change,0.018680373793368094,,
+Global,2021,All ages,Both,Osteoarthritis,Percent of total DALYs,0.007341617498188567,0.003717911369942094,0.014381341458895879
+Global,1990 - 2021,All ages,Both,Osteoarthritis,DALYs annual % change,0.02453792501379304,,
+Global,2021,All ages,Both,Low back pain,Percent of total DALYs,0.024248763811171834,0.018649643224252124,0.030587253127128282
+Global,1990 - 2021,All ages,Both,Low back pain,DALYs annual % change,0.011981241251428649,,
+Global,2021,All ages,Both,Neck pain,Percent of total DALYs,0.0070501738682665,0.005004466813929634,0.009406111191853488
+Global,1990 - 2021,All ages,Both,Neck pain,DALYs annual % change,0.015148933107968205,,
+Global,2021,All ages,Both,Gout,Percent of total DALYs,0.0006047123913055734,0.00042437364144317605,0.000845988595090896
+Global,1990 - 2021,All ages,Both,Gout,DALYs annual % change,0.026115641418762506,,
+Global,2021,All ages,Both,Other musculoskeletal disorders,Percent of total DALYs,0.015626588395754534,0.011669945221414273,0.02054639060259015
+Global,1990 - 2021,All ages,Both,Other musculoskeletal disorders,DALYs annual % change,0.022296569998538778,,
+Global,2021,All ages,Both,Other non-communicable diseases,Percent of total DALYs,0.049230727419808336,0.043571423409829516,0.056271813906962495
+Global,1990 - 2021,All ages,Both,Other non-communicable diseases,DALYs annual % change,-0.005390356675207549,,
+Global,2021,All ages,Both,Congenital birth defects,Percent of total DALYs,0.01815854957206037,0.016067219543581507,0.021235783130584607
+Global,1990 - 2021,All ages,Both,Congenital birth defects,DALYs annual % change,-0.02047605822890995,,
+Global,2021,All ages,Both,Neural tube defects,Percent of total DALYs,0.0018375305819859661,0.0015024150522349186,0.0022211230599373253
+Global,1990 - 2021,All ages,Both,Neural tube defects,DALYs annual % change,-0.024679605480712876,,
+Global,2021,All ages,Both,Congenital heart anomalies,Percent of total DALYs,0.007747786286722411,0.006396968787974364,0.009308025626497265
+Global,1990 - 2021,All ages,Both,Congenital heart anomalies,DALYs annual % change,-0.027416912949507283,,
+Global,2021,All ages,Both,Orofacial clefts,Percent of total DALYs,0.00014140784819495025,0.00009000704907753114,0.00023244012750338485
+Global,1990 - 2021,All ages,Both,Orofacial clefts,DALYs annual % change,-0.04069449759237695,,
+Global,2021,All ages,Both,Down syndrome,Percent of total DALYs,0.0008168660675467929,0.0006154277631389541,0.001298940079605381
+Global,1990 - 2021,All ages,Both,Down syndrome,DALYs annual % change,-0.009155828870401832,,
+Global,2021,All ages,Both,Turner syndrome,Percent of total DALYs,0.0000031862786984264433,0.0000014894703983835885,0.000005566841462976782
+Global,1990 - 2021,All ages,Both,Turner syndrome,DALYs annual % change,0.004788949433217369,,
+Global,2021,All ages,Both,Klinefelter syndrome,Percent of total DALYs,0.0000022623913911447617,0.000001159132431867961,0.0000044385124554698084
+Global,1990 - 2021,All ages,Both,Klinefelter syndrome,DALYs annual % change,0.006637444064613914,,
+Global,2021,All ages,Both,Other chromosomal abnormalities,Percent of total DALYs,0.0007706657264760699,0.0006537647681532352,0.0011067667266531959
+Global,1990 - 2021,All ages,Both,Other chromosomal abnormalities,DALYs annual % change,-0.0005954264331796346,,
+Global,2021,All ages,Both,Congenital musculoskeletal and limb anomalies,Percent of total DALYs,0.0013341772373104265,0.0010599464553770841,0.0016616552658731474
+Global,1990 - 2021,All ages,Both,Congenital musculoskeletal and limb anomalies,DALYs annual % change,-0.003914109693149902,,
+Global,2021,All ages,Both,Urogenital congenital anomalies,Percent of total DALYs,0.00030585223602413596,0.00023085699737391028,0.0004298503722792125
+Global,1990 - 2021,All ages,Both,Urogenital congenital anomalies,DALYs annual % change,-0.008929624295208717,,
+Global,2021,All ages,Both,Digestive congenital anomalies,Percent of total DALYs,0.0015380443057388437,0.0011845918350188397,0.0018804302140260163
+Global,1990 - 2021,All ages,Both,Digestive congenital anomalies,DALYs annual % change,-0.01749405522666136,,
+Global,2021,All ages,Both,Other congenital birth defects,Percent of total DALYs,0.0036607706119712114,0.0030027973907868375,0.004940572500586797
+Global,1990 - 2021,All ages,Both,Other congenital birth defects,DALYs annual % change,-0.011652262745047992,,
+Global,2021,All ages,Both,Skin and subcutaneous diseases,Percent of total DALYs,0.014486979534746824,0.010279574418685811,0.019632050746361193
+Global,1990 - 2021,All ages,Both,Skin and subcutaneous diseases,DALYs annual % change,0.009024490099420532,,
+Global,2021,All ages,Both,Dermatitis,Percent of total DALYs,0.0028221025505397014,0.0018065979972903096,0.004217458137178991
+Global,1990 - 2021,All ages,Both,Dermatitis,DALYs annual % change,0.005307147632589541,,
+Global,2021,All ages,Both,Psoriasis,Percent of total DALYs,0.0012765158304676228,0.0009837200280387618,0.001609794804267245
+Global,1990 - 2021,All ages,Both,Psoriasis,DALYs annual % change,0.016297290135542798,,
+Global,2021,All ages,Both,Cellulitis,Percent of total DALYs,0.00030418624320948827,0.0002523741142372039,0.00034358453302083913
+Global,1990 - 2021,All ages,Both,Cellulitis,DALYs annual % change,0.01919634567052478,,
+Global,2021,All ages,Both,Pyoderma,Percent of total DALYs,0.00048379782836503656,0.00040767002664908176,0.0005613148731392534
+Global,1990 - 2021,All ages,Both,Pyoderma,DALYs annual % change,0.004670377671481246,,
+Global,2021,All ages,Both,Scabies,Percent of total DALYs,0.0018337635243144816,0.0010803586465843178,0.002827771247054695
+Global,1990 - 2021,All ages,Both,Scabies,DALYs annual % change,0.005974768136435943,,
+Global,2021,All ages,Both,Fungal skin diseases,Percent of total DALYs,0.0011838130174270628,0.000495180950756011,0.0024117963625037006
+Global,1990 - 2021,All ages,Both,Fungal skin diseases,DALYs annual % change,0.012966800065118378,,
+Global,2021,All ages,Both,Viral skin diseases,Percent of total DALYs,0.0014486970121804458,0.0009749446084435732,0.002053857610255138
+Global,1990 - 2021,All ages,Both,Viral skin diseases,DALYs annual % change,0.0063357368791677375,,
+Global,2021,All ages,Both,Acne vulgaris,Percent of total DALYs,0.0017697864220480816,0.001158018087836127,0.0026638830677958706
+Global,1990 - 2021,All ages,Both,Acne vulgaris,DALYs annual % change,0.008191434806500126,,
+Global,2021,All ages,Both,Alopecia areata,Percent of total DALYs,0.00019738351699513014,0.00013725711512422908,0.00026338506299194525
+Global,1990 - 2021,All ages,Both,Alopecia areata,DALYs annual % change,0.009837968559419952,,
+Global,2021,All ages,Both,Pruritus,Percent of total DALYs,0.0002937995576304518,0.0001467479670401465,0.0005070910365528035
+Global,1990 - 2021,All ages,Both,Pruritus,DALYs annual % change,0.015712920137059314,,
+Global,2021,All ages,Both,Urticaria,Percent of total DALYs,0.0013744913867537749,0.0009914773032250516,0.001834709736988863
+Global,1990 - 2021,All ages,Both,Urticaria,DALYs annual % change,0.006866814969312342,,
+Global,2021,All ages,Both,Decubitus ulcer,Percent of total DALYs,0.0002791938965033049,0.0002130340739775008,0.0003181189823294521
+Global,1990 - 2021,All ages,Both,Decubitus ulcer,DALYs annual % change,0.018321334324184813,,
+Global,2021,All ages,Both,Other skin and subcutaneous diseases,Percent of total DALYs,0.0012194487483122415,0.0006681240937723393,0.0020467983390063246
+Global,1990 - 2021,All ages,Both,Other skin and subcutaneous diseases,DALYs annual % change,0.01668544854264436,,
+Global,2021,All ages,Both,Sense organ diseases,Percent of total DALYs,0.026698525043877073,0.019505177492742602,0.035455433297502836
+Global,1990 - 2021,All ages,Both,Sense organ diseases,DALYs annual % change,0.019823059497545415,,
+Global,2021,All ages,Both,Glaucoma,Percent of total DALYs,0.000262615859622489,0.0001966574596781014,0.0003414472216674647
+Global,1990 - 2021,All ages,Both,Glaucoma,DALYs annual % change,0.012144152629493876,,
+Global,2021,All ages,Both,Cataract,Percent of total DALYs,0.0022642095723354517,0.0017691266658535522,0.0028675059437366104
+Global,1990 - 2021,All ages,Both,Cataract,DALYs annual % change,0.017489196790253493,,
+Global,2021,All ages,Both,Age-related macular degeneration,Percent of total DALYs,0.00019971358174482106,0.00014868248898042207,0.0002610355962622958
+Global,1990 - 2021,All ages,Both,Age-related macular degeneration,DALYs annual % change,0.017318779842999142,,
+Global,2021,All ages,Both,Age-related and other hearing loss,Percent of total DALYs,0.015347505738575113,0.01141509992994039,0.019970541296417316
+Global,1990 - 2021,All ages,Both,Age-related and other hearing loss,DALYs annual % change,0.020247887465037036,,
+Global,2021,All ages,Both,Other vision loss,Percent of total DALYs,0.0010376740930019318,0.0007996060837016806,0.0013082683043712639
+Global,1990 - 2021,All ages,Both,Other vision loss,DALYs annual % change,0.013338860961845276,,
+Global,2021,All ages,Both,Other sense organ diseases,Percent of total DALYs,0.0012820466997579148,0.0008214327462634395,0.0018549300136299245
+Global,1990 - 2021,All ages,Both,Other sense organ diseases,DALYs annual % change,0.017947772456643002,,
+Global,2021,All ages,Both,Oral disorders,Percent of total DALYs,0.008021443497539417,0.00507731545698937,0.011725056594489188
+Global,1990 - 2021,All ages,Both,Oral disorders,DALYs annual % change,0.015604629041871024,,
+Global,2021,All ages,Both,Caries of deciduous teeth,Percent of total DALYs,0.00006925003370816032,0.000031097092337129036,0.0001280276730175255
+Global,1990 - 2021,All ages,Both,Caries of deciduous teeth,DALYs annual % change,-0.0013916212217452712,,
+Global,2021,All ages,Both,Caries of permanent teeth,Percent of total DALYs,0.0007583944348007688,0.00035940760198239233,0.0013910382011287038
+Global,1990 - 2021,All ages,Both,Caries of permanent teeth,DALYs annual % change,0.010043402065742002,,
+Global,2021,All ages,Both,Periodontal diseases,Percent of total DALYs,0.0023829498620654534,0.0009861915756088037,0.004659686517932982
+Global,1990 - 2021,All ages,Both,Periodontal diseases,DALYs annual % change,0.017289147134107043,,
+Global,2021,All ages,Both,Edentulism,Percent of total DALYs,0.0033109692373067207,0.002267966133049246,0.004349276762696874
+Global,1990 - 2021,All ages,Both,Edentulism,DALYs annual % change,0.01865024633606464,,
+Global,2021,All ages,Both,Other oral disorders,Percent of total DALYs,0.0014998799296583214,0.0009706416211445647,0.002093884189014664
+Global,1990 - 2021,All ages,Both,Other oral disorders,DALYs annual % change,0.011024555491059771,,
+Global,2021,All ages,Both,Sudden infant death syndrome,Percent of total DALYs,0.0009535725803770304,0.0005521361139640818,0.0012713139540133644
+Global,1990 - 2021,All ages,Both,Sudden infant death syndrome,DALYs annual % change,-0.03272266923808002,,
+Global,2021,All ages,Both,Injuries,Percent of total DALYs,0.0860104998203871,0.08100968458180553,0.09075895168363926
+Global,1990 - 2021,All ages,Both,Injuries,DALYs annual % change,-0.007280355599992452,,
+Global,2021,All ages,Both,Transport injuries,Percent of total DALYs,0.024175411129787015,0.02278786054979457,0.02556374394292614
+Global,1990 - 2021,All ages,Both,Transport injuries,DALYs annual % change,-0.0057834528427939,,
+Global,2021,All ages,Both,Road injuries,Percent of total DALYs,0.022618091830184664,0.021340753456049345,0.023870426679923458
+Global,1990 - 2021,All ages,Both,Road injuries,DALYs annual % change,-0.005858282846539277,,
+Global,2021,All ages,Both,Pedestrian road injuries,Percent of total DALYs,0.007398570673165802,0.006563157077189076,0.008176369286181928
+Global,1990 - 2021,All ages,Both,Pedestrian road injuries,DALYs annual % change,-0.014096607907745659,,
+Global,2021,All ages,Both,Cyclist road injuries,Percent of total DALYs,0.0014116698899230174,0.001271825665600136,0.00155765698438247
+Global,1990 - 2021,All ages,Both,Cyclist road injuries,DALYs annual % change,0.004766230591998923,,
+Global,2021,All ages,Both,Motorcyclist road injuries,Percent of total DALYs,0.0048741739378027876,0.0043496562554229245,0.005318808665570968
+Global,1990 - 2021,All ages,Both,Motorcyclist road injuries,DALYs annual % change,0.007887433159552695,,
+Global,2021,All ages,Both,Motor vehicle road injuries,Percent of total DALYs,0.008610520342437767,0.007953667633802806,0.009299163049725969
+Global,1990 - 2021,All ages,Both,Motor vehicle road injuries,DALYs annual % change,-0.005393372471328479,,
+Global,2021,All ages,Both,Other road injuries,Percent of total DALYs,0.0003231569868552681,0.00029752967881602606,0.0003533290781627526
+Global,1990 - 2021,All ages,Both,Other road injuries,DALYs annual % change,-0.011164719204040639,,
+Global,2021,All ages,Both,Other transport injuries,Percent of total DALYs,0.001557319299602361,0.0014530786848248915,0.0016862013222098762
+Global,1990 - 2021,All ages,Both,Other transport injuries,DALYs annual % change,-0.004676606361653452,,
+Global,2021,All ages,Both,Unintentional injuries,Percent of total DALYs,0.037484919515891224,0.03352926502653886,0.04055082430520614
+Global,1990 - 2021,All ages,Both,Unintentional injuries,DALYs annual % change,-0.010444117089220103,,
+Global,2021,All ages,Both,Falls,Percent of total DALYs,0.015171385914586015,0.013329464460523788,0.01708954037428042
+Global,1990 - 2021,All ages,Both,Falls,DALYs annual % change,0.009344885649854218,,
+Global,2021,All ages,Both,Drowning,Percent of total DALYs,0.005452682925639992,0.004853927480256503,0.006123592156067998
+Global,1990 - 2021,All ages,Both,Drowning,DALYs annual % change,-0.03227678008480393,,
+Global,2021,All ages,Both,"Fire, heat, and hot substances",Percent of total DALYs,0.0029367583136655348,0.0024347586276597857,0.0033907367312425523
+Global,1990 - 2021,All ages,Both,"Fire, heat, and hot substances",DALYs annual % change,-0.013250925477887022,,
+Global,2021,All ages,Both,Poisonings,Percent of total DALYs,0.0010002294649807159,0.0007372450010094071,0.0011795471016236088
+Global,1990 - 2021,All ages,Both,Poisonings,DALYs annual % change,-0.014995387909551367,,
+Global,2021,All ages,Both,Poisoning by carbon monoxide,Percent of total DALYs,0.00042692691269276603,0.0003040066555656431,0.0005049837947594081
+Global,1990 - 2021,All ages,Both,Poisoning by carbon monoxide,DALYs annual % change,-0.01904392834444295,,
+Global,2021,All ages,Both,Poisoning by other means,Percent of total DALYs,0.0005733025522879509,0.0003869246407145953,0.0007056034673274584
+Global,1990 - 2021,All ages,Both,Poisoning by other means,DALYs annual % change,-0.01161174704034016,,
+Global,2021,All ages,Both,Exposure to mechanical forces,Percent of total DALYs,0.003572550142433396,0.002939945141727302,0.004213919488567305
+Global,1990 - 2021,All ages,Both,Exposure to mechanical forces,DALYs annual % change,-0.0055366636994940615,,
+Global,2021,All ages,Both,Unintentional firearm injuries,Percent of total DALYs,0.00036426213595652714,0.0002764351211655897,0.00045041182329348445
+Global,1990 - 2021,All ages,Both,Unintentional firearm injuries,DALYs annual % change,-0.015298605948437252,,
+Global,2021,All ages,Both,Other exposure to mechanical forces,Percent of total DALYs,0.0032082880064768643,0.002603515795273994,0.0038270073998055345
+Global,1990 - 2021,All ages,Both,Other exposure to mechanical forces,DALYs annual % change,-0.0042156475310047535,,
+Global,2021,All ages,Both,Adverse effects of medical treatment,Percent of total DALYs,0.0016835495624607994,0.001370012206757843,0.001892732555364261
+Global,1990 - 2021,All ages,Both,Adverse effects of medical treatment,DALYs annual % change,-0.008961634157066762,,
+Global,2021,All ages,Both,Animal contact,Percent of total DALYs,0.001697472507984412,0.0013322586488838124,0.002104406152509731
+Global,1990 - 2021,All ages,Both,Animal contact,DALYs annual % change,-0.013931325664079609,,
+Global,2021,All ages,Both,Venomous animal contact,Percent of total DALYs,0.0013974146104468426,0.001061985059967087,0.0017447164207669695
+Global,1990 - 2021,All ages,Both,Venomous animal contact,DALYs annual % change,-0.014653612819362916,,
+Global,2021,All ages,Both,Non-venomous animal contact,Percent of total DALYs,0.0003000578975375665,0.0002493002645189842,0.0003647412985445112
+Global,1990 - 2021,All ages,Both,Non-venomous animal contact,DALYs annual % change,-0.010336521283889934,,
+Global,2021,All ages,Both,Foreign body,Percent of total DALYs,0.001966642599248487,0.0014921821650916243,0.002210098394806166
+Global,1990 - 2021,All ages,Both,Foreign body,DALYs annual % change,-0.016155060252883997,,
+Global,2021,All ages,Both,Pulmonary aspiration and foreign body in airway,Percent of total DALYs,0.0015901067106261545,0.0011653348488215864,0.0018450228240165937
+Global,1990 - 2021,All ages,Both,Pulmonary aspiration and foreign body in airway,DALYs annual % change,-0.01697542344827823,,
+Global,2021,All ages,Both,Foreign body in eyes,Percent of total DALYs,0.00011777351996724276,0.00006520423046611629,0.00019530692310070483
+Global,1990 - 2021,All ages,Both,Foreign body in eyes,DALYs annual % change,0.006253173913650148,,
+Global,2021,All ages,Both,Foreign body in other body part,Percent of total DALYs,0.00025876236865508964,0.0002020939937605909,0.000323440211505181
+Global,1990 - 2021,All ages,Both,Foreign body in other body part,DALYs annual % change,-0.018326542438117367,,
+Global,2021,All ages,Both,Self-harm and interpersonal violence,Percent of total DALYs,0.024350169174708898,0.02252162570139566,0.02640212587370785
+Global,1990 - 2021,All ages,Both,Self-harm and interpersonal violence,DALYs annual % change,-0.003389952502752996,,
+Global,2021,All ages,Both,Self-harm,Percent of total DALYs,0.011649235073595167,0.01055957169574475,0.012742935467248535
+Global,1990 - 2021,All ages,Both,Self-harm,DALYs annual % change,-0.004657425290725154,,
+Global,2021,All ages,Both,Self-harm by firearm,Percent of total DALYs,0.00088082325451398,0.0006846475719722349,0.0011188515318582993
+Global,1990 - 2021,All ages,Both,Self-harm by firearm,DALYs annual % change,-0.006243382292946616,,
+Global,2021,All ages,Both,Self-harm by other specified means,Percent of total DALYs,0.010768411819081199,0.009742541315875264,0.011776210205278734
+Global,1990 - 2021,All ages,Both,Self-harm by other specified means,DALYs annual % change,-0.0045241821498304855,,
+Global,2021,All ages,Both,Interpersonal violence,Percent of total DALYs,0.009317839044403654,0.00872783210476143,0.009998905449952078
+Global,1990 - 2021,All ages,Both,Interpersonal violence,DALYs annual % change,-0.0018617037406401795,,
+Global,2021,All ages,Both,Physical violence by firearm,Percent of total DALYs,0.0034797558920909434,0.003168484868753551,0.0038106107923059733
+Global,1990 - 2021,All ages,Both,Physical violence by firearm,DALYs annual % change,0.006953143012022756,,
+Global,2021,All ages,Both,Physical violence by sharp object,Percent of total DALYs,0.0018063728134402814,0.0016956229789949233,0.001917144262959913
+Global,1990 - 2021,All ages,Both,Physical violence by sharp object,DALYs annual % change,-0.009108573505767067,,
+Global,2021,All ages,Both,Physical violence by other means,Percent of total DALYs,0.003321203009551586,0.0031017417132294042,0.0035556304530243743
+Global,1990 - 2021,All ages,Both,Physical violence by other means,DALYs annual % change,-0.007041646603622043,,
+Global,2021,All ages,Both,Exposure to forces of nature,Percent of total DALYs,0.00037920589336567443,0.0003239556046325748,0.0004552504464145219
+Global,1990 - 2021,All ages,Both,Exposure to forces of nature,DALYs annual % change,-0.041506016220429105,,
+Global,2021,All ages,Both,Maternal deaths aggravated by HIV/AIDS,Percent of total DALYs,0.00002472750515298036,0.000014993134276277306,0.00003455602535174034
+Global,1990 - 2021,All ages,Both,Maternal deaths aggravated by HIV/AIDS,DALYs annual % change,0.009730151400039735,,
+Global,2021,All ages,Both,Thalassemias trait,Percent of total DALYs,0.000683259410388596,0.00047382647288549167,0.0009512188854538747
+Global,1990 - 2021,All ages,Both,Thalassemias trait,DALYs annual % change,-0.0029229783867850915,,
+Global,2021,All ages,Both,Sickle cell trait,Percent of total DALYs,0.0005958989701814458,0.0004140635138443834,0.0008031365353939688
+Global,1990 - 2021,All ages,Both,Sickle cell trait,DALYs annual % change,0.011041807678484512,,
+Global,2021,All ages,Both,G6PD trait,Percent of total DALYs,0.000005483836016070959,0.000003976315517873144,0.000007407602531519851
+Global,1990 - 2021,All ages,Both,G6PD trait,DALYs annual % change,0.011079532258432914,,
+Global,2021,All ages,Both,Environmental heat and cold exposure,Percent of total DALYs,0.0005838697863893528,0.00042506516163203585,0.0006868902930583379
+Global,1990 - 2021,All ages,Both,Environmental heat and cold exposure,DALYs annual % change,-0.010977782658594153,,
+Global,2021,All ages,Both,Ebola,Percent of total DALYs,9.0446631298516e-7,7.208466376783582e-7,0.000001076372462504552
+Global,1990 - 2021,All ages,Both,Ebola,DALYs annual % change,0,,
+Global,2021,All ages,Both,Acute lymphoid leukemia,Percent of total DALYs,0.0012920319015289191,0.0009139826952596663,0.0015353497423160865
+Global,1990 - 2021,All ages,Both,Acute lymphoid leukemia,DALYs annual % change,-0.015831264089872055,,
+Global,2021,All ages,Both,Chronic lymphoid leukemia,Percent of total DALYs,0.0003482559637940794,0.00027307952318308065,0.0004077126115599141
+Global,1990 - 2021,All ages,Both,Chronic lymphoid leukemia,DALYs annual % change,0.007384176949973931,,
+Global,2021,All ages,Both,Acute myeloid leukemia,Percent of total DALYs,0.0014369438188152998,0.0012029404252095065,0.0017231613194226905
+Global,1990 - 2021,All ages,Both,Acute myeloid leukemia,DALYs annual % change,0.0033975665487819906,,
+Global,2021,All ages,Both,Chronic myeloid leukemia,Percent of total DALYs,0.00023847088301664918,0.00016871583231521176,0.000307879657412534
+Global,1990 - 2021,All ages,Both,Chronic myeloid leukemia,DALYs annual % change,-0.017812671018071286,,
+Global,2021,All ages,Both,Non-melanoma skin cancer (squamous-cell carcinoma),Percent of total DALYs,0.00042076676542731744,0.00036037032900049237,0.0004772398270791472
+Global,1990 - 2021,All ages,Both,Non-melanoma skin cancer (squamous-cell carcinoma),DALYs annual % change,0.02228245345453271,,
+Global,2021,All ages,Both,Non-melanoma skin cancer (basal-cell carcinoma),Percent of total DALYs,6.898229678089837e-7,3.344575446274354e-7,0.0000012536547245315844
+Global,1990 - 2021,All ages,Both,Non-melanoma skin cancer (basal-cell carcinoma),DALYs annual % change,0.03580600719317526,,
+Global,2021,All ages,Both,Police conflict and executions,Percent of total DALYs,0.0003514327332099225,0.0003000572734884095,0.0004373397034439467
+Global,1990 - 2021,All ages,Both,Police conflict and executions,DALYs annual % change,0.02392030261706145,,
+Global,2021,All ages,Both,Drug-susceptible tuberculosis,Percent of total DALYs,0.014781530856338753,0.012955518393819192,0.01665328675020743
+Global,1990 - 2021,All ages,Both,Drug-susceptible tuberculosis,DALYs annual % change,-0.024636331978882174,,
+Global,2021,All ages,Both,Zika virus,Percent of total DALYs,5.46407439771505e-8,3.643953146083434e-8,8.697322313783363e-8
+Global,1990 - 2021,All ages,Both,Zika virus,DALYs annual % change,0,,
+Global,2021,All ages,Both,Guinea worm disease,Percent of total DALYs,2.947752920585225e-10,1.8094001923785583e-10,4.555125893363057e-10
+Global,1990 - 2021,All ages,Both,Guinea worm disease,DALYs annual % change,-0.3352113553647373,,
+Global,2021,All ages,Both,Alcoholic cardiomyopathy,Percent of total DALYs,0.0007596803668545478,0.0006587252481479699,0.0008688326595617041
+Global,1990 - 2021,All ages,Both,Alcoholic cardiomyopathy,DALYs annual % change,0.0073771956340875095,,
+Global,2021,All ages,Both,Sexual violence,Percent of total DALYs,0.0007105073293208326,0.00048179248875403994,0.0010361085591343825
+Global,1990 - 2021,All ages,Both,Sexual violence,DALYs annual % change,0.008896596495784543,,
+Global,2021,All ages,Both,Myocarditis,Percent of total DALYs,0.00033456020038792904,0.00028112499411319633,0.0003967617049228446
+Global,1990 - 2021,All ages,Both,Myocarditis,DALYs annual % change,-0.005730900679973213,,
+Global,2021,All ages,Both,Other leukemia,Percent of total DALYs,0.0005000905901374537,0.0003464725868844061,0.0006631100844215182
+Global,1990 - 2021,All ages,Both,Other leukemia,DALYs annual % change,0.0030078802105783335,,
+Global,2021,All ages,Both,Other cardiomyopathy,Percent of total DALYs,0.0029549897778959606,0.002635158575347118,0.0032781566255872053
+Global,1990 - 2021,All ages,Both,Other cardiomyopathy,DALYs annual % change,0.007888206370443063,,
+Global,2021,All ages,Both,Conflict and terrorism,Percent of total DALYs,0.003031662323500185,0.00249440565171005,0.0037536856761734723
+Global,1990 - 2021,All ages,Both,Conflict and terrorism,DALYs annual % change,-0.005099839112373214,,
+Global,2021,All ages,Both,Multidrug-resistant tuberculosis without extensive drug resistance,Percent of total DALYs,0.001433105260564905,0.0005955744797608671,0.0028549711570577717
+Global,1990 - 2021,All ages,Both,Multidrug-resistant tuberculosis without extensive drug resistance,DALYs annual % change,0.054825085825522625,,
+Global,2021,All ages,Both,Extensively drug-resistant tuberculosis,Percent of total DALYs,0.00009990567626462913,0.00004445665443884119,0.00019206260828181755
+Global,1990 - 2021,All ages,Both,Extensively drug-resistant tuberculosis,DALYs annual % change,0,,
+Global,2021,All ages,Both,HIV/AIDS - Drug-susceptible Tuberculosis,Percent of total DALYs,0.0034441715993832824,0.0026630489329311172,0.004218440760751019
+Global,1990 - 2021,All ages,Both,HIV/AIDS - Drug-susceptible Tuberculosis,DALYs annual % change,0.008178849807585212,,
+Global,2021,All ages,Both,HIV/AIDS - Multidrug-resistant Tuberculosis without extensive drug resistance,Percent of total DALYs,0.0003215451197760478,0.00014544400945834085,0.0005961573597640627
+Global,1990 - 2021,All ages,Both,HIV/AIDS - Multidrug-resistant Tuberculosis without extensive drug resistance,DALYs annual % change,0.09731181077392774,,
+Global,2021,All ages,Both,HIV/AIDS - Extensively drug-resistant Tuberculosis,Percent of total DALYs,0.00001461532223611672,0.0000067442466689732875,0.000025925803492822186
+Global,1990 - 2021,All ages,Both,HIV/AIDS - Extensively drug-resistant Tuberculosis,DALYs annual % change,0,,
+Global,2021,All ages,Both,Latent tuberculosis infection,Percent of total DALYs,0,0,0
+Global,1990 - 2021,All ages,Both,Latent tuberculosis infection,DALYs annual % change,0,,
+Global,2021,All ages,Both,HIV/AIDS and sexually transmitted infections,Percent of total DALYs,0.016751017527823105,0.014800302711643645,0.019748974086944593
+Global,1990 - 2021,All ages,Both,HIV/AIDS and sexually transmitted infections,DALYs annual % change,0.014680548603766549,,
+Global,2021,All ages,Both,Respiratory infections and tuberculosis,Percent of total DALYs,0.12148769007794132,0.11112137319309838,0.13273392943337253
+Global,1990 - 2021,All ages,Both,Respiratory infections and tuberculosis,DALYs annual % change,0.00206207962493993,,
+Global,2021,All ages,Both,Enteric infections,Percent of total DALYs,0.024965729446643152,0.02017129800151335,0.029962105894818965
+Global,1990 - 2021,All ages,Both,Enteric infections,DALYs annual % change,-0.03873556062424478,,
+Global,2021,All ages,Both,Typhoid and paratyphoid,Percent of total DALYs,0.0028119564136451646,0.001409625333661124,0.004868156260439375
+Global,1990 - 2021,All ages,Both,Typhoid and paratyphoid,DALYs annual % change,-0.029363376084617556,,
+Global,2021,All ages,Both,Invasive Non-typhoidal Salmonella (iNTS),Percent of total DALYs,0.001647141790885745,0.0009462977054578024,0.002660604173869768
+Global,1990 - 2021,All ages,Both,Invasive Non-typhoidal Salmonella (iNTS),DALYs annual % change,0.004811930722012665,,
+Global,2021,All ages,Both,Other infectious diseases,Percent of total DALYs,0.014431374251217335,0.011559351147801582,0.018078458375083532
+Global,1990 - 2021,All ages,Both,Other infectious diseases,DALYs annual % change,-0.0463913443542746,,
+Global,2021,All ages,Both,Maternal and neonatal disorders,Percent of total DALYs,0.06895897019640963,0.06065534380963401,0.07672861090480756
+Global,1990 - 2021,All ages,Both,Maternal and neonatal disorders,DALYs annual % change,-0.01655705871132434,,
+Global,2021,All ages,Both,"Myelodysplastic, myeloproliferative, and other hematopoietic neoplasms",Percent of total DALYs,0.00042144949479099253,0.0003723638701042714,0.0004976819569169498
+Global,1990 - 2021,All ages,Both,"Myelodysplastic, myeloproliferative, and other hematopoietic neoplasms",DALYs annual % change,0.024571426654507598,,
+Global,2021,All ages,Both,Benign and in situ intestinal neoplasms,Percent of total DALYs,0,0,0
+Global,1990 - 2021,All ages,Both,Benign and in situ intestinal neoplasms,DALYs annual % change,0,,
+Global,2021,All ages,Both,Benign and in situ cervical and uterine neoplasms,Percent of total DALYs,0,0,0
+Global,1990 - 2021,All ages,Both,Benign and in situ cervical and uterine neoplasms,DALYs annual % change,0,,
+Global,2021,All ages,Both,Other benign and in situ neoplasms,Percent of total DALYs,4.6651662431510394e-7,1.4641850043680184e-7,7.728129686482305e-7
+Global,1990 - 2021,All ages,Both,Other benign and in situ neoplasms,DALYs annual % change,-0.0019472822998515148,,
+Global,2021,All ages,Both,Non-rheumatic calcific aortic valve disease,Percent of total DALYs,0.0007793361122561115,0.0006740872925075695,0.0008693638359331905
+Global,1990 - 2021,All ages,Both,Non-rheumatic calcific aortic valve disease,DALYs annual % change,0.018873895271631323,,
+Global,2021,All ages,Both,Non-rheumatic degenerative mitral valve disease,Percent of total DALYs,0.00032739194158739465,0.0002840227590487444,0.00038149447509977784
+Global,1990 - 2021,All ages,Both,Non-rheumatic degenerative mitral valve disease,DALYs annual % change,0.00872105696989188,,
+Global,2021,All ages,Both,Other non-rheumatic valve diseases,Percent of total DALYs,0.00001803580608346393,0.000012667876881892682,0.00002300575427501954
+Global,1990 - 2021,All ages,Both,Other non-rheumatic valve diseases,DALYs annual % change,0.021380329179416388,,
+Global,2021,All ages,Both,Nonalcoholic fatty liver disease including cirrhosis,Percent of total DALYs,0.0009287469178690993,0.0006454933422357597,0.0012794043467866522
+Global,1990 - 2021,All ages,Both,Nonalcoholic fatty liver disease including cirrhosis,DALYs annual % change,0.020139415000667973,,
+Global,2021,All ages,Both,Headache disorders,Percent of total DALYs,0.01651801495859073,0.003523091465073118,0.033698933815604314
+Global,1990 - 2021,All ages,Both,Headache disorders,DALYs annual % change,0.011303057890782953,,
+Global,2021,All ages,Both,Substance use disorders,Percent of total DALYs,0.01127740712961287,0.009731774394002182,0.012787250222471121
+Global,1990 - 2021,All ages,Both,Substance use disorders,DALYs annual % change,0.009286828339219537,,
+Global,2021,All ages,Both,Diabetes and kidney diseases,Percent of total DALYs,0.04288636294571687,0.04023927618688719,0.04567278415701426
+Global,1990 - 2021,All ages,Both,Diabetes and kidney diseases,DALYs annual % change,0.02649157250493504,,
+Global,2021,All ages,Both,Diabetes mellitus type 1,Percent of total DALYs,0.0012468863901688232,0.0011212347742750792,0.001384135969629846
+Global,1990 - 2021,All ages,Both,Diabetes mellitus type 1,DALYs annual % change,0.007295172536495639,,
+Global,2021,All ages,Both,Diabetes mellitus type 2,Percent of total DALYs,0.026094274347442003,0.02340578447032178,0.029175539798469128
+Global,1990 - 2021,All ages,Both,Diabetes mellitus type 2,DALYs annual % change,0.03215295554137821,,
+Global,2021,All ages,Both,Atopic dermatitis,Percent of total DALYs,0.0019397615916282173,0.0010623931426465706,0.0031428982863771406
+Global,1990 - 2021,All ages,Both,Atopic dermatitis,DALYs annual % change,0.002257804678475542,,
+Global,2021,All ages,Both,Contact dermatitis,Percent of total DALYs,0.0007847538785181545,0.0005203818605322383,0.0011379687576157107
+Global,1990 - 2021,All ages,Both,Contact dermatitis,DALYs annual % change,0.013338914198330675,,
+Global,2021,All ages,Both,Seborrhoeic dermatitis,Percent of total DALYs,0.00009758708039332878,0.000059248000201039244,0.00014663732174205756
+Global,1990 - 2021,All ages,Both,Seborrhoeic dermatitis,DALYs annual % change,0.012434235543783858,,
+Global,2021,All ages,Both,Bacterial skin diseases,Percent of total DALYs,0.0007879840715745259,0.0006768624076979615,0.0008795336255090966
+Global,1990 - 2021,All ages,Both,Bacterial skin diseases,DALYs annual % change,0.00953419991438858,,
+Global,2021,All ages,Both,Blindness and vision loss,Percent of total DALYs,0.010068972605544029,0.0070014034888135,0.014272701696336309
+Global,1990 - 2021,All ages,Both,Blindness and vision loss,DALYs annual % change,0.01942804508132101,,
+Global,2021,All ages,Both,Upper digestive system diseases,Percent of total DALYs,0.00526441430376657,0.004147615309456978,0.006823905817355041
+Global,1990 - 2021,All ages,Both,Upper digestive system diseases,DALYs annual % change,-0.0012617275132983815,,
+Global,2021,All ages,Both,Maternal abortion and miscarriage,Percent of total DALYs,0.000350008570093656,0.0002918365517378507,0.00042265435454818753
+Global,1990 - 2021,All ages,Both,Maternal abortion and miscarriage,DALYs annual % change,-0.036855420192610885,,
+Global,2021,All ages,Both,Liver cancer due to NASH,Percent of total DALYs,0.00034594244686368046,0.0002736459065143984,0.00042449608372135603
+Global,1990 - 2021,All ages,Both,Liver cancer due to NASH,DALYs annual % change,0.025617533196198698,,
+Global,2021,All ages,Both,Chronic kidney disease due to diabetes mellitus type 1,Percent of total DALYs,0.0013463097219402827,0.0010736230153556808,0.0017036503277817303
+Global,1990 - 2021,All ages,Both,Chronic kidney disease due to diabetes mellitus type 1,DALYs annual % change,0.014398520521889387,,
+Global,2021,All ages,Both,Chronic kidney disease due to diabetes mellitus type 2,Percent of total DALYs,0.003917113901607468,0.0033243602218442697,0.004520881808031143
+Global,1990 - 2021,All ages,Both,Chronic kidney disease due to diabetes mellitus type 2,DALYs annual % change,0.028996253072576295,,
+Global,2021,All ages,Both,Refraction disorders,Percent of total DALYs,0.002284714105836815,0.0016691371650178648,0.003077366131635976
+Global,1990 - 2021,All ages,Both,Refraction disorders,DALYs annual % change,0.012477860815968108,,
+Global,2021,All ages,Both,Near vision loss,Percent of total DALYs,0.004020045393002521,0.001837149012568371,0.007557225101545934
+Global,1990 - 2021,All ages,Both,Near vision loss,DALYs annual % change,0.028496576613353423,,
+Global,2021,All ages,Both,Pulmonary Arterial Hypertension,Percent of total DALYs,0.00022310962739543731,0.0001893683659101023,0.00025742697438295474
+Global,1990 - 2021,All ages,Both,Pulmonary Arterial Hypertension,DALYs annual % change,-0.0056709731991944606,,
+Global,2021,All ages,Both,Hepatoblastoma,Percent of total DALYs,0.00007410630118739527,0.0000587083174826586,0.00009048931922394081
+Global,1990 - 2021,All ages,Both,Hepatoblastoma,DALYs annual % change,-0.02581363433184675,,
+Global,2021,All ages,Both,Burkitt lymphoma,Percent of total DALYs,0.00013624946128859135,0.00008583280678198261,0.00018103832413814217
+Global,1990 - 2021,All ages,Both,Burkitt lymphoma,DALYs annual % change,0.008854135661279124,,
+Global,2021,All ages,Both,Other non-Hodgkin lymphoma,Percent of total DALYs,0.002561810311711963,0.0023222209679393006,0.0028918018534324166
+Global,1990 - 2021,All ages,Both,Other non-Hodgkin lymphoma,DALYs annual % change,0.009495354848809931,,
+Global,2021,All ages,Both,Eye cancer,Percent of total DALYs,0.00016275051850163008,0.00011934146132332928,0.00019512086064423387
+Global,1990 - 2021,All ages,Both,Eye cancer,DALYs annual % change,0.0007946005086197173,,
+Global,2021,All ages,Both,Retinoblastoma,Percent of total DALYs,0.00008443212227089306,0.0000500350034836232,0.00011303486343163283
+Global,1990 - 2021,All ages,Both,Retinoblastoma,DALYs annual % change,-0.007944634973077885,,
+Global,2021,All ages,Both,Other eye cancers,Percent of total DALYs,0.00007831839623073697,0.000059580338902461,0.00009641843855324561
+Global,1990 - 2021,All ages,Both,Other eye cancers,DALYs annual % change,0.013976976630328354,,
+Global,2021,All ages,Both,Soft tissue and other extraosseous sarcomas,Percent of total DALYs,0.0005827618030266524,0.000494218143570118,0.0007302332126749428
+Global,1990 - 2021,All ages,Both,Soft tissue and other extraosseous sarcomas,DALYs annual % change,0.0034092447585410434,,
+Global,2021,All ages,Both,Malignant neoplasm of bone and articular cartilage,Percent of total DALYs,0.0008775345306191771,0.0007187299765041826,0.0010055100568369941
+Global,1990 - 2021,All ages,Both,Malignant neoplasm of bone and articular cartilage,DALYs annual % change,0.011694753013448507,,
+Global,2021,All ages,Both,Neuroblastoma and other peripheral nervous cell tumors,Percent of total DALYs,0.00009914889361946466,0.00007885444838580421,0.00011904833915176867
+Global,1990 - 2021,All ages,Both,Neuroblastoma and other peripheral nervous cell tumors,DALYs annual % change,0.01044163210634587,,
+Global,2021,All ages,Both,Osteoarthritis hip,Percent of total DALYs,0.00039303664204252216,0.0001910703440273822,0.0007754019204476873
+Global,1990 - 2021,All ages,Both,Osteoarthritis hip,DALYs annual % change,0.023562958947984557,,
+Global,2021,All ages,Both,Osteoarthritis knee,Percent of total DALYs,0.004142121664437996,0.0021371468855627043,0.008028790214918789
+Global,1990 - 2021,All ages,Both,Osteoarthritis knee,DALYs annual % change,0.023818121735604082,,
+Global,2021,All ages,Both,Osteoarthritis hand,Percent of total DALYs,0.002124582464695714,0.00104337110829575,0.004198904364546396
+Global,1990 - 2021,All ages,Both,Osteoarthritis hand,DALYs annual % change,0.02645722220738095,,
+Global,2021,All ages,Both,Osteoarthritis other,Percent of total DALYs,0.0006818767270123344,0.00033335195910565055,0.0014130278932913012
+Global,1990 - 2021,All ages,Both,Osteoarthritis other,DALYs annual % change,0.023734531014723042,,
+Global,2021,All ages,Both,COVID-19,Percent of total DALYs,0.07368680800834929,0.06543148618141548,0.08249184304659793
+Global,1990 - 2021,All ages,Both,COVID-19,DALYs annual % change,0,,
+Global,2021,All ages,Both,Other unintentional injuries,Percent of total DALYs,0.0030405724051368863,0.0022815280430942184,0.0035583688332337104
+Global,1990 - 2021,All ages,Both,Other unintentional injuries,DALYs annual % change,-0.016634530296662373,,
+Global,2021,All ages,Both,Other COVID-19 pandemic-related outcomes,Percent of total DALYs,0.02688871591398767,0.020567867978795812,0.03613794394107009
+Global,1990 - 2021,All ages,Both,Other COVID-19 pandemic-related outcomes,DALYs annual % change,0,,
+
+"Institute for Health Metrics and Evaluation (IHME). GBD Compare Data Visualization. Global Burden of Disease (GBD) Study 2021. Seattle, WA: IHME, University of Washington, 2023. Available from http://vizhub.healthdata.org/gbd-compare. (Accessed 6/23/2024)."
+"For terms and conditions of use, please visit http://www.healthdata.org/about/terms-and-conditions"
