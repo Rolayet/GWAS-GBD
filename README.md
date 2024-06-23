@@ -69,9 +69,9 @@ Totla no of mathced and unmatced terms
 
 | No  | matching method                |    total number           |
 | --- | ------------------------------ | ------------------------  |
-| 1   | mathced by identifers          | 148                       |
+| 1   | matched by identifiers         | 148                       |
 | 2   | mathced by partial matching    | 25                        |
-| 3   | unmatced terms                 | 257                       |
+| 3   | unmatched terms                | 257                       |
 * some of unmatched terms are diseases that branched from Neglected Tropical Diseases (NTD) (ie there are over 100 diseases under one NTD GBD term)
 
 
