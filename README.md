@@ -65,14 +65,14 @@ or, due to the same disease but different identifiers were used (In GWAS vs GBD)
 | 2   | testicular cancer        | testicular cancer                              | mondo0005447       | efo0005088       |
 
 
+Totla no of mathced and unmatced terms 
 
-
-
-
-
-
-
-
+| No  | matching method                |    total number           |
+| --- | ------------------------------ | ------------------------  |
+| 1   | mathced by identifers          | 148                       |
+| 2   | mathced by partial matching    | 25                        |
+| 3   | unmatced terms                 | 257                       |
+* the majority of unmatched terms are terms that branched from neglected tropical diseases
 
 
 
