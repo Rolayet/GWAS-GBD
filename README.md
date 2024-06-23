@@ -52,17 +52,17 @@ due to General Vs specified disease/treats
 
 | No  | unmatched GBD       |             traits in GWAS                     |
 | --- | ------------------- | ---------------------------------------------- |
-| 1   | psoriasis           | generalized pustular psoriasi                  |
-| 2   | cataract            | agerelated cataracts                           |
-| 3   | male infertility    | male infertility sertoli cellonly              |
+| 1   | acute hepatitis a   | acute hepatitis a infection                    |
+| 2   | falls               | icd10 r296 repeated falls                      |
+
 
 
 or, due to the same disease but different identifiers were used (In GWAS vs GBD)
 
 | No  | unmatched GBD            |             traits in GWAS                     | GBD identifiers    | GWAS identifiers |
 | --- | ------------------------ | ---------------------------------------------- | -------------------| ---------------- |
-| 1   | measles                  | measles                                        | mondo0004619       | efo0008414       |
-| 2   | chronic myeloid leukemia | chronic myeloid leukemia                       | doid8552           | efo0000339       |
+| 1   | esophageal cancer        | esophageal cancer                              | doid5041           | efo0002916       |
+| 2   | testicular cancer        | testicular cancer                              | mondo0005447       | efo0005088       |
 
 
 
