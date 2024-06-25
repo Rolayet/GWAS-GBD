@@ -11,6 +11,13 @@ library(dplyr)
 library(data.table)
 library(tidyr)
 library(stringr)
+library(DescTools)
+library(ggplot2)
+library(dplyr)
+library(stats)
+library(readr)
+
+
 
 # a <- fread("~/Downloads/gwas_catalog_v1.0.2.1-studies_r2024-03-11.tsv")
 
@@ -105,18 +112,7 @@ summary(a$`Impact factor`)
  
 ```{r}
 
-attention <- a %>% 
-  group_by(MAPPED_TRAIT_URI) %>% 
-  summarise(
-    n = n(), 
-    weighted_n = sum(1 / n_efo),
-    nhits = sum(`ASSOCIATION COUNT`),
-    weighted_nhits = sum(`ASSOCIATION COUNT` / n_efo),
-    weighted_attention_score_impact_factor = sum((1 / n_efo) * `Impact factor`, na.rm = TRUE)
-  )
-
-
-# For partial matching, `DISEASE/TRAIT is added (when the GDP terms' identifiers are not matched with GWAS's identifiers, we will use (`DISEASE/TRAIT`) column for partial matching )
+# Including the impact factor and (`DISEASE/TRAIT`) column for partial matching 
 
 attention <- a %>% 
   group_by(MAPPED_TRAIT_URI) %>% 
@@ -129,17 +125,24 @@ attention <- a %>%
     DISEASE_TRAIT = first(`DISEASE/TRAIT`)
   )
 
+
+
 str(attention)
 str(a)
-
+head(a)
 ```
  
 Step 2. Merging the GWAS attention scores with the GBD disease burden results
 
 ```{r}
 
-gbd_data <- fread("/Users/rayanaloliet/Desktop/GWAS Catalog/GDB.csv")
+gbd_data <- fread("/Users/rayanaloliet/Desktop/GWAS Catalog/GBD.csv")
 str(gbd_data)
+
+  # unique matched rows  by GBD term
+gbd_data <- gbd_data %>%
+  distinct(`GBD term`, .keep_all = TRUE)
+
 
 ```
 
@@ -158,9 +161,9 @@ efo_columns <- c("EFO 1", "EFO 2", "EFO 3", "EFO 4", "EFO 5", "EFO 6",
 Reshape the GBD data to gather all relevant columns into key-value pairs and drop rows with NA EFO terms
 
 ```{r}
-gbd_long <- gbd_data %>%
-  pivot_longer(cols = all_of(efo_columns), names_to = "EFO_number", values_to = "MAPPED_TRAIT_URI") %>%
-  drop_na(MAPPED_TRAIT_URI) 
+
+ gbd_long <- gbd_data %>%
+pivot_longer(cols = all_of(efo_columns), names_to = "EFO_number", values_to =  "MAPPED_TRAIT_URI") %>% drop_na(MAPPED_TRAIT_URI) 
 
 gbd_long
 ```
@@ -177,7 +180,7 @@ gbd_long
 
 Ensure consistent formatting, cleaning and standardize MAPPED_TRAIT_URI in gbd_long (GBD file)
 
-*There are many functions because each time I attempted to find a matching, I was unable to do so due to the differences in the two datasets. For example, in GWAS, the identifiers have underscores, while in GBD they have colons, and so on... Therefore, the functions below are intended to unify these differences. 
+*There are many functions here because each time I attempted to find a matching, I was unable to do so due to the differences in the two datasets. For example, in GWAS, the identifiers have underscores, while in GBD they have colons, and so on... Therefore, the functions below are intended to unify these differences. 
 
 ```{r}
 
@@ -211,20 +214,9 @@ gbd_long$MAPPED_TRAIT_URI <- gsub("_", ":", gbd_long$MAPPED_TRAIT_URI)
 # Remove all extra spaces
 gbd_long$MAPPED_TRAIT_URI <- str_squish(gbd_long$MAPPED_TRAIT_URI) 
 
-print(head(gbd_long$MAPPED_TRAIT_URI, 20))
+(head(gbd_long$MAPPED_TRAIT_URI, 20))
 
 ```
-
-
-```{r}
-
-(head(attention))
-#rm(list = ls())
-
-```
-
-
-
 
 Ensure consistent formatting, cleaning and standardize MAPPED_TRAIT_URI in attention (GWAS file)
 
@@ -258,74 +250,15 @@ attention$MAPPED_TRAIT_URI <- clean_mapped_trait_uri(attention$MAPPED_TRAIT_URI)
 ```
 
 
-Matching GWAS to GBD via MAPPED_TRAIT_URI after cleaning 
-
+Matching GWAS to GBD via MAPPED_TRAIT_URI after cleaning and save the files after removing the duplicates
 ```{r}
+
 # Merge the data frames
 merged_data <- merge(attention, gbd_long, by = "MAPPED_TRAIT_URI", all.x = TRUE)
 
 # Display the first few rows of the merged data frame
 head(merged_data)
 
-# Identify unmatched rows in attention
-unmatched_attention <- anti_join(attention, gbd_long, by = "MAPPED_TRAIT_URI")
-unmatched_attention
-(head(unmatched_attention, 20))
-
-
-# Identify unmatched rows in gbd_long
-unmatched_gbd <- anti_join(gbd_long, attention, by = "MAPPED_TRAIT_URI")
-unmatched_gbd
-(head(unmatched_gbd, 20))
-
-
-# Identify matched rows
-matched_rows <- inner_join(attention, gbd_long, by = "MAPPED_TRAIT_URI")
-matched_rows 
-(head(matched_rows, 20))
-
-
-
-
-```
-
-
-Verification and Checking for unique identifiers
-
-```{r}
-# Check the number of matched rows
-num_matched_rows <- nrow(matched_rows)
-(paste("Number of matched rows:", num_matched_rows))
-
-
-# Check the number of unmatched rows in attention
-num_unmatched_attention <- nrow(unmatched_attention)
-(paste("Number of unmatched rows in attention:", num_unmatched_attention))
-
-# Check the number of unmatched rows in gbd_long
-num_unmatched_gbd <- nrow(unmatched_gbd)
-(paste("Number of unmatched rows in gbd_long:", num_unmatched_gbd))
-
-
-# Check for unique identifiers in the matched rows
-unique_identifiers <- n_distinct(matched_rows$MAPPED_TRAIT_URI)
-(paste("Number of unique identifiers in matched rows:", unique_identifiers))
-
-
-# Check for unique identifiers in unmatched rows in gbd_long
-gbd_long_unique_identifiers <- n_distinct(unmatched_gbd$MAPPED_TRAIT_URI)
-(paste("Number of unique identifiers in unmatched rows in gbd_long:", gbd_long_unique_identifiers))
-
-# Check for unique identifiers in the matched rows in attention
-attention_unique_identifiers <- n_distinct(unmatched_attention$MAPPED_TRAIT_URI)
-(paste("Number of unique identifiers in unmatched rows in attention:", attention_unique_identifiers))
-
-
-```
-
-save the files after removing the duplicates
-
-```{r}
 #  Removing the duplicates 
 matched_rows <- inner_join(attention, gbd_long, by = "MAPPED_TRAIT_URI") %>%
   distinct(MAPPED_TRAIT_URI, .keep_all = TRUE)
@@ -362,7 +295,7 @@ if (nrow(duplicates) > 0) {
 
 # Alternatively here we could have unique by GBD term
 
-# removing duplicates in the gbd_long by "GDB term" NOT MAPPED_TRAIT_URI
+# removing duplicates in the gbd_long by "GBD term" NOT MAPPED_TRAIT_URI
 unmatched_gbd <- anti_join(gbd_long, attention, by = "MAPPED_TRAIT_URI") %>%
   distinct(`GBD term`, .keep_all = TRUE)
  
@@ -376,9 +309,10 @@ matched_rows <- matched_rows %>%
 #write.csv(unmatched_gbd, "unmatched_gbd.csv", row.names = FALSE)
 
 
+
 ```
 
-Here we could follow a partial matching approach to handle unmatched GDB terms using "str_detect" function to detect for matching but with different identifiers or GBD present within a string of traits in GWAS
+Here we could follow a partial matching approach to handle unmatched GBD terms using "str_detect" function to detect for matching but with different identifiers or GBD present within a string of traits in GWAS
 
 To ensure consistent formatting and standardize of DISEASE/TRAIT in unmatched GBD terms and unmatched attention (GWAS) ie., both lower case for comparison, we will create new columns in both data sets 
 
@@ -415,13 +349,13 @@ partial_matches <- unmatched_gbd %>%
 
 partial_matches_unique <- partial_matches %>%
   distinct(GBD_TERM_NAME, .keep_all = TRUE)
-print(head(partial_matches, 20))
+(head(partial_matches, 20))
 
 #write.csv(partial_matches_unique, "partial_matches_unique.csv", row.names = FALSE)
 
 ```
 
-Finally identify the GDB terms that are not mapped via identifiers or trait with GWAS
+Identify the GBD terms that are not mapped via identifiers or trait with GWAS
 
 ```{r}
 
@@ -449,23 +383,15 @@ if (nrow(duplicates_final_unmatched_gbd) > 0) {
   print("No duplicates found in final_unmatched_gbd.")
 }
 
-
-
 # final unmatched 
-
 final_unmatched <- bind_rows(final_unmatched_gbd, final_unmatched_attention)
 (head(final_unmatched, 20))
 
-
-
-
 # final matched (combined)
-
 combined_matches <- bind_rows(
   matched_rows %>% mutate(Match_Type = "Identifier"),
   partial_matches_unique %>% mutate(Match_Type = "Partial")
 )
-
 
 # Check for duplicates in combined_matches
 duplicates_combined_matches <- combined_matches[duplicated(combined_matches$`GBD term`), ]
@@ -475,7 +401,6 @@ if (nrow(duplicates_combined_matches) > 0) {
 } else {
   print("No duplicates found in combined_matches.")
 }
-
 
 
 # Get unique rows in combined_matches based on the "GBD term" column
@@ -492,7 +417,6 @@ if (nrow(duplicates_combined_matches) > 0) {
 }
 
 
-
 # Save the results to a CSV file
 #write.csv(final_unmatched, "final_unmatched.csv", row.names = FALSE)
 
@@ -505,4 +429,313 @@ if (nrow(duplicates_combined_matches) > 0) {
 
 
 ```
+
+combine unmatched GBD to attention (GWAS), and  If there are no matches for a GBD trait then the attention score = 0
+
+```{r}
+
+
+#  Add 'n' column with value 0 to final_unmatched_gbd
+final_unmatched_gbd <- final_unmatched_gbd %>%
+  mutate(n = 0)
+
+#  Ensure both datasets have the same columns
+# Here, we ensure that final_unmatched_gbd has all necessary columns
+required_columns <- names(combined_matches)
+
+# Add any missing columns to final_unmatched_gbd and set their values to NA
+for (col in required_columns) {
+  if (!(col %in% names(final_unmatched_gbd))) {
+    final_unmatched_gbd[[col]] <- NA
+  }
+}
+
+# Combine the datasets
+combined_dataset <- bind_rows(unique_combined_matches, final_unmatched_gbd)
+
+combined_dataset <- combined_dataset %>%
+  distinct(`GBD term`, .keep_all = TRUE)
+
+
+# Save the combined dataset to a CSV file
+#write.csv(combined_dataset, "combined_dataset.csv", row.names = FALSE)
+
+```
+
+Try to identify any difference or duplicates between combined dataset and the data set that we started with
+
+```{r}
+
+
+# Get the unique GBD terms in each dataset
+combined_gbd_terms <- unique(combined_dataset$`GBD term`)
+gbd_gbd_terms <- unique(gbd_data$`GBD term`)
+
+# Identify terms in combined_dataset not in gbd_data
+terms_only_in_combined <- setdiff(combined_gbd_terms, gbd_gbd_terms)
+
+# Identify terms in gbd_data not in combined_dataset
+terms_only_in_gbd <- setdiff(gbd_gbd_terms, combined_gbd_terms)
+
+# Get the lengths of the unique terms
+len_combined <- length(terms_only_in_combined)
+len_gbd <- length(terms_only_in_gbd)
+
+# Determine the maximum length to ensure both columns in the data frame have the same number of rows
+max_length <- max(len_combined, len_gbd)
+
+# Combine the differences into a data frame for better visualization
+diff_df <- data.frame(
+  Terms_Only_in_Combined_Dataset = c(terms_only_in_combined, rep(NA, max_length - len_combined)),
+  Terms_Only_in_GBD_Dataset = c(terms_only_in_gbd, rep(NA, max_length - len_gbd))
+)
+
+# the differences
+(diff_df)
+
+# Save the differences to a CSV file
+#write.csv(diff_df, "diff_df.csv", row.names = FALSE)
+
+```
+
+Load the GBD DALY data and delete the last row with na result (it is not relevent, just one)
+
+```{r}
+
+
+# Load the GBD DALY data
+gbd_daly_data <- read_csv('/Users/rayanaloliet/Desktop/GWAS Catalog/IHME-GBD_2019_DATA-0912b8a7-1.csv')
+
+# Filter out rows with NA values in the key columns
+gbd_daly_data <- gbd_daly_data %>%
+  filter(!is.na(`cause_name`), !is.na(val))
+
+# Verify that there are no NA values left
+sum(is.na(gbd_daly_data$`cause_name`))
+sum(is.na(gbd_daly_data$val))
+sum(is.na(gbd_daly_data$measure_name))
+
+ 
+# Inspect the structure of the GBD DALY data
+str(gbd_daly_data)
+
+
+
+
+```
+
+
+Assessing the relationship between GWAS attention and global need,  using an inequality measure such as Gini coefficients 
+
+```{r}
+
+gbd_daly_data <- gbd_daly_data %>%
+  filter(metric_name == "Number" & measure_name == "DALYs (Disability-Adjusted Life Years)") %>%
+  rename(`GBD term`= cause_name, DALY = val)
+
+# Merge the DALY values into the combined dataset
+combined_dataset <- combined_dataset %>%
+  left_join(gbd_daly_data, by = c("GBD term" = "GBD term"))
+
+combined_dataset <- combined_dataset %>%
+  distinct(`GBD term`, .keep_all = TRUE)
+
+# Verify the merge
+head(combined_dataset)
+
+# Ensure the columns are numeric as it gives error massage 
+combined_dataset$n <- as.numeric(combined_dataset$n)
+combined_dataset$DALY <- as.numeric(combined_dataset$DALY)
+
+# Check for any NA values and handle them
+combined_dataset[is.na(combined_dataset$DALY), 'DALY'] <- 0
+
+# Verify the data
+summary(combined_dataset$n)
+summary(combined_dataset$DALY)
+
+# Calculate the Gini coefficient
+gini_result <- Gini(x = combined_dataset$n, weights = combined_dataset$DALY, conf.level = 0.95)
+
+# the Gini coefficient
+(paste("Gini Coefficient: ", gini_result))
+
+```
+
+
+GBD terms that do not have match, this due to those with no exact mapping such as neglected tropical diseases and maternal disorder.  
+
+```{r}
+unmatched_gbd_terms <- anti_join(gbd_daly_data, combined_dataset, by = c("GBD term" = "GBD term"))
+
+unmatched_gbd_terms <- unmatched_gbd_terms %>%
+  distinct(`GBD term`, .keep_all = TRUE)
+
+# Get the unique GBD terms in each dataset
+combined_gbd_terms <- unique(combined_dataset$`GBD term`)
+gbd_gbd_terms <- unique(gbd_daly_data$`GBD term`)
+
+# Identify terms in combined_dataset not in gbd_daly_data
+terms_only_in_combined <- setdiff(combined_gbd_terms, gbd_gbd_terms)
+
+# Identify terms in gbd_daly_data not in combined_dataset
+terms_only_in_gbd_daly <- setdiff(gbd_gbd_terms, combined_gbd_terms)
+
+# Get the lengths of the unique terms
+len_combined <- length(terms_only_in_combined)
+len_gbd_daly <- length(terms_only_in_gbd_daly)
+
+# Determine the maximum length to ensure both columns in the data frame have the same number of rows
+max_length <- max(len_combined, len_gbd_daly)
+
+# Combine the differences into a data frame for better visualization
+diff_2 <- data.frame(
+  Terms_Only_in_Combined_Dataset = c(terms_only_in_combined, rep(NA, max_length - len_combined)),
+  Terms_Only_in_GBD_Daly_Dataset = c(terms_only_in_gbd_daly, rep(NA, max_length - len_gbd_daly))
+)
+
+# the differences
+(diff_2)
+
+#write.csv(diff_2, "diff_2.csv", row.names = FALSE)
+
+
+```
+
+Visualizing the distribution of n and daly 
+
+```{r}
+
+# Visualize the distribution of 'n' (attention scores)
+ggplot(combined_dataset, aes(x = n)) +
+  geom_histogram(binwidth = 1, fill = 'blue', color = 'black', alpha = 0.7) +
+  labs(title = "Histogram of Attention Scores (n)", x = "Attention Score (n)", y = "Frequency")
+
+
+
+# Create the histogram for DALY distribution
+ggplot(combined_dataset, aes(x = DALY)) +
+  geom_histogram(binwidth = 10000, aes(fill = after_stat(count)), color = 'black', alpha = 0.7) +
+  scale_fill_gradient(low = "red", high = "darkred") +
+  labs(title = "Histogram of DALY", x = "DALY", y = "Frequency") +
+  theme_minimal()
+
+# Boxplot for 'n'
+ggplot(combined_dataset, aes(y = n)) +
+  geom_boxplot(fill = 'blue', color = 'black') +
+  labs(title = "Boxplot of Attention Scores (n)", y = "Attention Score (n)")
+
+# Boxplot for 'DALY'
+ggplot(combined_dataset, aes(y = DALY)) +
+  geom_boxplot(fill = 'red', color = 'black') +
+  labs(title = "Boxplot of DALY", y = "DALY")
+
+# Scatter plot to visualize the relationship between 'n' and 'DALY'
+ggplot(combined_dataset, aes(x = DALY, y = n)) +
+  geom_point(color = 'purple') +
+  labs(title = "Scatter Plot of DALY vs Attention Scores (n)", x = "DALY", y = "Attention Score (n)")
+
+# Scatter plot to visualize the relationship between 'weighted_attention_score_impact_factor' and 'DALY'
+filtered_dataset <- combined_dataset %>%
+  filter(!is.na(DALY) & !is.na(weighted_attention_score_impact_factor))
+
+ggplot(filtered_dataset, aes(x = DALY, y = weighted_attention_score_impact_factor)) +
+  geom_point(color = 'blue') +
+  labs(title = "Scatter Plot of DALY vs Weighted Attention Score Impact Factor", 
+       x = "DALY", 
+       y = "Weighted Attention Score Impact Factor")
+
+# Check correlation 
+correlation <- cor.test(combined_dataset$n, combined_dataset$DALY, method = "spearman")
+(correlation)
+
+summary(combined_dataset$DALY)
+
+```
+
+filtering the data and remove those with n= zero to have a better understating of the other GBD term and visualize the filtered data
+
+```{r}
+# check the summary of the n column 
+summary(combined_dataset$n)
+
+# Check the count of rows where n is zero
+sum(combined_dataset$n == 0)
+
+
+# Filter out rows with zero attention scores
+filtered_dataset <- combined_dataset %>% filter(n > 0)
+
+# Check the summary of the filtered data
+summary(filtered_dataset$n)
+
+
+# Calculate the Gini coefficient using the filtered dataset
+gini_result_filtered <- Gini(x = filtered_dataset$n, weights = filtered_dataset$DALY, conf.level = 0.95)
+
+# the Gini coefficient
+(paste("Gini Coefficient (Filtered): ", gini_result_filtered))
+
+
+# Summary of 'n' in the filtered dataset
+summary(filtered_dataset$n)
+
+# Summary of 'DALY' in the filtered dataset
+summary(filtered_dataset$DALY)
+
+
+
+
+# Histogram of Attention Scores (n)
+ggplot(filtered_dataset, aes(x = n)) +
+  geom_histogram(binwidth = 1, fill = 'blue', color = 'black', alpha = 0.7) +
+  labs(title = "Histogram of Attention Scores (n) - Filtered", x = "Attention Score (n)", y = "Frequency")
+
+# Boxplot of Attention Scores (n)
+ggplot(filtered_dataset, aes(y = n)) +
+  geom_boxplot(fill = 'blue', color = 'black') +
+  labs(title = "Boxplot of Attention Scores (n) - Filtered", y = "Attention Score (n)")
+
+
+
+# Create the histogram for DALY distribution with a larger binwidth
+ggplot(filtered_dataset, aes(x = DALY)) +
+  geom_histogram(binwidth = 10000, aes(fill = after_stat(count)), color = 'black', alpha = 0.7) +
+  scale_fill_gradient(low = "red", high = "darkred") +
+  labs(title = "Histogram of DALY Values- Filtered", x = "DALY", y = "Frequency") +
+  theme_minimal()
+
+# Boxplot of DALY values
+ggplot(filtered_dataset, aes(y = DALY)) +
+  geom_boxplot(fill = 'red', color = 'black') +
+  labs(title = "Boxplot of DALY Values- Filtered", y = "DALY")
+
+# Check correlation 
+correlation_filtered <- cor.test(filtered_dataset$n, filtered_dataset$DALY, method = "spearman")
+(correlation_filtered)
+
+
+```
+
+Investigate Specific Diseases: Identify specific diseases with high DALY but low attention scores
+
+a threshold for low attention: Here, I have used n <= 1 as the threshold for low attention. 
+
+```{r}
+# Filter for diseases with high DALY but low attention scores
+threshold_attention = 1  # Define what is considered low attention
+high_daly_low_attention <- combined_dataset %>%
+  filter(DALY > median(DALY) & n <= threshold_attention) %>%
+  arrange(desc(DALY))
+
+# View the top diseases with high DALY and low attention
+(head(high_daly_low_attention, 20))
+
+# Save the filtered data to a CSV file
+#write.csv(high_daly_low_attention, "high_daly_low_attention.csv", row.names = FALSE)
+
+
+```
+
+
 
