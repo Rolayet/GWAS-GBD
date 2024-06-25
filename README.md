@@ -92,5 +92,12 @@ Gini(x = gwas_attention, weights = gbd_daly, conf.level = 0.95)
 
 Finally, the combined_dataset was mapped to the GBD 'Global Need'. I used the file that was used at the start of the mapping process, named IHME-GBD_2019_DATA-0912b8a7-1.csv. This file is also attached here.
 
+The file was filtered by; metric_name: "Number" & measure_name: "DALYs (Disability-Adjusted Life Years). Then, it was mapped via GBD term 
+** for discussion **: 
+When I mapped the final combined_dataset to Global Need, 134 terms were not mapped. We can break them down as follows:
+* 120 terms were expected, as they did not have an exact match from the beginning.
+* 5 terms were expected, as they were not included in the combined_dataset.
+* 4 terms were missed again during the mapping/matching process.
 
+A list of those 134 are attached here as well. 
 
