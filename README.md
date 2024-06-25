@@ -90,3 +90,7 @@ gwas_attention = score for each EFO term
 gbd_daly = impact of each EFO term on disease burden
 Gini(x = gwas_attention, weights = gbd_daly, conf.level = 0.95)
 
+Finally, the combined_dataset was mapped to the GBD 'Global Need'. I used the file that was used at the start of the mapping process, named IHME-GBD_2019_DATA-0912b8a7-1.csv. This file is also attached here.
+
+
+
