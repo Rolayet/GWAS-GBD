@@ -77,6 +77,8 @@ or, due to the same disease but different identifiers were used (In GWAS vs GBD)
 | 2   | testicular cancer        | testicular cancer  | mondo0005447       | efo0005088       |
 
 
+The final file, named combined_dataset, includes terms matched by identifiers (GBD), partially matched (GBD), and unmatched (GBD). This file contains 480 terms; it was supposed to have 485, but 5 terms were missed. The file is attached here as well.
+
 
 
 
