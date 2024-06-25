@@ -1,18 +1,13 @@
-Project Title: The Gap Between the Research We Do and the Research the World Needs: A Focus on Genome-Wide Association Studies
+# Project Title: GBD-GWAS
 
 # Project Plan:
-
-## A. Mapping GBD Health Outcomes and Risk Factors to Ontologies in OLS. 
-A copy of the file is attached here as well, named "GDB.csv".
-
-Update: For those entries with NA values, broader EFO terms have been used alternatively.
-
 
 
 ## B. Adding the Impact Factor to the GWAS Catalog
 Impact factors were searched using Clarivate and/or journal websites.
 
-### Update: In the GWAS file, there are 915 unique journal names. Among these journals, 27 have no impact factors (i.e., the impact factors were not found in either Clarivate or the journal website, or the journal is discontinued).
+### Update: In the GWAS file, there are 915 unique journal names. Among these journals, 28 unique have no impact factors (i.e., the impact factors were not found in either Clarivate or the journal website, or the journal is discontinued).
+** for discussion **: In total, there will be 199 rows in the attention dataset with NA values. In R, for calculation purposes, those rows were given a value of zero. Could this have an impact when we multiply by impact factors*n
 
 Due to the large size of the file, it is added to the notebook and can be accessed by clicking on this link:
 https://uob-my.sharepoint.com/:o:/r/personal/ih23257_bristol_ac_uk/Documents/Notebooks/GBD%20Terms%20mapping?d=wf240cee12e054a798cf8e8f4d69a8985&csf=1&web=1&e=OfNvfr
@@ -25,6 +20,12 @@ Weighted Attention Score Impact Factor: Sum(1 / n EFO per study * impact factor)
 GWAS Hits: Number of GWAS hits for that EFO term – this could be a proxy for the attention received by the study.
 
 
+## A. Mapping GBD Health Outcomes and Risk Factors to Ontologies in OLS. 
+A copy of the file is attached here as well, named "GBD.csv".
+
+** For discussion **: For entries with NA values, broader EFO terms have been used instead. If no identifier is found, placeholders were used instead.
+120 terms were added due to the variation between ICH and old EFO terms. These terms may pose some challenges. For example, they were not included in the final findings, Gini coefficient, and visual plots as they do not have an exact match (no DALY) and the majority have n=0. If they are added, it will make the Gini coefficient even higher.
+
 ## D. Merging the GWAS Attention Scores with the GBD Disease Burden Results
 Aim to match as comprehensively as possible.
 If multiple EFO terms match one GBD trait, sum the attention score across those EFO terms (as long as they are from independent publications).
@@ -34,15 +35,18 @@ If there are no matches for a GBD trait, the attention score = 0.
 
 
 
-|            Matched EFOs           | unmatched GWAS      |             unmatched GBD                      |
-| --------------------------------- | ------------------- | ---------------------------------------------- |
-| 183 matched EFOs                  | 15074 unmatched EFO | 963 unmatched EFO                              |
-| 164 after removing the duplicates | no duplicates       | 884 after removing the duplicates              |
-|                                   |                     | 408 after removing the duplicates by "GBD term"|
+|   | matching process           | terms no |
+| ------------------------------ | -----    |
+| 1 | matched by identifiers GBD |   148    |
+| 2 | matched partially GBD      |   24     |
+| 3 | unmatched GBD              |   308    |
+| 3 | other*                     |   5      |
+** for discussion **: those terms were missed during the matching process
+
 
 Scripts and matched terms files are uploaded here as well.
 
-## Note
+## Note: the following issues were addressed by partially matching 
 Hodgkin lymphoma is listed in the unmatch GBD terms, but in GWAS file, there is a study with more specific type of the disease "nodular sclerosis Hodgkin lymphoma". Similarly, for the traits that mapped with different identifiers that is not used when we mapped the GBD tools ontologies. 
 
 proposed sugesstion: 
@@ -56,7 +60,6 @@ due to General Vs specified disease/treats
 | 2   | falls               | icd10 r296 repeated falls                      |
 
 
-
 or, due to the same disease but different identifiers were used (In GWAS vs GBD)
 
 | No  | unmatched GBD            |             traits in GWAS                     | GBD identifiers    | GWAS identifiers |
@@ -64,15 +67,8 @@ or, due to the same disease but different identifiers were used (In GWAS vs GBD)
 | 1   | esophageal cancer        | esophageal cancer                              | doid5041           | efo0002916       |
 | 2   | testicular cancer        | testicular cancer                              | mondo0005447       | efo0005088       |
 
+** for discussion **: the list of terms matched partially is attached here named "matched partially"
 
-Totla no of mathced and unmatced terms 
-
-| No  | matching method                |    total number           |
-| --- | ------------------------------ | ------------------------  |
-| 1   | matched by identifiers         | 148                       |
-| 2   | mathced by partial matching    | 25                        |
-| 3   | unmatched terms                | 257                       |
-* some of unmatched terms are diseases that branched from Neglected Tropical Diseases (NTD) (ie there are over 100 diseases under one NTD GBD term)
 
 
 
