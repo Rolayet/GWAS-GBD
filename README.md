@@ -38,14 +38,21 @@ If there are no matches for a GBD trait, the attention score = 0.
 |   | matching process           | terms no |
 |---|--------------------------- | -----    |
 | 1 | matched by identifiers GBD |   148    |
-| 2 | matched partially GBD      |   24     |
+| 2 | matched partially GBD *    |   24     |
 | 3 | unmatched GBD              |   308    |
-| 3 | other*                     |   5      |
+| 3 | other**                    |   5      |
 
-** for discussion **: those terms were missed during the matching process
+** for discussion **: 
+* The list of terms matched partially is attached here named "matched partially". 
 
+** The missed terms from matching process are: 
+Those terms were missed during the matching process, I could not tracked them. 
+Self-harm and interpersonal violence	
+Other pneumoconiosis	
+Cirrhosis due to other causes	
+Other leukemia	
+Poisoning by other means
 
-Scripts and matched terms files are uploaded here as well.
 
 ## Note: the following issues were addressed by partially matching 
 Hodgkin lymphoma is listed in the unmatch GBD terms, but in GWAS file, there is a study with more specific type of the disease "nodular sclerosis Hodgkin lymphoma". Similarly, for the traits that mapped with different identifiers that is not used when we mapped the GBD tools ontologies. 
@@ -55,20 +62,19 @@ We employed a partial matching approach to handle unmatched GDB terms. This is a
 
 due to General Vs specified disease/treats
 
-| No  | unmatched GBD       |             traits in GWAS                     |
-| --- | ------------------- | ---------------------------------------------- |
-| 1   | acute hepatitis a   | acute hepatitis a infection                    |
-| 2   | falls               | icd10 r296 repeated falls                      |
+| No  | unmatched GBD       |     traits in GWAS           |
+| --- | ------------------- | ---------------------------- |
+| 1   | acute hepatitis a   | acute hepatitis a infection  |
+| 2   | falls               | icd10 r296 repeated falls    |
 
 
 or, due to the same disease but different identifiers were used (In GWAS vs GBD)
 
-| No  | unmatched GBD            |             traits in GWAS                     | GBD identifiers    | GWAS identifiers |
-| --- | ------------------------ | ---------------------------------------------- | -------------------| ---------------- |
-| 1   | esophageal cancer        | esophageal cancer                              | doid5041           | efo0002916       |
-| 2   | testicular cancer        | testicular cancer                              | mondo0005447       | efo0005088       |
+| No  | unmatched GBD            |   traits in GWAS   | GBD identifiers    | GWAS identifiers |
+| --- | ------------------------ | ------------------ | -------------------| ---------------- |
+| 1   | esophageal cancer        | esophageal cancer  | doid5041           | efo0002916       |
+| 2   | testicular cancer        | testicular cancer  | mondo0005447       | efo0005088       |
 
-** for discussion **: the list of terms matched partially is attached here named "matched partially"
 
 
 
