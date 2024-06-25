@@ -58,7 +58,7 @@ Poisoning by other means
 ## Note: the following issues were addressed by partially matching 
 Hodgkin lymphoma is listed in the unmatched GBD terms, but in GWAS file, there is a study with more specific type of the disease "nodular sclerosis Hodgkin lymphoma". Similarly, for the traits that mapped with different identifiers that is not used when we mapped the GBD tools ontologies. 
 
-proposed sugesstion: 
+proposed ideas: 
 We employed a partial matching approach to handle unmatched GDB terms. This is achieved using the str_detect function, which checks if a pattern (in this case, the unmatched GDB term) is present within a string of traits in the GWAS file by identifying substrings. Utilizing this function, we mapped an additional 26 GDB terms that were not mapped when using the "mapping identifiers" method. Some examples of these mapped terms are listed below:
 
 due to General Vs specified disease/treats
