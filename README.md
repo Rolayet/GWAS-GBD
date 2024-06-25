@@ -36,11 +36,12 @@ If there are no matches for a GBD trait, the attention score = 0.
 
 
 |   | matching process           | terms no |
-| ------------------------------ | -----    |
+|---|--------------------------- | -----    |
 | 1 | matched by identifiers GBD |   148    |
 | 2 | matched partially GBD      |   24     |
 | 3 | unmatched GBD              |   308    |
 | 3 | other*                     |   5      |
+
 ** for discussion **: those terms were missed during the matching process
 
 
