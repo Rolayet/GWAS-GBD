@@ -9,7 +9,7 @@ Impact factors were searched using Clarivate and/or journal websites.
 ### Update: In the GWAS file, there are 915 unique journal names. Among these journals, 28 unique have no impact factors (i.e., the impact factors were not found in either Clarivate or the journal website, or the journal is discontinued).
 ** for discussion **: In total, there will be 199 rows in the attention dataset with NA values. In R, for calculation purposes, those rows were given a value of zero. Could this have an impact when we multiply by impact factors*n
 
-Due to the large size of the file, it is added to the notebook and can be accessed by clicking on this link:
+Due to the large size of the file, it is added to the notebook named "gwas_catalog_v1.0.2.1-studies_r2024-06-07.csv" and can be accessed by clicking on this link:
 https://uob-my.sharepoint.com/:o:/r/personal/ih23257_bristol_ac_uk/Documents/Notebooks/GBD%20Terms%20mapping?d=wf240cee12e054a798cf8e8f4d69a8985&csf=1&web=1&e=OfNvfr
 
 
