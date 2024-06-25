@@ -24,7 +24,7 @@ GWAS Hits: Number of GWAS hits for that EFO term – this could be a proxy for t
 A copy of the file is attached here as well, named "GBD.csv".
 
 ** For discussion **: For entries with NA values, broader EFO terms have been used instead. If no identifier is found, placeholders were used instead.
-120 terms were added due to the variation between ICH and old EFO terms. These terms may pose some challenges. For example, they were not included in the final findings, Gini coefficient, and visual plots as they do not have an exact match (no DALY) and the majority have n=0. If they are added, it will make the Gini coefficient even higher.
+120 terms were added due to the variation between ICH and EFO terms. These terms may pose some challenges. For example, they were not included in the final findings, Gini coefficient, and visual plots as they do not have an exact match (no DALY) and the majority have n=0. If they are added, it will make the Gini coefficient even higher, (originally the GBD terms are 365 and here it is 485). 
 
 ## D. Merging the GWAS Attention Scores with the GBD Disease Burden Results
 Aim to match as comprehensively as possible.
@@ -43,7 +43,8 @@ If there are no matches for a GBD trait, the attention score = 0.
 | 3 | other**                    |   5      |
 
 ** for discussion **: 
-* The list of terms matched partially is attached here named "matched partially". 
+
+** The list of terms matched partially is attached here named "matched partially". 
 
 ** The missed terms from matching process are: 
 Those terms were missed during the matching process, I could not tracked them. 
