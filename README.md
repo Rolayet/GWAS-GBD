@@ -3,7 +3,7 @@
 # Project Plan:
 
 
-## B. Adding the Impact Factor to the GWAS Catalog
+## A. Adding the Impact Factor to the GWAS Catalog
 Impact factors were searched using Clarivate and/or journal websites.
 
 ### Update: In the GWAS file, there are 915 unique journal names. Among these journals, 28 unique have no impact factors (i.e., the impact factors were not found in either Clarivate or the journal website, or the journal is discontinued).
@@ -13,14 +13,14 @@ Due to the large size of the file, it is added to the notebook named "gwas_catal
 https://uob-my.sharepoint.com/:o:/r/personal/ih23257_bristol_ac_uk/Documents/Notebooks/GBD%20Terms%20mapping?d=wf240cee12e054a798cf8e8f4d69a8985&csf=1&web=1&e=OfNvfr
 
 
-## C. Developing an 'Attention Score' for Each Ontology Term in the GWAS Catalog
+## B. Developing an 'Attention Score' for Each Ontology Term in the GWAS Catalog
 Attention Score: Number of studies for that EFO term.
 Weighted Attention Score: Sum(1 / n EFO per study) – accounts for studies publishing a large number of GWASs without focusing on a specific phenotype.
 Weighted Attention Score Impact Factor: Sum(1 / n EFO per study * impact factor) – if a study is published in a higher impact journal, it indicates its quality and the degree to which it is valued.
 GWAS Hits: Number of GWAS hits for that EFO term – this could be a proxy for the attention received by the study.
 
 
-## A. Mapping GBD Health Outcomes and Risk Factors to Ontologies in OLS. 
+## C. Mapping GBD Health Outcomes and Risk Factors to Ontologies in OLS. 
 A copy of the file is attached here as well, named "GBD.csv".
 
 ** For discussion **: For entries with NA values, broader EFO terms have been used instead. If no identifier is found, placeholders were used instead.
