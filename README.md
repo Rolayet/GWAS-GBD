@@ -2,21 +2,10 @@
 
 # Project Plan:
 
-## 1. GBD terms: 
+## 1. GWAS Catalog: 
 
-## A. GBD terms splitting
-In the latest GBD study, there are 377 diseases and injuries. These GBD terms were split into "GBD First_part" and "GBD Second_part". The reason for splitting the GBD terms is that some GBD terms include other terms within them (descendants). Thus, those terms were separated to pull the descendants from the ontology tree using the library(ontologyIndex). Then those terms will be matched with GWAS as we did in part one. 
-
-## B. GBD terms mapping
-All GBD terms were mapped to EFO manually. For entries with no specific EFO terms, broader EFO terms have been used instead. If no broader terms were found, placeholders were used, as those terms will also be matched with GWAS using the str_detect function via traits.
-
-## C. Sources 
-Both "First_part_GBD.xlsx" and "Second_part_GBD.xlsx" are uploaded here. The efo-obo.txt file was added to the notebook due to its large size and can be accessed by clicking on this link:: https://uob-my.sharepoint.com/:o:/r/personal/ih23257_bristol_ac_uk/Documents/Notebooks/GBD%20Terms%20mapping?d=wf240cee12e054a798cf8e8f4d69a8985&csf=1&web=1&e=OfNvfr
-
-## 2. GWAS Catalog: 
-
-## A. Adding the Impact Factor to the GWAS Catalog
-Impact factors were searched using Clarivate and/or journal websites. There are some journals that do not have impact factors, for these sources, CiteScore was used. If neither impact factor nor CiteScore was available, a value of zero was given i.e., journals are discontinued, or where studies were published in news or conferences.
+## A. Incorporating the Impact Factor to the GWAS Catalog
+Impact factors were searched using Clarivate. There are some journals that do not have impact factors, for these journals, CiteScore was used. If neither impact factor nor CiteScore was available, a value of zero was given i.e., journals are discontinued, or where studies were published in news or conferences.
 
 
 ## B. Developing an 'Attention Score' for Each Ontology Term in the GWAS Catalog
@@ -26,7 +15,20 @@ Weighted Attention Score Impact Factor: Sum(1 / n EFO per study * impact factor)
 GWAS Hits: Number of GWAS hits for that EFO term – this could be a proxy for the attention received by the study.
 
 ## C. Sources 
-Due to the large size of the file, it was added to the notebook named "gwas_catalog_v1.0.2.1-studies_r2024-06-07.csv" and can be accessed by clicking on this link: https://uob-my.sharepoint.com/:o:/r/personal/ih23257_bristol_ac_uk/Documents/Notebooks/GBD%20Terms%20mapping?d=wf240cee12e054a798cf8e8f4d69a8985&csf=1&web=1&e=OfNvfr
+Due to the large size of the file, it was added to the notebook named "gwas_catalog_v1.0.2.1-studies_r2024-06-07.xlsx" and can be accessed by clicking on this link: https://uob-my.sharepoint.com/:o:/r/personal/ih23257_bristol_ac_uk/Documents/Notebooks/GBD%20Terms%20mapping?d=wf240cee12e054a798cf8e8f4d69a8985&csf=1&web=1&e=OfNvfr
+
+
+## 2. GBD terms: 
+
+## A. GBD terms splitting
+In the latest GBD study, there are 377 diseases and injuries. These GBD terms were split into "GBD First_part" and "GBD Second_part". The reason for splitting the GBD terms is that some GBD terms include other terms within them (descendants). Thus, those terms were separated to pull the descendants from the ontology tree using the library(ontologyIndex). Then those terms will be matched with GWAS as we did in part one. 
+
+## B. GBD terms mapping
+All GBD terms were mapped to EFO manually. For entries with no specific EFO terms, broader EFO terms have been used instead. If no broader terms were found, placeholders were used, as those terms will also be matched with GWAS using the str_detect function via traits.
+
+## C. Sources 
+Both "First_part_GBD.xlsx" and "Second_part_GBD.xlsx" are uploaded here. To obtin the descendants, efo-obo.txt file was added to the notebook due to its large size and can be accessed by clicking on this link:: https://uob-my.sharepoint.com/:o:/r/personal/ih23257_bristol_ac_uk/Documents/Notebooks/GBD%20Terms%20mapping?d=wf240cee12e054a798cf8e8f4d69a8985&csf=1&web=1&e=OfNvfr
+
 
 ## 3. Merging the GWAS Attention Scores with the GBD Disease Burden Results
 
@@ -43,20 +45,17 @@ The matching process was done via EFO terms of the GBD or its descendants with G
 
 
 ## 4. Assessing the Relationship Between GWAS Attention and Global Need
-## A. the metric_name
-the gbd terms was filtered by number of DALY when it was matched with combined (matched and unmatched) via GBD terms 
 
+## A. Obtaning concentration curve (Lorenz curve) and computes the curve
+The Lorenz.curve function from the LorenzRegression package is used to develop the concentration curve. For calculating its index, two methods were used to investigate the disparities:
 
-
-## B. Obtaning concentration curve (Lorenz curve) and computes the curve
- two methods were used to investigate the disparites; 1-Numerical Integration and 2-Discrete Sum Calculation 
 1-Numerical Integration
 Formula:𝐶=2𝐴−1C=2A−1
 
 2-Discrete Sum Calculation 
 Formula: 2∑(cumulative_daly_values×sorted_attention_scores)/∑(sorted_attention_scores)−1 is derived from the discrete approximation of the area under the concentration curve
 
-## C. Sources 
+## B. Sources 
 In the latest GBD study is uploaded here named IHME-GBD_2021_DATA-120ebfcd-1.csv
 
 
