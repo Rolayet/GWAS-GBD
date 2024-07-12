@@ -2,15 +2,21 @@
 
 # Project Plan:
 
+## 1. GBD terms: 
+
+## A. GBD terms splitting
+In the latest GBD study, there are 377 diseases and injuries. These GBD terms were split into "GBD First_part" and "GBD Second_part". The reason for splitting the GBD terms is that some GBD terms include other terms within them (descendants). Thus, those terms were separated to pull the descendants from the ontology tree using the library(ontologyIndex). Then those terms will be matched with GWAS as we did in part one. 
+
+## B. GBD terms mapping
+All GBD terms were mapped to EFO manually. For entries with no specific EFO terms, broader EFO terms have been used instead. If no broader terms were found, placeholders were used, as those terms will also be matched with GWAS using the str_detect function via traits.
+
+## C. Sources 
+Both "First_part_GBD.xlsx" and "Second_part_GBD.xlsx" are uploaded here.
+
+## 2. GWAS Catalog: 
 
 ## A. Adding the Impact Factor to the GWAS Catalog
-Impact factors were searched using Clarivate and/or journal websites.
-
-### Update: In the GWAS file, there are 915 unique journal names. Among these journals, 28 unique have no impact factors (i.e., the impact factors were not found in either Clarivate or the journal website, or the journal is discontinued).
-** for discussion **: In total, there will be 199 rows in the attention dataset with NA values. In R, for calculation purposes, those rows were given a value of zero. Could this have an impact when we multiply by impact factors*n
-
-Due to the large size of the file, it is added to the notebook named "gwas_catalog_v1.0.2.1-studies_r2024-06-07.csv" and can be accessed by clicking on this link:
-https://uob-my.sharepoint.com/:o:/r/personal/ih23257_bristol_ac_uk/Documents/Notebooks/GBD%20Terms%20mapping?d=wf240cee12e054a798cf8e8f4d69a8985&csf=1&web=1&e=OfNvfr
+Impact factors were searched using Clarivate and/or journal websites. There are some journals that do not have impact factors, for these sources, CiteScore was used. If neither impact factor nor CiteScore was available, a value of zero was given i.e., journals are discontinued, or where studies were published in news or conferences.
 
 
 ## B. Developing an 'Attention Score' for Each Ontology Term in the GWAS Catalog
@@ -19,85 +25,28 @@ Weighted Attention Score: Sum(1 / n EFO per study) – accounts for studies publ
 Weighted Attention Score Impact Factor: Sum(1 / n EFO per study * impact factor) – if a study is published in a higher impact journal, it indicates its quality and the degree to which it is valued.
 GWAS Hits: Number of GWAS hits for that EFO term – this could be a proxy for the attention received by the study.
 
+## C. Sources 
+Due to the large size of the file, it was added to the notebook named "gwas_catalog_v1.0.2.1-studies_r2024-06-07.csv" and can be accessed by clicking on this link: https://uob-my.sharepoint.com/:o:/r/personal/ih23257_bristol_ac_uk/Documents/Notebooks/GBD%20Terms%20mapping?d=wf240cee12e054a798cf8e8f4d69a8985&csf=1&web=1&e=OfNvfr
 
-## C. Mapping GBD Health Outcomes and Risk Factors to Ontologies in OLS. 
-A copy of the file is attached here as well, named "GBD.csv".
+## 3. Merging the GWAS Attention Scores with the GBD Disease Burden Results
 
-** For discussion **: For entries with NA values, broader EFO terms have been used instead. If no identifier is found, placeholders were used instead.
-120 terms were added due to the variation between ICH and EFO terms. These terms may pose some challenges. For example, they were not included in the final findings, Gini coefficient, and visual plots as they do not have an exact match (no DALY) and the majority have n=0. If they are added, it will make the Gini coefficient even higher, (originally the GBD terms are 365 and here it is 485). 
+## A. Matching process
+The matching process was done via EFO terms of the GBD or its descendants with GWAS EFO. For GBD terms that did not have a direct EFO match, the str_detect function was used to find matches. Any matching from both methods: if multiple EFO terms match one GBD trait, sum the attention score across those EFO terms (as long as they are from independent publications). If there are no matches for a GBD trait in both methods, the attention score is set to 0.
 
-## D. Merging the GWAS Attention Scores with the GBD Disease Burden Results
-Aim to match as comprehensively as possible.
-If multiple EFO terms match one GBD trait, sum the attention score across those EFO terms (as long as they are from independent publications).
-If there are no matches for a GBD trait, the attention score = 0.
-
-### Update: GBD terms are mapped with GWAS, the results are shown below:
-
-
+###  Matching results
 
 |   | matching process           | terms no |
 |---|--------------------------- | -----    |
-| 1 | matched by identifiers GBD |   148    |
-| 2 | matched partially GBD *    |   24     |
-| 3 | unmatched GBD              |   308    |
-| 3 | other**                    |   5      |
-
-** for discussion **: 
-
-** The list of terms matched partially is attached here named "matched partially". 
-
-** The missed terms from matching process are: 
-Those terms were missed during the matching process, I could not track them. 
-Self-harm and interpersonal violence	
-Other pneumoconiosis	
-Cirrhosis due to other causes	
-Other leukemia	
-Poisoning by other means
+| 1 | matched by identifiers GBD |   140    |
+| 2 | matched partially GBD      |   29     |
+| 3 | unmatched GBD              |   208    |
 
 
-## Note: the following issues were addressed by partially matching 
-Hodgkin lymphoma is listed in the unmatched GBD terms, but in GWAS file, there is a study with more specific type of the disease "nodular sclerosis Hodgkin lymphoma". Similarly, for the traits that mapped with different identifiers that is not used when we mapped the GBD tools ontologies. 
+## 4. Assessing the Relationship Between GWAS Attention and Global Need
 
-proposed ideas: 
-We employed a partial matching approach to handle unmatched GDB terms. This is achieved using the str_detect function, which checks if a pattern (in this case, the unmatched GDB term) is present within a string of traits in the GWAS file by identifying substrings. Utilizing this function, we mapped an additional 26 GDB terms that were not mapped when using the "mapping identifiers" method. Some examples of these mapped terms are listed below:
-
-due to General Vs specified disease/treats
-
-| No  | unmatched GBD       |     traits in GWAS           |
-| --- | ------------------- | ---------------------------- |
-| 1   | acute hepatitis a   | acute hepatitis a infection  |
-| 2   | falls               | icd10 r296 repeated falls    |
-
-
-or, due to the same disease but different identifiers were used (In GWAS vs GBD)
-
-| No  | unmatched GBD            |   traits in GWAS   | GBD identifiers    | GWAS identifiers |
-| --- | ------------------------ | ------------------ | -------------------| ---------------- |
-| 1   | esophageal cancer        | esophageal cancer  | doid5041           | efo0002916       |
-| 2   | testicular cancer        | testicular cancer  | mondo0005447       | efo0005088       |
-
-
-The final file, named combined_dataset, includes terms matched by identifiers (GBD), partially matched (GBD), and unmatched (GBD). This file contains 480 terms; it was supposed to have 485, but 5 terms were missed. The file is attached here as well.
+## A. Obtaning concentration curve (Lorenz curve) and computes the curve
+### two methods were used to investigate the disparites; 1-Numerical Integration and 2-Discrete Sum Calculation 
 
 
 
-
-## E. Assessing the Relationship Between GWAS Attention and Global Need
-For example, using an inequality measure such as Gini coefficients (example code below).
-
-library(DescTools)
-gwas_attention = score for each EFO term
-gbd_daly = impact of each EFO term on disease burden
-Gini(x = gwas_attention, weights = gbd_daly, conf.level = 0.95)
-
-Finally, the combined_dataset was mapped to the GBD 'Global Need'. I used the file that was used at the start of the mapping process, named IHME-GBD_2019_DATA-0912b8a7-1.csv. This file is also attached here.
-
-The file was filtered by; metric_name: "Number" & measure_name: "DALYs (Disability-Adjusted Life Years). Then, it was mapped via GBD term 
-** for discussion **: 
-When I mapped the final combined_dataset to Global Need, 134 terms were not mapped. We can break them down as follows:
-* 120 terms were expected, as they did not have an exact match from the beginning.
-* 5 terms were expected, as they were not included in the combined_dataset.
-* 4 terms were missed again during the mapping/matching process.
-
-A list of those 134 are attached here as well, named diff_2.csv
 
