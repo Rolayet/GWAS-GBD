@@ -57,6 +57,9 @@ Formula: 2∑(cumulative_daly_values×sorted_attention_scores)/∑(sorted_attent
 
 ## B. Sources 
 In the latest GBD study is uploaded here named IHME-GBD_2021_DATA-120ebfcd-1.csv
+Finally, the script for all the analysis is uploaded here as well.
+
+
 
 
 
