@@ -43,13 +43,22 @@ The matching process was done via EFO terms of the GBD or its descendants with G
 
 
 ## 4. Assessing the Relationship Between GWAS Attention and Global Need
-## A. the metric_name was filtered by number when it was matched with combined (matched and unmatched) via GBD terms 
+## A. the metric_name
+the gbd terms was filtered by number of DALY when it was matched with combined (matched and unmatched) via GBD terms 
+
+
 
 ## B. Obtaning concentration curve (Lorenz curve) and computes the curve
-### two methods were used to investigate the disparites; 1-Numerical Integration and 2-Discrete Sum Calculation 
+ two methods were used to investigate the disparites; 1-Numerical Integration and 2-Discrete Sum Calculation 
+1-Numerical Integration
+Formula:𝐶=2𝐴−1C=2A−1
+
+2-Discrete Sum Calculation 
+Formula: 2∑(cumulative_daly_values×sorted_attention_scores)/∑(sorted_attention_scores)−1 is derived from the discrete approximation of the area under the concentration curve
 
 ## C. Sources 
-In the latest GBD study is uploaded here named 
+In the latest GBD study is uploaded here named IHME-GBD_2021_DATA-120ebfcd-1.csv
+
 
 
 
