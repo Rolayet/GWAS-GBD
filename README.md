@@ -11,7 +11,7 @@ In the latest GBD study, there are 377 diseases and injuries. These GBD terms we
 All GBD terms were mapped to EFO manually. For entries with no specific EFO terms, broader EFO terms have been used instead. If no broader terms were found, placeholders were used, as those terms will also be matched with GWAS using the str_detect function via traits.
 
 ## C. Sources 
-Both "First_part_GBD.xlsx" and "Second_part_GBD.xlsx" are uploaded here.
+Both "First_part_GBD.xlsx" and "Second_part_GBD.xlsx" are uploaded here. The efo-obo.txt file was added to the notebook due to its large size and can be accessed by clicking on this link:: https://uob-my.sharepoint.com/:o:/r/personal/ih23257_bristol_ac_uk/Documents/Notebooks/GBD%20Terms%20mapping?d=wf240cee12e054a798cf8e8f4d69a8985&csf=1&web=1&e=OfNvfr
 
 ## 2. GWAS Catalog: 
 
@@ -43,9 +43,13 @@ The matching process was done via EFO terms of the GBD or its descendants with G
 
 
 ## 4. Assessing the Relationship Between GWAS Attention and Global Need
+## A. the metric_name was filtered by number when it was matched with combined (matched and unmatched) via GBD terms 
 
-## A. Obtaning concentration curve (Lorenz curve) and computes the curve
+## B. Obtaning concentration curve (Lorenz curve) and computes the curve
 ### two methods were used to investigate the disparites; 1-Numerical Integration and 2-Discrete Sum Calculation 
+
+## C. Sources 
+In the latest GBD study is uploaded here named 
 
 
 
