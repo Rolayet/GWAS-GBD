@@ -47,12 +47,9 @@ The matching process was done via EFO terms of the GBD or its descendants with G
 ## 4. Assessing the Relationship Between GWAS Attention and Global Need
 
 ## A. Developing concentration curve (Lorenz curve) and computes the curve
-The Lorenz.curve function from the LorenzRegression package is used to develop the concentration curve. For calculating its index, two methods were used to investigate the disparities:
+The Lorenz.curve function from the LorenzRegression package is used to develop the concentration curve. For calculating its index, Discrete Sum was used to investigate the disparities:
 
-1-Numerical Integration
-Formula:𝐶=2𝐴−1C=2A−1
-
-2-Discrete Sum Calculation 
+Discrete Sum Calculation 
 Formula: 2∑(cumulative_daly_values×sorted_attention_scores)/∑(sorted_attention_scores)−1 is derived from the discrete approximation of the area under the concentration curve
 
 ## B. Sources 
