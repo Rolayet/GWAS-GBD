@@ -1,6 +1,6 @@
-############################################################
-###Generate attention score for each GWAS in GWAS Catalog###
-############################################################
+#######################################################
+###Generate GWAS attention scores using GWAS Catalog###
+#######################################################
 
 # Load relevant packages 
 library(dplyr)
