@@ -341,6 +341,7 @@ clean_mapped_trait_uri <- function(uri) {
 
 # Read data files
 ontology <- get_OBO("/Users/rayanaloliet/Desktop/GWAS Catalog/efo-obo.txt")
+
 Second_part_GBD <- read_excel("/Users/rayanaloliet/Desktop/GWAS Catalog/Second_part_GBD.xlsx")
 
 
@@ -651,9 +652,12 @@ combined_dataset <- bind_rows(final_matched_gbd, final_unmatched_gbd)
 combined_dataset <- combined_dataset %>%
   distinct(`GBD term`, .keep_all = TRUE)
 
+# remove the columns
+combined_dataset <- combined_dataset %>% select(-MAPPED_TRAIT_NAME, -GBD_TERM_NAME, -EFO_number, -MAPPED_TRAIT_URI)
+
 
 # Save the combined dataset to a CSV file
-#write.csv(combined_dataset, "combined_dataset.csv", row.names = FALSE)
+#write.csv(combined_dataset, "combined_dataset_ncase.csv", row.names = FALSE)
 
 ```
 
@@ -694,23 +698,18 @@ gbd_daly_data <- gbd_daly_data %>%
 combined_dataset <- combined_dataset %>%
   left_join(gbd_daly_data, by = c("GBD term" = "GBD term"))
 
-# Remove specified columns
-combined_dataset <- combined_dataset %>%
-  select(-c(MAPPED_TRAIT_URI, MAPPED_TRAIT_NAME, EFO_number, GBD_TERM_NAME))
 
 # Verify the merge
 head(combined_dataset)
 
-# Ensure the columns are numeric as it gives error massage 
-combined_dataset$total_attention_score <- as.numeric(combined_dataset$total_attention_score)
-combined_dataset$DALY <- as.numeric(combined_dataset$DALY)
-
-# Check for any NA values and handle them
-combined_dataset[is.na(combined_dataset$DALY), 'DALY'] <- 0
+# remove na
+combined_dataset <- combined_dataset[!is.na(combined_dataset$location_name), ]
 
 # Verify the data
 summary(combined_dataset$total_attention_score)
 summary(combined_dataset$DALY)
+
+#write.csv(combined_dataset, "combined_dataset_ncaseM.csv", row.names = FALSE)
 
 ```
 identify any missing terms 
@@ -753,245 +752,74 @@ diff_2 <- data.frame(
 
 ```
 
-further anallysis 
+exclude GBD teams that are classified as Injuries and total 
 
 ```{r}
-# Visualize the distribution of 'total_attention_score'
-ggplot(combined_dataset, aes(x = total_attention_score)) +
-  geom_histogram(binwidth = 500, fill = 'blue', color = 'black', alpha = 0.7) +
-  labs(title = "Histogram of Total Attention Scores", x = "total_attention_score", y = "Frequency") +
-  xlim(c(0, 35000))  
+# List of injuries to exclude
+terms_to_exclude <- c("Injuries", "Transport injuries", "Road injuries", 
+                         "Pedestrian road injuries", "Cyclist road injuries", 
+                         "Motorcyclist road injuries", "Motor vehicle road injuries", 
+                         "Other road injuries", "Other transport injuries", 
+                         "Unintentional injuries", "Falls", "Drowning", 
+                         "Fire, heat, and hot substances", "Poisonings", 
+                         "Poisoning by carbon monoxide", "Poisoning by other means", 
+                         "Exposure to mechanical forces", "Unintentional firearm injuries", 
+                         "Other exposure to mechanical forces", "Adverse effects of medical treatment", 
+                         "Animal contact", "Venomous animal contact", 
+                         "Non-venomous animal contact", "Foreign body", 
+                         "Pulmonary aspiration and foreign body in airway", 
+                         "Foreign body in eyes", "Foreign body in other body part", 
+                         "Environmental heat and cold exposure", "Exposure to forces of nature", 
+                         "Other unintentional injuries", "Self-harm and interpersonal violence", 
+                         "Self-harm", "Self-harm by firearm", "Self-harm by other specified means", 
+                         "Interpersonal violence", "Physical violence by firearm", 
+                         "Physical violence by sharp object", "Sexual violence", 
+                         "Physical violence by other means", "Conflict and terrorism", 
+                         "Police conflict and executions", "All causes")
 
-
-# Adding 1 to avoid log(0) which is undefined, for better visualization 
-combined_dataset$total_attention_score_log <- log10(combined_dataset$total_attention_score + 1)
-
-# Visualize the distribution with log transformation
-ggplot(combined_dataset, aes(x = total_attention_score_log)) +
-  geom_histogram(binwidth = 0.1, fill = 'blue', color = 'black', alpha = 0.7) +
-  labs(title = "Histogram of Log-Transformed Total Attention Scores (log(n + 1))", 
-       x = "Log10(total attention Score + 1)", 
-       y = "Frequency") +
-  scale_x_continuous(breaks = seq(0, log10(max(combined_dataset$total_attention_score + 1)), by = 1))
-
-
-# Boxplot for 'total_attention_score'
-ggplot(combined_dataset, aes(y = total_attention_score)) +
-  geom_boxplot(fill = 'blue', color = 'black') +
-  labs(title = "Boxplot of Total Attention Scores (n)", y = "Total Attention Score (n)")
-
-```
-
-
-```{r}
-# Create the histogram for DALY distribution
-ggplot(combined_dataset, aes(x = DALY)) +
-  geom_histogram(binwidth = 10000, aes(fill = after_stat(count)), color = 'black', alpha = 0.7) +
-  scale_fill_gradient(low = "red", high = "darkred") +
-  labs(title = "Histogram of DALY", x = "DALY", y = "Frequency") +
-  theme_minimal()
-
-
-# Boxplot for 'DALY'
-ggplot(combined_dataset, aes(y = DALY)) +
-  geom_boxplot(fill = 'red', color = 'black') +
-  labs(title = "Boxplot of DALY", y = "DALY")
-
-```
-
-```{r}
-# Scatter plot to visualize the relationship between 'total attention score' and 'DALY'
-ggplot(combined_dataset, aes(x = DALY, y = total_attention_score)) +
-  geom_point(color = 'purple') +
-  labs(title = "Scatter Plot of DALY vs Total Attention Scores (n)", x = "DALY", y = "Total Attention Score (n)")
-
-
-```
-
-
-```{r}
-# check the summary of the total_attention_score column 
-summary(combined_dataset$total_attention_score)
-
-# Check the count of rows where total_attention_score is zero
-sum(combined_dataset$total_attention_score == 0)
-
-
-# Filter out rows with zero total attention scores
-filtered_dataset <- combined_dataset %>% filter(total_attention_score > 0)
-
-# Check the summary of the filtered data
-summary(filtered_dataset$total_attention_score)
-
-
-# Summary of 'total_attention_score' in the filtered dataset
-summary(filtered_dataset$total_attention_score)
-
-```
-
-
-```{r}
-# Histogram of Attention Scores (n)
-ggplot(filtered_dataset, aes(x = total_attention_score)) +
-  geom_histogram(binwidth = 1, fill = 'blue', color = 'black', alpha = 0.7) +
-  labs(title = "Histogram of Attention Scores (n) - Filtered", x = "Attention Score (n)", y = "Frequency")
-
-```
-
-
-```{r}
-# Filter for diseases with high DALY but low attention scores
-threshold_attention = 0  # Define what is considered low attention
-high_daly_low_attention <- combined_dataset %>%
-  filter(DALY > median(DALY) & total_attention_score <= threshold_attention) %>%
-  arrange(desc(DALY))
-
-# View the top diseases with high DALY and low attention
-(head(high_daly_low_attention, 20))
-
-# Save the filtered data to a CSV file
-#write.csv(high_daly_low_attention, "high_daly_low_attention.csv", row.names = FALSE)
-
-
-```
-
-```{r}
-summary(combined_dataset$total_attention_score)
-frequency <- table(combined_dataset$total_attention_score)
-
-
-specific_value <- 33796
-
-# Filter the dataset for the specific total_attention_score_per_pubmed value
-filtered_rows <- combined_dataset %>%
-  filter(total_attention_score == specific_value)
-
-# Extract unique GBD terms
-unique_gbd_terms <- unique(filtered_rows$`GBD term`)
-
-# Print the unique GBD terms
-print(unique_gbd_terms)
-```
-
-```{r}
-# Sort the data frame by total_attention_score in descending order
-sorted_data <- combined_dataset[order(combined_dataset$total_attention_score, decreasing = TRUE), ]
-
-# Remove duplicates based on total_attention_score and GBD term combination
-unique_data <- sorted_data[!duplicated(sorted_data[, c("total_attention_score", "GBD term")]), ]
-
-# Select the top 50 unique values
-top_50_scores <- head(unique_data, 50)
-
-# Display the top 50 scores
-print(top_50_scores)
-
-
-# Threshold value
-threshold_value <- 198
-
-# Filter the dataset for total_attention_score_per_pubmed values greater than the threshold
-filtered_rows <- combined_dataset %>%
-  filter(total_attention_score > threshold_value)
-
-# Extract unique GBD terms
-unique_gbd_terms <- unique(filtered_rows$`GBD term`)
-
-# Print the unique GBD terms
-print(unique_gbd_terms)
-
-# save
-#write.csv(unique_gbd_terms, file = "unique_gbd_terms.csv", row.names = FALSE)
-```
-
-```{r}
-# Sort the data frame by total_attention_score in descending order and remove duplicates based on total_attention_score and GBD term combination
-unique_data <- combined_dataset %>%
-  arrange(desc(total_attention_score)) %>%
-  distinct(total_attention_score, `GBD term`, .keep_all = TRUE)
-
-# Rank the DALY values based on the deduplicated dataset
-unique_data <- unique_data %>%
-  mutate(DALY_rank = rank(DALY))
-
-# Threshold value
-threshold_value <- 198
-
-# Filter the dataset for total_attention_score values greater than the threshold
-filtered_rows <- unique_data %>%
-  filter(total_attention_score > threshold_value)
-
-# Summarize the data to get frequency and list of unique total_attention_score and DALY for each GBD term
-summary_table <- filtered_rows %>%
-  group_by(`GBD term`) %>%
-  summarise(
-    total_attention_score = unique(total_attention_score),
-    DALY = unique(DALY),
-    DALY_rank = unique(DALY_rank),
-    .groups = "drop"
-  )
-
-# View the summary table
-print(summary_table)
-```
-
-```{r}
-# List of terms to exclude
-terms_to_exclude <- c("All causes",
-                      "Cirrhosis due to alcohol",
-                      "Low back pain",
-                      "Neck pain",
-                      "Cocaine use disorders",
-                      "Drug use disorders",
-                      "Foreign body in other body part",
-                      "Opioid use disorders",
-                      "Poisonings",
-                      "Falls",
-                      "Foreign body",
-                      "Conflict and terrorism",
-                      "Drowning",
-                      "Poisoning by carbon monoxide",
-                      "Extensively drug-resistant tuberculosis",
-                      "Venomous animal contact",
-                      "Sexual violence",
-                      "Adverse effects of medical treatment",
-                      "Pulmonary aspiration and foreign body in airway",
-                      "Motorcyclist road injuries",
-                      "Motor vehicle road injuries",
-                      "Physical violence by firearm",
-                      "Physical violence by sharp object",
-                      "Environmental heat and cold exposure",
-                      "Police conflict and executions",
-                      "Exposure to forces of nature",
-                      "Animal contact",
-                      "Non-venomous animal contact",
-                      "Fire, heat, and hot substances",
-                      "Unintentional firearm injuries",
-                      "Indirect maternal deaths",
-                      "Late maternal deaths",
-                      "Amphetamine use disorders",
-                      "Other drug use disorders",
-                      "Other infectious diseases",
-                      "Other transport injuries",
-                      "Unintentional injuries",
-                      "Other unintentional injuries",
-                      "Poisoning by other means",
-                      "Exposure to mechanical forces",
-                      "Physical violence by other means",
-                      "Injuries",
-                      "Transport injuries",
-                      "Road injuries",
-                      "Other road injuries",
-                      "Foreign body in eyes",
-                      "Cannabis use disorders")
-
-# Filter the GBD DALY data for "Number" metric and rename columns
-combined_dataset <- combined_dataset %>%
+ # Filter the GBD DALY data for "Number" metric and rename columns
+filtered_dataset <- combined_dataset %>%
   filter(!(`GBD term` %in% terms_to_exclude))  # Exclude specified terms
 
-write.csv(combined_dataset, "combined_dataset_ncase_TT.csv", row.names = FALSE)
+```
 
+split the dataset into communicable and noncommunicable for sensitivity analysis
+
+```{r}
+broader_categories_dataset<- read_xlsx("/Users/rayanaloliet/Desktop/untitled folder 7/GBD_2021_CAUSE_HIERARCHY_Y2024M05D16.xlsx")
+ 
+head(broader_categories_dataset)
+```
+
+```{r}
+filtered_dataset <- filtered_dataset %>%
+  rename(`Cause Name` = `GBD term`)
+```
+
+```{r}
+merged_dataset <- merge(filtered_dataset, broader_categories_dataset, by = "Cause Name", all.x = TRUE)
+```
+based on the GBD, here we should have 95 * 27 locations for the Communicable, maternal, neonatal, and nutritional diseases
+```{r}
+merged_dataset_CMNN <- merged_dataset %>%
+  filter(substr(`Cause Outline`, 1, 1) %in% c("A"))
+
+#write.csv(merged_dataset_CMNN, "merged_dataset_CMNN.csv", row.names = FALSE)
 
 ```
 
+based on the GBD, here we should have 234 * 27 for Non-communicable diseases diseases
+
+```{r}
+merged_dataset_NC <- merged_dataset %>%
+  filter(substr(`Cause Outline`, 1, 1) %in% c("B"))
+
+#write.csv(merged_dataset_NC, "merged_dataset_NC.csv", row.names = FALSE)
+```
+
+```{r}
+merged_dataset_exclude_Injuries <- filtered_dataset
+
+#write.csv(merged_dataset_exclude_Injuries, "merged_dataset_exclude_Injuries.csv", row.names = FALSE)
+```
 
