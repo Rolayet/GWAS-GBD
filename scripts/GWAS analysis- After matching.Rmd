@@ -260,7 +260,7 @@ print(table(summarized_data$category))
 
 ```
 
-# Function to create bar plots for each category
+ create bar plots for each category
 
 ```{r}
 create_separate_bar_plot <- function(data, category) {
@@ -287,7 +287,7 @@ for (cat in categories) {
 
 ```
 
-# Function to create lollipop charts for each category
+create lollipop charts for each category
 
 ```{r}
 create_lollipop_chart <- function(data, category) {
@@ -334,7 +334,7 @@ faceted_lollipop_chart <- ggplot(summarized_data, aes(x = reorder(Category_2, to
 # Display the faceted lollipop chart
 print(faceted_lollipop_chart)
 ```
-# Create a faceted grouped dot plot
+Create a faceted grouped dot plot
 
 
 ```{r}
@@ -354,10 +354,10 @@ faceted_dot_plot <- ggplot(summarized_data, aes(x = reorder(Category_2, total_at
 faceted_dot_plot
 
 ```
-threshold
+ Define the threshold for the categories
+
 
 ```{r}
-# Define the threshold for the categories
 threshold <- median(summarized_data$total_attention_score)
 
 # Categorize the scores into "High" and "Low"
@@ -423,9 +423,9 @@ for (cat in categories) {
 
 
 ```
+create bar plots for each category
 
 ```{r}
-# Function to create bar plots for each category
 create_separate_bar_plot <- function(data, category) {
   ggplot(data, aes(x = reorder(Category_2, total_attention_score), y = total_attention_score, fill = category)) +
     geom_bar(stat = "identity", width = 1, color = "black") +  # Add borders to bars
@@ -451,10 +451,9 @@ for (cat in categories) {
 
 ```
 
-
+Create a faceted bar plot with separate panels for "High" and "Low" categories
 
 ```{r}
-# Create a faceted bar plot with separate panels for "High" and "Low" categories
 faceted_bar_plot <- ggplot(summarized_data, aes(x = reorder(Category_2, total_attention_score), y = total_attention_score, fill = category)) +
   geom_bar(stat = "identity", width = 1, color = "black") +  # Add borders to bars
   scale_fill_manual(values = custom_colors) +  # Use custom colors
@@ -566,6 +565,7 @@ print(donut_chart)
 
 Binary_data
 ```
+manually for beter visulaization 
 
 ```{r}
 
@@ -649,7 +649,11 @@ gbd_daly_data <- gbd_daly_data %>%
   rename(`GBD term`= cause_name, DALY = val)
 
 
+
 # Merge the DALY values into the combined dataset
+filtered_dataset <- filtered_dataset %>%
+  rename(`GBD term` = `Cause Name`)
+
 filtered_dataset <- filtered_dataset %>%
   left_join(gbd_daly_data, by = c("GBD term" = "GBD term"))
 
@@ -834,101 +838,5 @@ ggplot(unique_gbd_high_attention, aes(x = `GBD term`, y = DALY, size = total_att
 
 ```
 
-# Load the GBD DALY data
-
-```{r}
-gbd_daly_data <- read_csv('/Users/rayanaloliet/Desktop/GWAS Catalog/IHME-GBD_2021_DATA-120ebfcd-1.csv')
-
-# Filter out rows with NA values in the key columns
-gbd_daly_data <- gbd_daly_data %>%
-  filter(!is.na(`cause_name`), !is.na(val))
-
-# Verify that there are no NA values left
-sum(is.na(gbd_daly_data$`cause_name`))
-sum(is.na(gbd_daly_data$val))
-sum(is.na(gbd_daly_data$measure_name))
-
- 
-# Inspect the structure of the GBD DALY data
-str(gbd_daly_data)
-```
 
 
-merge the data set 
-
-```{r}
-#2021
-gbd_daly_data <- gbd_daly_data %>%
-  filter(metric_name == "Number") %>%
-  rename(`GBD term`= cause_name, DALY = val)
-
-
-# Merge the DALY values into the combined dataset
-filtered_dataset <- filtered_dataset %>%
-  left_join(gbd_daly_data, by = c("GBD term" = "GBD term"))
-
-# remove na
-filtered_dataset <- filtered_dataset[!is.na(filtered_dataset$location_name), ]
-
-
-# Verify the merge
-head(filtered_dataset)
-
-
-# Verify the data
-summary(filtered_dataset$total_attention_score)
-summary(filtered_dataset$DALY)
-
-```
-
-
-
-
-split the dataset into communicable and noncommunicable for sensitivity analysis
-
-```{r}
-broader_categories_dataset<- read_xlsx("/Users/rayanaloliet/Desktop/untitled folder 7/GBD_2021_CAUSE_HIERARCHY_Y2024M05D16.xlsx")
- 
-head(broader_categories_dataset)
-```
-```{r}
-
-filtered_dataset <- filtered_dataset %>%
-  rename(`Cause Name` = `GBD term`)
-
-```
-
-
-```{r}
-merged_dataset <- merge(filtered_dataset, broader_categories_dataset, by = "Cause Name", all.x = TRUE)
-```
-
-based on the GBD, here we should have 95 * 27 locations for the Communicable, maternal, neonatal, and nutritional diseases
-
-```{r}
-merged_dataset_CMNN <- merged_dataset %>%
-  filter(substr(`Cause Outline`, 1, 1) %in% c("A"))
-
-write.csv(merged_dataset_CMNN, "merged_dataset_CMNN.csv", row.names = FALSE)
-
-```
-
-based on the GBD, here we should have 234 * 27 for Non-communicable diseases diseases
-
-```{r}
-
-merged_dataset_NC <- merged_dataset %>%
-  filter(substr(`Cause Outline`, 1, 1) %in% c("B"))
-
-write.csv(merged_dataset_NC, "merged_dataset_NC.csv", row.names = FALSE)
-
-```
-    
-    
-```{r}
-merged_dataset_exclude_Injuries <- filtered_dataset
-
-write.csv(merged_dataset_exclude_Injuries, "merged_dataset_exclude_Injuries.csv", row.names = FALSE)
-```
-    
-    
