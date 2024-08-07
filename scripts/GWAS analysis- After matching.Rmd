@@ -27,7 +27,7 @@ combined_dataset <- fread("/Users/rayanaloliet/Desktop/GWAS Catalog/combined_dat
 ```
 
 
-exclude GBD teams that are classified as Injuries
+exclude GBD teams that are classified as Injuries and total 
 
 ```{r}
 
