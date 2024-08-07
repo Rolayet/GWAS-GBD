@@ -51,7 +51,7 @@ terms_to_exclude <- c("Injuries", "Transport injuries", "Road injuries",
                          "Interpersonal violence", "Physical violence by firearm", 
                          "Physical violence by sharp object", "Sexual violence", 
                          "Physical violence by other means", "Conflict and terrorism", 
-                         "Police conflict and executions")
+                         "Police conflict and executions", "All causes")
 
  # Filter the GBD DALY data for "Number" metric and rename columns
 filtered_dataset <- combined_dataset %>%
@@ -64,7 +64,7 @@ filtered_dataset <- combined_dataset %>%
 read the data - other file from the GBD for terms classification
 
 ```{r}
-broader_categories_dataset<- read_xlsx("/Users/rayanaloliet/Desktop/GWAS Catalog/GBD_2021_CAUSE_HIERARCHY_Y2024M05D16.xlsx")
+broader_categories_dataset<- read_xlsx("/Users/rayanaloliet/Desktop/untitled folder 7/GBD_2021_CAUSE_HIERARCHY_Y2024M05D16.xlsx")
  
 head(broader_categories_dataset)
 ```
@@ -439,5 +439,92 @@ ggplot(filtered_dataset, aes(x = total_attention_score_log)) +
 
 
 
+```
+```{r}
+
+
+merged_dataset <- merged_dataset %>%
+  filter(substr(`Cause Outline`, 1, 1) %in% c("A", "B", "C", "D", "E", "F", "G", "H", "I"))
+
+# Add descriptive labels for categories A and B
+merged_dataset <- merged_dataset %>%
+  mutate(Category_Label = case_when(
+    substr(`Cause Outline`, 1, 1) == "A" ~ "Communicable, maternal, neonatal, and nutritional diseases",
+    substr(`Cause Outline`, 1, 1) == "B" ~ "Non-communicable diseases"
+  ))
+
+# Sum the participants under each category label
+Binary_data <- merged_dataset %>%
+  group_by(Category_Label) %>%
+  summarise(total_participants = sum(total_attention_score, na.rm = TRUE)) %>%
+  ungroup()
+
+#remove na
+Binary_data <- na.omit(Binary_data)
+
+```
+
+
+```{r}
+# Function to create bar chart
+create_bar_chart <- function(data, title) {
+  ggplot(data, aes(x = reorder(Category_Label, -total_participants), y = total_participants, fill = Category_Label)) +
+    geom_bar(stat = "identity", position = "dodge") +
+    theme_minimal() +
+    labs(title = title,
+         x = "Category",
+         y = "Number of Participants") +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 10),
+          legend.position = "none") + # Remove legend as labels are directly on the plot
+    geom_text(aes(label = total_participants), vjust = -0.5, size = 4)
+}
+
+# Create and display bar chart for summed participants by category label
+bar_chart <- create_bar_chart(Binary_data, "Number of Participants by Category (A and B)")
+
+# Display the bar chart
+print(bar_chart)
+```
+
+
+
+```{r}
+# Donut Chart
+donut_chart <- ggplot(Binary_data, aes(x = 2, y = -total_participants, fill = Category_Label)) +
+  geom_bar(width = 1, stat = "identity") +
+  coord_polar(theta = "y") +
+  theme_void() +
+  xlim(0.5, 2.5) +
+  labs(title = "Number of Participants by Category (A and B)",
+       fill = "Category") +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  geom_text(aes(label = total_participants), position = position_stack(vjust = 0.5), size = 4)
+
+# Display the donut chart
+print(donut_chart)
+
+Binary_data
+```
+
+
+
+
+
+
+
+```{r}
+# Calculate the sum of the column
+total_sum <- sum(filtered_dataset$total_attention_score, na.rm = TRUE)
+
+# Print the result
+print(total_sum)
+```
+
+```{r}
+# Calculate the sum of the column
+total_sum <- sum(Binary_data$total_participants, na.rm = TRUE)
+
+# Print the result
+print(total_sum)
 ```
 
