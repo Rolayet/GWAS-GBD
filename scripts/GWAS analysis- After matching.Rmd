@@ -311,12 +311,7 @@ for (cat in categories) {
 }
 ```
 ```{r}
-"#1f77b4"
-"#2ca02c"
-"#d62728"
-"#ff7f0e"
 
-"#FF9999", "#FFCC99",  "#99CCFF", "#6699CC"
 
 # Create a custom color palette
 color_palette <- c("Very Low" = "#FF9999", "Low" = "gray", "Medium" = "#FFCC99", "High" = "#6699CC")
@@ -679,8 +674,8 @@ unique_gbd_terms <- n_distinct(filtered_dataset$`GBD term`)
 # Print the number of unique gbd terms
 unique_gbd_terms
 ```
-Top 10 GBD Terms with Zero Total Attention Score Ranked by DALY
-remove any parent names- to show specific diseases
+Top 10 GBD Terms with Zero Total Attention Score Ranked by DALY.
+Removing any parent names- to show specific diseases
 
 ```{r}
 
@@ -839,3 +834,101 @@ ggplot(unique_gbd_high_attention, aes(x = `GBD term`, y = DALY, size = total_att
 
 ```
 
+# Load the GBD DALY data
+
+```{r}
+gbd_daly_data <- read_csv('/Users/rayanaloliet/Desktop/GWAS Catalog/IHME-GBD_2021_DATA-120ebfcd-1.csv')
+
+# Filter out rows with NA values in the key columns
+gbd_daly_data <- gbd_daly_data %>%
+  filter(!is.na(`cause_name`), !is.na(val))
+
+# Verify that there are no NA values left
+sum(is.na(gbd_daly_data$`cause_name`))
+sum(is.na(gbd_daly_data$val))
+sum(is.na(gbd_daly_data$measure_name))
+
+ 
+# Inspect the structure of the GBD DALY data
+str(gbd_daly_data)
+```
+
+
+merge the data set 
+
+```{r}
+#2021
+gbd_daly_data <- gbd_daly_data %>%
+  filter(metric_name == "Number") %>%
+  rename(`GBD term`= cause_name, DALY = val)
+
+
+# Merge the DALY values into the combined dataset
+filtered_dataset <- filtered_dataset %>%
+  left_join(gbd_daly_data, by = c("GBD term" = "GBD term"))
+
+# remove na
+filtered_dataset <- filtered_dataset[!is.na(filtered_dataset$location_name), ]
+
+
+# Verify the merge
+head(filtered_dataset)
+
+
+# Verify the data
+summary(filtered_dataset$total_attention_score)
+summary(filtered_dataset$DALY)
+
+```
+
+
+
+
+split the dataset into communicable and noncommunicable for sensitivity analysis
+
+```{r}
+broader_categories_dataset<- read_xlsx("/Users/rayanaloliet/Desktop/untitled folder 7/GBD_2021_CAUSE_HIERARCHY_Y2024M05D16.xlsx")
+ 
+head(broader_categories_dataset)
+```
+```{r}
+
+filtered_dataset <- filtered_dataset %>%
+  rename(`Cause Name` = `GBD term`)
+
+```
+
+
+```{r}
+merged_dataset <- merge(filtered_dataset, broader_categories_dataset, by = "Cause Name", all.x = TRUE)
+```
+
+based on the GBD, here we should have 95 * 27 locations for the Communicable, maternal, neonatal, and nutritional diseases
+
+```{r}
+merged_dataset_CMNN <- merged_dataset %>%
+  filter(substr(`Cause Outline`, 1, 1) %in% c("A"))
+
+write.csv(merged_dataset_CMNN, "merged_dataset_CMNN.csv", row.names = FALSE)
+
+```
+
+based on the GBD, here we should have 234 * 27 for Non-communicable diseases diseases
+
+```{r}
+
+merged_dataset_NC <- merged_dataset %>%
+  filter(substr(`Cause Outline`, 1, 1) %in% c("B"))
+
+write.csv(merged_dataset_NC, "merged_dataset_NC.csv", row.names = FALSE)
+
+```
+    
+    
+```{r}
+merged_dataset_exclude_Injuries <- filtered_dataset
+
+write.csv(merged_dataset_exclude_Injuries, "merged_dataset_exclude_Injuries.csv", row.names = FALSE)
+```
+    
+    
