@@ -64,7 +64,7 @@ filtered_dataset <- combined_dataset %>%
 read the data - other file from the GBD for terms classification
 
 ```{r}
-broader_categories_dataset<- read_xlsx("/Users/rayanaloliet/Desktop/untitled folder 7/GBD_2021_CAUSE_HIERARCHY_Y2024M05D16.xlsx")
+broader_categories_dataset<- read_xlsx("/Users/rayanaloliet/Desktop/GWAS Catalog/GBD_2021_CAUSE_HIERARCHY_Y2024M05D16.xlsx")
  
 head(broader_categories_dataset)
 ```
