@@ -758,7 +758,7 @@ library(ggrepel)
 ggplot(unique_gbd_zero_attention, aes(x = `GBD term`, y = DALY, size = DALY)) +
   geom_point(alpha = 0.7, color = 'salmon') +
   geom_text_repel(aes(label = `GBD term`), size = 3, max.overlaps = Inf) +
-  labs(title = "Top 10 GBD Terms with Zero Total Attention Score Ranked by DALY",
+  labs(title = "Top 10 Health Conditions with Zero Total Attention Score Ranked by DALY",
        x = NULL,
        y = "DALY") +
   theme_minimal() +
@@ -828,7 +828,7 @@ unique_gbd_high_attention <- filtered_high_attention %>%
 ggplot(unique_gbd_high_attention, aes(x = `GBD term`, y = DALY, size = total_attention_score)) +
   geom_point(alpha = 0.7, color = 'skyblue') +
   geom_text_repel(aes(label = `GBD term`), size = 3, max.overlaps = Inf) +
-  labs(title = "Top 10 GBD Terms with Highest Total Attention Score Ranked by DALY",
+  labs(title = "Top 10 Health Conditions with Highest Total Attention Score Ranked by DALY",
        x = NULL,
        y = "DALY") +
   theme_minimal() +
