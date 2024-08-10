@@ -116,21 +116,30 @@ Develop attention score including ncase per PUBMEDID
 ```{r}
 
 
-# Summarize the data
-attention <- a %>%
+#  Group by MAPPED_TRAIT_URI and PUBMEDID, then summarize
+intermediate_summary <- a %>%
   group_by(MAPPED_TRAIT_URI, PUBMEDID) %>%
   summarise(
     total_ncase_per_pubmed = sum(ncase, na.rm = TRUE),
-    .groups = 'drop'
-  ) %>%
-  group_by(MAPPED_TRAIT_URI) %>%
-  summarise(
-    total_ncase = sum(total_ncase_per_pubmed, na.rm = TRUE),
-    DISEASE_TRAIT = paste(unique(a$`DISEASE/TRAIT`[a$MAPPED_TRAIT_URI == cur_group()$MAPPED_TRAIT_URI]), collapse = "; "),
+    DISEASE_TRAIT = paste(unique(`DISEASE/TRAIT`), collapse = "; "),
+    PUBMEDID = first(PUBMEDID),
     .groups = 'drop'
   )
 
+# Save or print the intermediate result if needed
+print(intermediate_summary)
 
+# Group by MAPPED_TRAIT_URI and finalize the summary
+attention <- intermediate_summary %>%
+  group_by(MAPPED_TRAIT_URI) %>%
+  summarise(
+    total_ncase = sum(total_ncase_per_pubmed, na.rm = TRUE),
+    DISEASE_TRAIT = first(DISEASE_TRAIT),   
+    PUBMEDID = first(PUBMEDID)   
+  )
+
+# Save or print the final result
+print(attention)
 
 str(attention)
 
@@ -276,13 +285,22 @@ matched_rows <- inner_join(attention, gbd_long, by = "MAPPED_TRAIT_URI")
 
  
  # Group by GBD term  and summarize within these groups 
-unique_matched_gbd_terms_First_part_GBD <- matched_rows %>%
-  group_by(`GBD term`) %>%
+intermediate_summary <- matched_rows %>%
+  group_by(`GBD term`,PUBMEDID) %>%
   summarise(
     total_ncase = sum(total_ncase, na.rm = TRUE),
     .groups = "drop"
   )
    
+ # Group by GBD term  and summarize within these groups 
+unique_matched_gbd_terms_First_part_GBD <- intermediate_summary %>%
+  group_by(`GBD term`) %>%
+  summarise(
+    total_ncase = sum(total_ncase, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+
 # Identify unmatched rows from attention
 unmatched_attention <- anti_join(attention, gbd_long, by = "MAPPED_TRAIT_URI")
 
@@ -449,13 +467,20 @@ matched_entries <- attention %>%
 
   
    # Group by GBD term  and summarize within these groups 
- unique_matched_gbd_terms_Second_part_GBD <- matched_entries %>%
-  group_by(GBD_TERM) %>%
+ intermediate_summary <- matched_entries %>%
+  group_by(GBD_TERM,PUBMEDID) %>%
   summarise(
     total_ncase = sum(total_ncase, na.rm = TRUE),
     .groups = "drop"
   )
  
+    # Group by GBD term  and summarize within these groups 
+ unique_matched_gbd_terms_Second_part_GBD <- intermediate_summary %>%
+  group_by(GBD_TERM) %>%
+  summarise(
+    total_ncase = sum(total_ncase, na.rm = TRUE),
+    .groups = "drop"
+  )
  
 # Identify unmatched GBD entries based on GBD_TERM in both datasets
 # First, extract unique GBD terms from both datasets
@@ -558,13 +583,14 @@ partial_matches <- combined_unmatched_terms %>%
     MAPPED_TRAIT_NAME,
     GBD_TERM_NAME,
     total_ncase,
+    PUBMEDID,
     `GBD term`
   ) %>%
   distinct()
 
 # Now summarize these attention scores across the GBD term and sum the total_ncase
-partial_matches_unique <- partial_matches %>%
-  group_by(`GBD term`) %>%
+intermediate_summary <- partial_matches %>%
+  group_by(`GBD term`,PUBMEDID) %>%
   summarise(
     total_ncase = sum(total_ncase, na.rm = TRUE),
     MAPPED_TRAIT_NAME = paste(unique(MAPPED_TRAIT_NAME), collapse = "; "),
@@ -572,6 +598,14 @@ partial_matches_unique <- partial_matches %>%
     .groups = "drop"
   )
 
+partial_matches_unique <- intermediate_summary %>%
+  group_by(`GBD term`) %>%
+  summarise(
+    total_ncase = sum(total_ncase, na.rm = TRUE),
+    MAPPED_TRAIT_NAME = paste(unique(MAPPED_TRAIT_NAME), collapse = "; "),
+    GBD_TERM_NAME = paste(unique(GBD_TERM_NAME), collapse = "; "),
+    .groups = "drop"
+  )
 # View the resulting data frame
 print(partial_matches_unique)
 
@@ -780,6 +814,9 @@ terms_to_exclude <- c("Injuries", "Transport injuries", "Road injuries",
  # Filter the GBD DALY data for "Number" metric and rename columns
 filtered_dataset <- combined_dataset %>%
   filter(!(`GBD term` %in% terms_to_exclude))  # Exclude specified terms
+
+write.csv(filtered_dataset, "filtered_dataset_10.csv", row.names = FALSE)
+
 
 ```
 
