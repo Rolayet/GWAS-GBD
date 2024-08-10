@@ -133,12 +133,10 @@ attention <- a %>%
     nhits = sum(`ASSOCIATION COUNT`),
     weighted_nhits = sum(`ASSOCIATION COUNT` / n_efo),
     weighted_attention_score_impact_factor = sum((1 / n_efo) * `Impact factor`, na.rm = TRUE),
-     DISEASE_TRAIT = paste(unique(a$`DISEASE/TRAIT`[a$MAPPED_TRAIT_URI == cur_group()$MAPPED_TRAIT_URI]), collapse = "; "),
+     DISEASE_TRAIT = paste(unique(`DISEASE/TRAIT`), collapse = "; "),
     PUBMEDID = paste(unique(PUBMEDID), collapse = ", ")
   )
 
-
- 
 
 # Expand PUBMEDID into separate rows
 attention <- attention %>%
@@ -293,11 +291,11 @@ matched_rows <- inner_join(attention, gbd_long, by = "MAPPED_TRAIT_URI")
  matched_rows_unique <- matched_rows %>%
     group_by(`GBD term`, PUBMEDID) %>%
     summarise(
-      total_attention_score_per_pubmed = first(n, na.rm = TRUE),
-      weighted_n = first(weighted_n),
-      nhits = first(nhits),
-      weighted_nhits = first(weighted_nhits),
-      weighted_attention_score_impact_factor = first(weighted_attention_score_impact_factor),
+      total_attention_score_per_pubmed = sum(n, na.rm = TRUE),
+      weighted_n = sum(weighted_n),
+      nhits = sum(nhits),
+      weighted_nhits = sum(weighted_nhits),
+      weighted_attention_score_impact_factor = sum(weighted_attention_score_impact_factor),
       unique_pubmed_ids = n_distinct(PUBMEDID),
       MAPPED_TRAIT_URI = first(MAPPED_TRAIT_URI),
       DISEASE_TRAIT = first(DISEASE_TRAIT),
@@ -309,10 +307,10 @@ matched_rows <- inner_join(attention, gbd_long, by = "MAPPED_TRAIT_URI")
     group_by(`GBD term`) %>%
     summarise(
       total_attention_score = sum(total_attention_score_per_pubmed, na.rm = TRUE),
-      weighted_n = first(weighted_n),
-      nhits = first(nhits),
-      weighted_nhits = first(weighted_nhits),
-      weighted_attention_score_impact_factor = first(weighted_attention_score_impact_factor),
+      weighted_n = sum(weighted_n),
+      nhits = sum(nhits),
+      weighted_nhits = sum(weighted_nhits),
+      weighted_attention_score_impact_factor = sum(weighted_attention_score_impact_factor),
       unique_pubmed_ids = n_distinct(PUBMEDID),
       MAPPED_TRAIT_URI = first(MAPPED_TRAIT_URI),
       DISEASE_TRAIT = first(DISEASE_TRAIT),
@@ -512,11 +510,11 @@ matched_entries <- attention %>%
     drop_na() %>%
     group_by(GBD_TERM, PUBMEDID) %>%
     summarise(
-      total_attention_score_per_pubmed = first(n, na.rm = TRUE),
-      weighted_n = first(weighted_n),
-      nhits = first(nhits),
-      weighted_nhits = first(weighted_nhits),
-      weighted_attention_score_impact_factor = first(weighted_attention_score_impact_factor),
+      total_attention_score_per_pubmed = sum(n, na.rm = TRUE),
+      weighted_n = sum(weighted_n),
+      nhits = sum(nhits),
+      weighted_nhits = sum(weighted_nhits),
+      weighted_attention_score_impact_factor = sum(weighted_attention_score_impact_factor),
       unique_pubmed_ids = n_distinct(PUBMEDID),
       MAPPED_TRAIT_URI = first(MAPPED_TRAIT_URI),
       DISEASE_TRAIT = first(DISEASE_TRAIT),
@@ -529,10 +527,10 @@ matched_entries <- attention %>%
     group_by(GBD_TERM) %>%
     summarise(
       total_attention_score = sum(total_attention_score_per_pubmed, na.rm = TRUE),
-      weighted_n = first(weighted_n),
-      nhits = first(nhits),
-      weighted_nhits = first(weighted_nhits),
-      weighted_attention_score_impact_factor = first(weighted_attention_score_impact_factor),
+      weighted_n = sum(weighted_n),
+      nhits = sum(nhits),
+      weighted_nhits = sum(weighted_nhits),
+      weighted_attention_score_impact_factor = sum(weighted_attention_score_impact_factor),
       unique_pubmed_ids = n_distinct(PUBMEDID),
       MAPPED_TRAIT_URI = first(MAPPED_TRAIT_URI),
       DISEASE_TRAIT = first(DISEASE_TRAIT),
@@ -664,11 +662,11 @@ partial_matches <- combined_unmatched_terms %>%
  partial_matches_filtered <- partial_matches %>%
     group_by(`GBD term`, PUBMEDID) %>%
     summarise(
-      total_attention_score_per_pubmed = first(n, na.rm = TRUE),
-      weighted_n = first(weighted_n),
-      nhits = first(nhits),
-      weighted_nhits = first(weighted_nhits),
-      weighted_attention_score_impact_factor = first(weighted_attention_score_impact_factor),
+      total_attention_score_per_pubmed = sum(n, na.rm = TRUE),
+      weighted_n = sum(weighted_n),
+      nhits = sum(nhits),
+      weighted_nhits = sum(weighted_nhits),
+      weighted_attention_score_impact_factor = sum(weighted_attention_score_impact_factor),
       unique_pubmed_ids = n_distinct(PUBMEDID),
       MAPPED_TRAIT_URI = first(MAPPED_TRAIT_URI),
       GBD_TRAIT_URI = first(GBD_TRAIT_URI),
@@ -681,10 +679,10 @@ partial_matches <- combined_unmatched_terms %>%
     group_by(`GBD term`) %>%
     summarise(
       total_attention_score = sum(total_attention_score_per_pubmed, na.rm = TRUE),
-      weighted_n = first(weighted_n),
-      nhits = first(nhits),
-      weighted_nhits = first(weighted_nhits),
-      weighted_attention_score_impact_factor = first(weighted_attention_score_impact_factor),
+      weighted_n = sum(weighted_n),
+      nhits = sum(nhits),
+      weighted_nhits = sum(weighted_nhits),
+      weighted_attention_score_impact_factor = sum(weighted_attention_score_impact_factor),
       unique_pubmed_ids = n_distinct(PUBMEDID),
       MAPPED_TRAIT_URI = first(MAPPED_TRAIT_URI),
       GBD_TRAIT_URI = first(GBD_TRAIT_URI),
@@ -944,7 +942,7 @@ based on the GBD, here we should have 95 * 27 locations for the Communicable, ma
 merged_dataset_EFO_CMNN <- merged_dataset %>%
   filter(substr(`Cause Outline`, 1, 1) %in% c("A"))
 
-write.csv(merged_dataset_EFO_CMNN, "merged_dataset_EFO_CMNN.csv", row.names = FALSE)
+#write.csv(merged_dataset_EFO_CMNN, "merged_dataset_EFO_CMNN.csv", row.names = FALSE)
 ```
 
 based on the GBD, here we should have 234 * 27 for Non-communicable diseases diseases
@@ -952,13 +950,13 @@ based on the GBD, here we should have 234 * 27 for Non-communicable diseases dis
 merged_dataset_EFO_NC <- merged_dataset %>%
   filter(substr(`Cause Outline`, 1, 1) %in% c("B"))
 
-write.csv(merged_dataset_EFO_NC, "merged_dataset_EFO_NC.csv", row.names = FALSE)
+#write.csv(merged_dataset_EFO_NC, "merged_dataset_EFO_NC.csv", row.names = FALSE)
 ```
 
 
 ```{r}
 merged_dataset_EFO_exclude_Injuries <- filtered_dataset
 
-write.csv(merged_dataset_EFO_exclude_Injuries, "merged_dataset_EFO_exclude_Injuries.csv", row.names = FALSE)
+#write.csv(merged_dataset_EFO_exclude_Injuries, "merged_dataset_EFO_exclude_Injuries.csv", row.names = FALSE)
 ```
 
