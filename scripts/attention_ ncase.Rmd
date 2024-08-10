@@ -122,9 +122,13 @@ attention <- a %>%
   summarise(
     total_ncase = sum(ncase, na.rm = TRUE),
     DISEASE_TRAIT = paste(unique(`DISEASE/TRAIT`), collapse = "; "),
-    PUBMEDID = first(PUBMEDID),
+    PUBMEDID = paste(unique(PUBMEDID), collapse = ", "),
     .groups = 'drop'
   )
+
+# Expand PUBMEDID into separate rows
+attention <- attention %>%
+  separate_rows(PUBMEDID, sep = ", ") 
 
 
 # Save or print the final result
