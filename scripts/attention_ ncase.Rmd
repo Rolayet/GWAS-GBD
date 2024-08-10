@@ -116,27 +116,16 @@ Develop attention score including ncase per PUBMEDID
 ```{r}
 
 
-#  Group by MAPPED_TRAIT_URI and PUBMEDID, then summarize
-intermediate_summary <- a %>%
-  group_by(MAPPED_TRAIT_URI, PUBMEDID) %>%
+#  Group by MAPPED_TRAIT_URI, then summarize
+attention <- a %>%
+  group_by(MAPPED_TRAIT_URI) %>%
   summarise(
-    total_ncase_per_pubmed = sum(ncase, na.rm = TRUE),
+    total_ncase = sum(ncase, na.rm = TRUE),
     DISEASE_TRAIT = paste(unique(`DISEASE/TRAIT`), collapse = "; "),
     PUBMEDID = first(PUBMEDID),
     .groups = 'drop'
   )
 
-# Save or print the intermediate result if needed
-print(intermediate_summary)
-
-# Group by MAPPED_TRAIT_URI and finalize the summary
-attention <- intermediate_summary %>%
-  group_by(MAPPED_TRAIT_URI) %>%
-  summarise(
-    total_ncase = sum(total_ncase_per_pubmed, na.rm = TRUE),
-    DISEASE_TRAIT = first(DISEASE_TRAIT),   
-    PUBMEDID = first(PUBMEDID)   
-  )
 
 # Save or print the final result
 print(attention)
