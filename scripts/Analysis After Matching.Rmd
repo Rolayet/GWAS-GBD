@@ -1,0 +1,431 @@
+---
+title: "Analysis"
+output: html_notebook
+---
+
+```{r}
+library(dplyr)
+library(data.table)
+library(tidyr)
+library(stringr)
+library(ggplot2)
+library(stats)
+library(readr)
+library(readxl)
+library(openxlsx)
+library(cowplot)
+library(treemapify)
+library(patchwork)
+```
+
+
+```{r}
+dataset_EFO <- fread("/Users/rayanaloliet/Desktop/new EFO/merged_dataset_EFO_exclude_Injuries.csv")
+
+dataset_Ncase<- fread("/Users/rayanaloliet/Desktop/new ncase/merged_dataset_exclude_Injuries.csv")
+
+```
+
+
+```{r}
+summary(dataset_EFO$total_attention_score)
+summary(dataset_Ncase$total_attention_score)
+```
+
+
+```{r}
+# Add an indicator column to distinguish datasets
+dataset_EFO$type <- "EFO"
+dataset_Ncase$type <- "Ncase"
+
+# Calculate the scaling factor for the secondary axis
+scaling_factor <- max(dataset_EFO$total_attention_score, na.rm = TRUE) / max(dataset_Ncase$total_attention_score, na.rm = TRUE)
+
+# Create the combined plot
+combined_plot <- ggplot() +
+  geom_point(data = dataset_EFO, aes(x = DALY, y = total_attention_score, color = "EFO"), alpha = 0.5) +
+  geom_point(data = dataset_Ncase, aes(x = DALY, y = total_attention_score * scaling_factor, color = "Ncase"), alpha = 0.5) +
+  scale_y_continuous(
+    name = "Total Attention Score (EFO)",
+    sec.axis = sec_axis(~ . / scaling_factor, name = "Total Attention Score (Ncase)")
+  ) +
+  scale_color_manual(
+    values = c("EFO" = "#6699CC", "Ncase" = "#FF9999"),
+    labels = c("EFO", "Ncase")
+  ) +
+  labs(
+    title = "Total Attention Score Relative to DALY",
+    x = "DALY",
+    color = "Type"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    panel.grid.major = element_line(color = "grey90"),
+    panel.grid.minor = element_line(color = "grey95"),
+    legend.position = "top"
+  )
+
+# Display the plot
+print(combined_plot)
+```
+
+```{r}
+# Add an indicator column to distinguish datasets
+dataset_EFO$type <- "EFO"
+dataset_Ncase$type <- "Ncase"
+
+# Calculate the scaling factor for the secondary axis
+scaling_factor <- max(dataset_EFO$total_attention_score, na.rm = TRUE) / max(dataset_Ncase$total_attention_score, na.rm = TRUE)
+
+# Create the combined plot with log scales
+combined_plot <- ggplot() +
+  geom_point(data = dataset_EFO, aes(x = DALY, y = total_attention_score, color = "EFO"), alpha = 0.5) +
+  geom_point(data = dataset_Ncase, aes(x = DALY, y = total_attention_score * scaling_factor, color = "Ncase"), alpha = 0.5) +
+  scale_x_log10() +
+  scale_y_log10(
+    name = "Total Attention Score (EFO)",
+    sec.axis = sec_axis(~ . / scaling_factor, name = "Total Attention Score (Ncase)")
+  ) +
+  scale_color_manual(
+    values = c("EFO" = "#6699CC", "Ncase" = "#FF9999"),
+    labels = c("EFO", "Ncase")
+  ) +
+  labs(
+    title = "Total Attention Score Relative to DALY",
+    x = "DALY",
+    color = "Type"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    panel.grid.major = element_line(color = "grey90"),
+    panel.grid.minor = element_line(color = "grey95"),
+    legend.position = "top"
+  )
+
+# Display the plot
+print(combined_plot)
+```
+
+```{r}
+# Remove or replace zero/negative values in DALY and total_attention_score
+dataset_EFO <- dataset_EFO %>%
+  filter(DALY > 0 & total_attention_score > 0)
+
+dataset_Ncase <- dataset_Ncase %>%
+  filter(DALY > 0 & total_attention_score > 0)
+
+# Recalculate the scaling factor after filtering
+scaling_factor <- max(dataset_EFO$total_attention_score, na.rm = TRUE) / max(dataset_Ncase$total_attention_score, na.rm = TRUE)
+
+# Create the combined plot with log scales
+combined_plot <- ggplot() +
+  geom_point(data = dataset_EFO, aes(x = DALY, y = total_attention_score, color = "EFO"), alpha = 0.5) +
+  geom_point(data = dataset_Ncase, aes(x = DALY, y = total_attention_score * scaling_factor, color = "Ncase"), alpha = 0.5) +
+  scale_x_log10() +
+  scale_y_log10(
+    name = "Total Attention Score (EFO)",
+    sec.axis = sec_axis(~ . / scaling_factor, name = "Total Attention Score (Ncase)")
+  ) +
+  scale_color_manual(
+    values = c("EFO" = "#6699CC", "Ncase" = "#FF9999"),
+    labels = c("EFO", "Ncase")
+  ) +
+  labs(
+    title = "Total Attention Score Relative to DALY",
+    x = "DALY",
+    color = "Type"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    panel.grid.major = element_line(color = "grey90"),
+    panel.grid.minor = element_line(color = "grey95"),
+    legend.position = "top"
+  )
+
+# Display the plot
+print(combined_plot)
+
+```
+
+```{r}
+# Create the plot for weighted_nhits
+plot_weighted_nhits <- ggplot(dataset_EFO, aes(x = DALY, y = weighted_nhits)) +
+  geom_point(color = "blue", alpha = 0.5) +
+  geom_smooth(method = "loess", color = "blue") +
+  labs(y = "Weighted NHits", x = "DALY") +
+  theme_minimal()
+
+# Create the plot for weighted_attention_score_impact_factor
+plot_weighted_attention_score <- ggplot(dataset_EFO, aes(x = DALY, y = weighted_attention_score_impact_factor)) +
+  geom_point(color = "red", alpha = 0.5) +
+  geom_smooth(method = "loess", color = "red") +
+  labs(y = "Weighted Attention Score Impact Factor", x = "DALY") +
+  theme_minimal()
+
+
+# Create the combined plot with dual y-axes
+combined_plot <- ggplot(dataset_EFO) +
+  geom_point(aes(x = DALY, y = weighted_nhits), color = "blue", alpha = 0.5) +
+  geom_smooth(aes(x = DALY, y = weighted_nhits), method = "loess", color = "blue", se = FALSE) +
+  geom_point(aes(x = DALY, y = weighted_attention_score_impact_factor * 10), color = "red", alpha = 0.5) + # Adjust scaling factor as needed
+  geom_smooth(aes(x = DALY, y = weighted_attention_score_impact_factor * 10), method = "loess", color = "red", se = FALSE) +
+  scale_y_continuous(
+    name = "Weighted NHits",
+    sec.axis = sec_axis(~ . / 10, name = "Weighted Attention Score Impact Factor") # Adjust scaling factor as needed
+  ) +
+  labs(
+    title = "Weighted NHits and Weighted Attention Score Impact Factor Relative to DALY",
+    x = "DALY"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    panel.grid.major = element_line(color = "grey90"),
+    panel.grid.minor = element_line(color = "grey95"),
+    legend.position = "top"
+  )
+
+# Display the plot
+print(combined_plot)
+```
+
+```{r}
+# for unmatched 
+dataset_EFO <- dataset_EFO %>%
+  mutate(weighted_nhits = ifelse(is.na(weighted_nhits), 0, weighted_nhits))
+
+# for unmatched 
+dataset_EFO <- dataset_EFO %>%
+  mutate(weighted_attention_score_impact_factor = ifelse(is.na(weighted_attention_score_impact_factor), 0, weighted_attention_score_impact_factor))
+
+# Calculate an appropriate scaling factor
+scaling_factor <- max(dataset_EFO$weighted_nhits, na.rm = TRUE) / max(dataset_EFO$weighted_attention_score_impact_factor, na.rm = TRUE)
+
+
+# Check the structure of the dataset after filtering
+str(dataset_EFO)
+
+```
+
+```{r}
+combined_plot <- ggplot() +
+  geom_point(data = dataset_EFO, aes(x = DALY, y = weighted_nhits), color = "#FFCC99", alpha = 0.5) +
+  geom_point(data = dataset_EFO, aes(x = DALY, y = weighted_attention_score_impact_factor * scaling_factor), color = "#99CCFF", alpha = 0.5) +
+  scale_y_continuous(
+    name = "Weighted NHits",
+    sec.axis = sec_axis(~ . / scaling_factor, name = "Weighted Attention Score Impact Factor")
+  ) +
+  labs(
+    title = "Weighted NHits and Weighted Attention Score Impact Factor Relative to DALY",
+    x = "DALY"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    panel.grid.major = element_line(color = "grey90"),
+    panel.grid.minor = element_line(color = "grey95"),
+    legend.position = "top"
+  )
+
+# Display the plot
+print(combined_plot)
+
+```
+
+```{r}
+# Calculate the scaling factor for the secondary axis
+scaling_factor <- max(dataset_EFO$weighted_nhits, na.rm = TRUE) / max(dataset_EFO$weighted_attention_score_impact_factor, na.rm = TRUE)
+
+# Create the combined plot with log scales
+combined_plot <- ggplot() +
+  geom_point(data = dataset_EFO, aes(x = DALY, y = weighted_nhits), color = "#FFCC99", alpha = 0.5) +
+  geom_point(data = dataset_EFO, aes(x = DALY, y = weighted_attention_score_impact_factor * scaling_factor), color = "#99CCFF", alpha = 0.5) +
+  scale_x_log10() +
+  scale_y_log10(
+    name = "Weighted NHits",
+    sec.axis = sec_axis(~ . / scaling_factor, name = "Weighted Attention Score Impact Factor")
+  ) +
+  labs(
+    title = "Weighted NHits and Weighted Attention Score Impact Factor Relative to DALY",
+    x = "DALY"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    panel.grid.major = element_line(color = "grey90"),
+    panel.grid.minor = element_line(color = "grey95"),
+    legend.position = "top"
+  )
+
+# Display the plot
+print(combined_plot)
+```
+
+```{r}
+# Filter out zero    
+dataset_EFO_filtered <- dataset_EFO %>%
+  filter(DALY > 0 & weighted_nhits > 0 & weighted_attention_score_impact_factor > 0)
+
+# Recalculate the scaling factor with filtered data
+scaling_factor_nhits <- max(dataset_EFO_filtered$weighted_nhits, na.rm = TRUE) / max(dataset_EFO_filtered$weighted_attention_score_impact_factor, na.rm = TRUE)
+
+# Create the plot with log scales using filtered data
+plot_nhits <- ggplot() +
+  geom_point(data = dataset_EFO_filtered, aes(x = DALY, y = weighted_nhits, color = "Weighted NHits"), alpha = 0.5) +
+  geom_point(data = dataset_EFO_filtered, aes(x = DALY, y = weighted_attention_score_impact_factor * scaling_factor_nhits, color = "Weighted EFO Impact Factor"), alpha = 0.5) +
+  scale_x_log10() +
+  scale_y_log10(
+    name = "Weighted NHits",
+    sec.axis = sec_axis(~ . / scaling_factor_nhits, name = "Weighted EFO Impact Factor")
+  ) +
+  scale_color_manual(
+    values = c("Weighted NHits" = "#FFCC99", "Weighted EFO Impact Factor" = "#99CCFF"),
+    labels = c("Weighted NHits", "Weighted EFO Impact Factor")
+  ) +
+  labs(
+    title = "Total Attention Score Relative to DALY",
+    x = "",
+    color = "Metric"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    panel.grid.major = element_line(color = "grey90"),
+    panel.grid.minor = element_line(color = "grey95"),
+    legend.position = "top"
+  )
+
+# Display the plot
+print(plot_nhits)
+
+```
+
+```{r}
+# Calculate an appropriate scaling factor
+scaling_factor_total_attention <- max(dataset_EFO$total_attention_score, na.rm = TRUE) / max(dataset_Ncase$total_attention_score, na.rm = TRUE)
+
+# Create the plot with log scales
+plot_total_attention <- ggplot() +
+  geom_point(data = dataset_EFO, aes(x = DALY, y = total_attention_score, color = "EFO"), alpha = 0.5) +
+  geom_point(data = dataset_Ncase, aes(x = DALY, y = total_attention_score * scaling_factor_total_attention, color = "Ncase"), alpha = 0.5) +
+  scale_x_log10() +
+  scale_y_log10(
+    name = "Number of Investigated EFO",
+    sec.axis = sec_axis(~ . / scaling_factor_total_attention, name = "Number of Involved Participants")
+  ) +
+  scale_color_manual(
+    values = c("EFO" = "#6699CC", "Ncase" = "#FF9999"),
+    labels = c("EFO", "Ncase")
+  ) +
+  labs(
+    title =,
+    x = "DALY",
+    color = "Metric"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    panel.grid.major = element_line(color = "grey90"),
+    panel.grid.minor = element_line(color = "grey95"),
+    legend.position = "top"
+  )
+
+# Display the plot
+print(plot_total_attention)
+```
+
+```{r}
+# Combine the two plots into one
+combined_plot <- plot_nhits / plot_total_attention
+
+# Display the combined plot
+print(combined_plot)
+
+```
+
+
+```{r}
+dataset_Ncase<- fread("/Users/rayanaloliet/Desktop/new ncase/merged_dataset_exclude_Injuries.csv")
+```
+
+
+```{r}
+# Define the terms to exclude, including the additional ones
+terms_to_exclude <- c(
+  "All causes",
+  "Communicable, maternal, neonatal, and nutritional diseases",
+  "HIV/AIDS and sexually transmitted infections",
+  "Respiratory infections and tuberculosis",
+  "Enteric infections",
+  "Neglected tropical diseases and malaria",
+  "Other infectious diseases",
+  "Maternal and neonatal disorders",
+  "Nutritional deficiencies",
+  "Non-communicable diseases",
+  "Neoplasms",
+  "Cardiovascular diseases",
+  "Chronic respiratory diseases",
+  "Digestive diseases",
+  "Neurological disorders",
+  "Mental disorders",
+  "Substance use disorders",
+  "Diabetes and kidney diseases",
+  "Skin and subcutaneous diseases",
+  "Sense organ diseases",
+  "Musculoskeletal disorders",
+  "Other non-communicable diseases",
+  "Injuries",
+  "Transport injuries",
+  "Unintentional injuries",
+  "Self-harm and interpersonal violence",
+  "Total cancers",
+  "Total burden related to hepatitis B",
+  "Total burden related to hepatitis C",
+  "Total burden related to Non-alcoholic fatty liver disease (NAFLD)",
+  "Total Cancers excluding Non-melanoma skin cancer"
+)
+
+# Filter out the rows where the `Cause Name` is in the terms_to_exclude vector
+dataset_Ncase <- dataset_Ncase %>%
+  filter(!(`Cause Name` %in% terms_to_exclude))
+
+```
+
+
+
+
+```{r}
+# Summarize the total_attention_score by Cause Name
+top_causes <- dataset_Ncase %>%
+  group_by(`Cause Name`) %>%
+  summarise(total_attention_score = sum(total_attention_score, na.rm = TRUE)) %>%
+  arrange(desc(total_attention_score))
+
+# Summarize the DALY by Cause Name
+daly_by_cause <- dataset_Ncase %>%
+  group_by(`Cause Name`) %>%
+  summarise(total_daly = sum(DALY, na.rm = TRUE))
+
+# Merge the top causes with DALY data
+top_causes <- top_causes %>%
+  left_join(daly_by_cause, by = "Cause Name")
+
+# Arrange by DALY in descending order and add a rank column
+top_causes <- top_causes %>%
+  arrange(desc(total_daly)) %>%
+  mutate(DALY_rank = dense_rank(desc(total_daly)))
+
+# View the top causes sorted by DALY
+print(top_causes)
+
+
+#write.csv(top_causes, "GBD_top_causes_with_daly_rank.csv", row.names = FALSE)
+
+```
+```{r}
+
+```
+
