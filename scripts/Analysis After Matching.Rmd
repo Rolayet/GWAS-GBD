@@ -352,8 +352,9 @@ dataset_Ncase<- fread("/Users/rayanaloliet/Desktop/new ncase/merged_dataset_excl
 ```
 
 
+Exclude any parent name
+
 ```{r}
-# Define the terms to exclude, including the additional ones
 terms_to_exclude <- c(
   "All causes",
   "Communicable, maternal, neonatal, and nutritional diseases",
