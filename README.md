@@ -37,20 +37,18 @@ The matching process was done via EFO terms of the GBD or its descendants with G
 
 ###  Matching results
 
-|   | matching process           | terms no |
-|---|--------------------------- | -----    |
-| 1 | matched by identifiers GBD |   140    |
-| 2 | matched partially GBD      |   29     |
-| 3 | unmatched GBD              |   208    |
+|   | matching process              | terms no |
+|---|------------------------------ | -----    |
+| 1 | matched by identifiers GBD    |   140    |
+| 2 | partially (pattern matching)  |   41     |
+| 3 | unmatched GBD                 |   195    |
 
 
 ## 4. Assessing the Relationship Between GWAS Attention and Global Need
 
-## A. Developing concentration curve (Lorenz curve) and computes the curve
-The Lorenz.curve function from the LorenzRegression package is used to develop the concentration curve. For calculating its index, Discrete Sum was used to investigate the disparities:
+## A. Developing concentration curve and index 
+The Conindex package in Stat is used to develop the concentration curve and index to investigate the disparities:
 
-Discrete Sum Calculation 
-Formula: 2∑(cumulative_daly_values×sorted_attention_scores)/∑(sorted_attention_scores)−1 is derived from the discrete approximation of the area under the concentration curve
 
 ## B. Sources 
 In the latest GBD study is uploaded here named IHME-GBD_2021_DATA-120ebfcd-1.csv
