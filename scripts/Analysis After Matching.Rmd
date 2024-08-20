@@ -427,6 +427,45 @@ print(top_causes)
 
 ```
 ```{r}
+dataset_EFO <- fread("/Users/rayanaloliet/Desktop/new EFO/merged_dataset_EFO_exclude_Injuries.csv")
+
+# Remove duplicates in dataset_EFO based on 'Cause Name'
+dataset_EFO_clean <- dataset_EFO %>%
+  distinct(`Cause Name`, .keep_all = TRUE)
+
+
+# Find the Cause Name with the highest total_attention_score in dataset_EFO_clean
+highest_attention_EFO <- dataset_EFO_clean %>%
+  filter(total_attention_score == max(total_attention_score, na.rm = TRUE)) %>%
+  select(`Cause Name`, total_attention_score)
+
+
+# Print the results
+highest_attention_EFO
+
+# Get the top 10 Cause Names with the highest total_attention_score in dataset_EFO_clean
+top_10_attention_EFO <- dataset_EFO_clean %>%
+  arrange(desc(total_attention_score)) %>%
+  select(`Cause Name`, total_attention_score) %>%
+  head(10)
+
+# Print the results
+top_10_attention_EFO
+
+
+# Calculate the sum of total_attention_score for the top 10 causes in dataset_EFO_clean
+sum_top_10_EFO <- top_10_attention_EFO %>%
+  summarise(total_top_10 = sum(total_attention_score))
+
+# Calculate the total sum of total_attention_score in dataset_EFO_clean
+total_sum_EFO <- dataset_EFO_clean %>%
+  summarise(total_all = sum(total_attention_score))
+
+# Calculate the percentage representation for the top 10 causes in dataset_EFO_clean
+percentage_EFO <- (sum_top_10_EFO$total_top_10 / total_sum_EFO$total_all) * 100
+
+
+# Print the results
+percentage_EFO
 
 ```
-
