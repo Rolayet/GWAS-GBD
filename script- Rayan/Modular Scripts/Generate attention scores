@@ -3,9 +3,7 @@
 #######################################################
 
 
-Read the GWAS Catalog data and Load necessary libraries
-```{r}
-
+## Read the GWAS Catalog data and Load necessary libraries
 library(dplyr)
 library(data.table)
 library(tidyr)
@@ -24,68 +22,33 @@ a <- read_xlsx("gwas_catalog_v1.0.2.1-studies_r2024-06-07.xlsx")
 
 
 
-```
-Have a look at the data
 
-```{r}
+## Have a look at the data
 hist(a$`ASSOCIATION COUNT`, breaks=100)
-```
-Sometimes there is more than one EFO term (comma separated). Split them into separate lines
 
-```{r}
+## Sometimes there is more than one EFO term (comma separated). Split them into separate lines
 head(a, 10)
-
 a <- a %>%
     tidyr::separate_rows(MAPPED_TRAIT_URI, sep = ", ")
-
 head(a, 10)
 
-```
 
-Get the number of EFO terms per publication
-
-```{r}
+## Get the number of EFO terms per publication
 pubmed_count <- a %>% group_by(PUBMEDID) %>% 
     summarise(
         n_efo = length(unique(MAPPED_TRAIT_URI))
     ) %>% arrange(desc(n_efo))
-
 pubmed_count
 
-```
 
-Add the EFO count per PUBMEDID to the data frame
-
-```{r}
+## Add the EFO count per PUBMEDID to the data frame
 a <- left_join(a, pubmed_count, by="PUBMEDID")
 str(a)
-```
 
-Step 1. Develop the attention scores
 
-- n = number of studies with that EFO term
-- weighted_n = weighted by number of EFO terms in the study in total
-- nhits = number of GWAS hits reported for that EFO term
-- weighted_nhits = nhits weighted by number of EFO terms in the study in total
+## Prepare the impact factors of journals that published GWAS studies to be used in the attention score
+## Remove extra whitespace, clean the impact factor values, and ensure the values are numeric
 
-```{r}
-attention <- a %>% group_by(
-    MAPPED_TRAIT_URI
-) %>% 
-    summarise(
-        n = n(), 
-        weighted_n = sum(1/n_efo),
-        nhits = sum(`ASSOCIATION COUNT`),
-        weighted_nhits = sum(`ASSOCIATION COUNT` / n_efo)
-    )
-
-str(attention)
-
-```
-
-Removing extra whitespace, cleaning the Impact factor values and ensure the values are numeric 
-
-```{r}
 # Remove extra whitespace
 a$`Impact factor` <- trimws(a$`Impact factor`)
 
@@ -104,14 +67,19 @@ unique(a$`Impact factor`)
 summary(a$`Impact factor`)
 
 
-```
-
- Including the impact factor values after preparing and cleaning the attention scores. Additionally, we have added the PUBMEDID to ensure that the studies are independent when we sum up the "n." We also added DISEASE/TRAIT for matching via str_detect function if we did not find a match via EFO terms. 
- 
-```{r}
 
 
-# Including the impact factor and (`DISEASE/TRAIT`) column for matching and PUBMEDID to ensure the the studies are independent during the mapping process 
+
+## Step 1. Develop the attention scores
+
+- n = number of studies with that EFO term
+- weighted_n = weighted by number of EFO terms in the study in total
+- nhits = number of GWAS hits reported for that EFO term
+- weighted_nhits = nhits weighted by number of EFO terms in the study in total
+- weighted_attention_score_impact_factor = sum((1 / n_efo) * Impact factor
+
+## we added the PUBMEDID to ensure that studies are treated as independent when summing the sample size ("n").
+## The DISEASE/TRAIT column was also included to allow matching using the str_detect function when no match was found via EFO terms.
 
 attention <- a %>%
   group_by(MAPPED_TRAIT_URI) %>%
