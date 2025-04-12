@@ -3,7 +3,6 @@
 #######################################################
 
 
-
 ## Obtain the GBD hierarchies to sum the attention scores of each GBD cause name under its corresponding parent cause.
 
 h <- read_xlsx("IHME_GBD_2021_A1_HIERARCHIES_Y2024M05D15.XLSX", sheet=3)
