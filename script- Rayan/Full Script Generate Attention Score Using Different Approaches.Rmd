@@ -26,7 +26,7 @@ library(boot)
 library(LorenzRegression)
 
 
-a <- read_xlsx("/Users/rayanaloliet/Desktop/review/gwas_catalog_v1.0.2.1-studies_r2024-06-07.xlsx")
+a <- read_xlsx("gwas_catalog_v1.0.2.1-studies_r2024-06-07.xlsx")
  
 
 
@@ -151,7 +151,7 @@ Step 2: Merging the GWAS attention scores with the GBD disease burden results. T
 
 ```{r}
 
-First_part_GBD<- read_xlsx("/Users/rayanaloliet/Desktop/First_part_GBD.xlsx")
+First_part_GBD<- read_xlsx("First_part_GBD.xlsx")
 
 str(First_part_GBD)
 
@@ -482,9 +482,9 @@ clean_mapped_trait_uri <- function(uri) {
 
 # Read data file (Due to the file size, it can be downloaded from: https://www.ebi.ac.uk/efo/)
 
-ontology <- get_OBO("/Users/rayanaloliet/Desktop/GWAS Catalog/efo-obo.txt")
+ontology <- get_OBO("efo-obo.txt")
 
-Second_part_GBD <- read_excel("/Users/rayanaloliet/Desktop/Second_part_GBD.xlsx")
+Second_part_GBD <- read_excel("Second_part_GBD.xlsx")
 
 
 # List of causes in level 0, 1 and 2 to exclude in Communicable Diseases, Non-Communicable Diseases, Injury and All Causes categories
@@ -907,7 +907,7 @@ combined_dataset <- combined_dataset %>% select(-GBD_TERM_NAME)
 Obtain the GBD hierarchies to sum the attention scores of each GBD cause name under its corresponding parent cause.
 
 ```{r}
-h <- read_xlsx("~/Downloads/IHME_GBD_2021_A1_HIERARCHIES_Y2024M05D15.XLSX", sheet=3)
+h <- read_xlsx("IHME_GBD_2021_A1_HIERARCHIES_Y2024M05D15.XLSX", sheet=3)
 
 head(h)
 ```
@@ -1067,7 +1067,7 @@ load the GBD DALY data, verify any missing values, and inspect the structure of 
 ```{r}
 
 # Load the GBD DALY data
-gbd_daly_data <- read_csv('/Users/rayanaloliet/Desktop/GWAS Catalog/IHME-GBD_2021_DATA-120ebfcd-1.csv')
+gbd_daly_data <- read_csv('IHME-GBD_2021_DATA-120ebfcd-1.csv')
 
  
 # Inspect the structure of the GBD DALY data
@@ -1250,7 +1250,7 @@ Split the dataset into three categories: overall GBD terms, NCD (non-communicabl
 
 ```{r}
 
-broader_categories_dataset <- read_xlsx("~/Downloads/IHME_GBD_2021_A1_HIERARCHIES_Y2024M05D15.XLSX", sheet=3)
+broader_categories_dataset <- read_xlsx("IHME_GBD_2021_A1_HIERARCHIES_Y2024M05D15.XLSX", sheet=3)
 
  
 head(broader_categories_dataset)
