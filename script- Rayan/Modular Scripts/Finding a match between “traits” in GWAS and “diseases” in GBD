@@ -1,6 +1,6 @@
 #######################################################
 ### Finding a match between “traits” in GWAS and “diseases” in GBD via string-based functions when no match was found via EFO in Part 1 or Part 2 ###
-#######################################################
+####################################################### 
 
 
 ## Further matching via string-based functions. This approach is helpful because EFO terms may sometimes be missed during the manual mapping process—
