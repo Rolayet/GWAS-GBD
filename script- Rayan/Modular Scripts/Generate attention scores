@@ -1,7 +1,7 @@
 #######################################################
 ### Generate GWAS attention scores from GWAS Catalog using EFO Term, Weighted_n, nhits, weighted_nhits and weighted_attention_score_impact_factor###
 #######################################################
-
+ 
 ## Read the GWAS Catalog data and Load necessary libraries
 library(dplyr)
 library(data.table)
