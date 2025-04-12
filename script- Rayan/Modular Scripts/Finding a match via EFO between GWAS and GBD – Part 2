@@ -261,3 +261,48 @@ unique_unmatched_gbd_terms_Second_part_GBD <- Second_part_GBD %>%
 #write.xlsx(unique_unmatched_gbd_terms_Second_part_GBD, unique_unmatched_gbd_terms_Second_part_GBD.xlsx")
 #write.xlsx(unique_matched_gbd_terms_Second_part_GBD, "unique_matched_gbd_terms_Second_part_GBD.xlsx")
 
+
+
+## Combining the results for the unmatched and matched GBDs
+
+# List of columns to keep for unmatched terms
+columns_unmatched <- c("GBD term")
+
+
+# Select only the necessary columns from the first unmatched data frame
+unique_unmatched_gbd_terms_First_part_GBD <- unique_unmatched_gbd_terms_First_part_GBD[, columns_unmatched]
+
+
+# Select and order the columns to match the first unmatched data frame
+unique_unmatched_gbd_terms_Second_part_GBD <- unique_unmatched_gbd_terms_Second_part_GBD[, columns_unmatched]
+
+# Combine the unmatched terms
+combined_unmatched_terms <- rbind(unique_unmatched_gbd_terms_First_part_GBD, unique_unmatched_gbd_terms_Second_part_GBD)
+
+# Display the results
+print("Combined Unmatched Terms:")
+print(combined_unmatched_terms)
+
+
+# Rename the column in the second matched data frame
+names(unique_matched_gbd_terms_Second_part_GBD)[which(names(unique_matched_gbd_terms_Second_part_GBD) == "GBD_TERM")] <- "GBD term"
+
+# remove na 
+unique_matched_gbd_terms_Second_part_GBD <- unique_matched_gbd_terms_Second_part_GBD %>%
+  filter(!is.na(`GBD term`))
+
+
+# Combine the matched terms
+combined_matched_terms <- rbind(unique_matched_gbd_terms_First_part_GBD, unique_matched_gbd_terms_Second_part_GBD)
+
+# Display the results
+print("Combined Matched Terms:")
+print(combined_matched_terms)
+
+# Remove NA in combined_matched_terms 
+combined_matched_terms <- combined_matched_terms %>%
+  drop_na()
+
+#write.xlsx(combined_matched_terms, combined_matched_terms.xlsx")
+#write.xlsx(combined_unmatched_terms, "combined_unmatched_terms.xlsx")
+
