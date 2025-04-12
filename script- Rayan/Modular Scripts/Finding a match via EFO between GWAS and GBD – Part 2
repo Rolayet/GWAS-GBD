@@ -2,12 +2,7 @@
 ### Finding a match via EFO between GWAS and GBD – Part 2 (GBD terms with descendants) ###
 #######################################################
 
-
-
-Finding a match between GWAS and GBD (Second_part_GBD) via identifiers- for those with descendants. We need to change the format of the identifiers again to get the descendants using the ontology from the tree then reverse it again to match it with GWAS (to ensure the consistency in the matching process). Also, as we did not part one, we will group them by GBD term and PUBMEDID.
-
-
-```{r}
+## Ensure consistent formatting, cleaning and standardize of the EFO terms
 
 # Define utility functions
 format_identifier <- function(identifier) {
@@ -36,6 +31,7 @@ clean_mapped_trait_uri <- function(uri) {
 # Read data file (Due to the file size, it can be downloaded from: https://www.ebi.ac.uk/efo/)
 ontology <- get_OBO("efo-obo.txt")
 
+# Read GBD Second part with descendants
 Second_part_GBD <- read_excel("Second_part_GBD.xlsx")
 
 
@@ -264,4 +260,4 @@ unique_unmatched_gbd_terms_Second_part_GBD <- Second_part_GBD %>%
 # Save the data frames to Excel files
 #write.xlsx(unique_unmatched_gbd_terms_Second_part_GBD, unique_unmatched_gbd_terms_Second_part_GBD.xlsx")
 #write.xlsx(unique_matched_gbd_terms_Second_part_GBD, "unique_matched_gbd_terms_Second_part_GBD.xlsx")
-```
+
