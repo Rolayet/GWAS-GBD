@@ -3,7 +3,7 @@ title: "Generate Attention Score Using Different Approaches: EFO Term, Weighted_
 
 output: html_notebook
 ---
-
+ 
 
 Read the GWAS Catalog data and Load necessary libraries
 
