@@ -1173,10 +1173,6 @@ gbd_daly_data <- gbd_daly_data %>%
 Assessing the relationship between GWAS attention and global need, using an inequality measure.This will be done via filtering the data by Number of DALY and then merging by GBD term.
 
 ```{r}
-#2019 
-#gbd_daly_data <- gbd_daly_data %>%
- # filter(metric_name == "Number" & measure_name == "DALYs (Disability-Adjusted Life Years)") #%>%
- # rename(`GBD term`= cause_name, DALY = val)
 
 #2021
 gbd_daly_data <- gbd_daly_data %>%
