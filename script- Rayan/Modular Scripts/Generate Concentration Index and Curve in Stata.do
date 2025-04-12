@@ -1,14 +1,17 @@
+#######################################################
+### Generate the concentration index and curve using the conindex package in Stata ###
+#######################################################
+
+
+
 ### Obtaining the index and the curve for all regions (combined):
 
 conindex total_attention_score, rankvar(daly) limits(0)
-
-
- conindex total_attention_score, rankvar(daly) limits(0) graph
+conindex total_attention_score, rankvar(daly) limits(0) graph
 
 
 
 ### obtaining plot for overall  
-
 
 twoway (scatter total_attention_score daly) 
        (line total_attention_score daly, sort), 
@@ -45,15 +48,11 @@ display "Completed processing for location: `location_name'"
 
 ##### obtaining index and its 95%CI for African Union
 
- 
 local location "African Union"
 
- 
 preserve
-
  
 keep if location_name == "`location'"
-
  
 count
 display "Number of observations for `location': " r(N)
@@ -158,6 +157,7 @@ foreach loc of local locations {
 }
 
 display "Completed processing first five locations"
+
 
 ##### obtaining all locations indexes 
 
@@ -269,7 +269,7 @@ foreach loc of local locations {
 display "Completed processing first five locations"
 
 
-###### obtaining and saving the curve in editable format 
+###### Obtain and save the curve in an editable format
 
 
 local desktop_path = "/Users/Desktop"
@@ -333,14 +333,4 @@ foreach loc of local locations {
 
 display "Completed processing first five locations"
 
-# For other attention approaches 
 
-ename "weighted_attention_score_impact_factor" impact_factor
-
-replace weighted_nhits = "0" if weighted_nhits == "NA"
-
-destring weighted_nhits, replace
-
-replace impact_factor = "0" if impact_factor == "NA"
-
-destring impact_factor, replace
