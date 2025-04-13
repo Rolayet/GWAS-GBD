@@ -16,8 +16,8 @@ library(ggplot2)
 library(gridExtra)
 
 ## Read the data from both datasets
-dataset_EFO <- fread("/Users/rayanaloliet/Desktop/review/code/EFO_merged_dataset_exclude_Injuries.csv")
-dataset_Ncase<- fread("/Users/rayanaloliet/Desktop/review/code/Ncase_merged_dataset_exclude_Injuries.csv")
+dataset_EFO <- fread("EFO_merged_dataset_exclude_Injuries.csv")
+dataset_Ncase<- fread("Ncase_merged_dataset_exclude_Injuries.csv")
 
 
 ## To enhance the visualization, we will apply a logarithmic scale. To avoid infinite values, we will replace both DALY values and attention scores 
