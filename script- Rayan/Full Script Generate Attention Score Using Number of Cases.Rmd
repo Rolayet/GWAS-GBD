@@ -1,12 +1,11 @@
----
-title: "Generate attention score using sample cases (ncase)"
-output: html_notebook
----
 
-Read the GWAS Catalog data and Load necessary libraries
+############################################################################################################
+### Full Script includes the main steps of linking dissease in GWAS to its burden in the GBD ###
+############################################################################################################
 
-```{r}
 
+
+## Read the GWAS Catalog data and Load necessary libraries
 library(dplyr)
 library(data.table)
 library(tidyr)
@@ -21,16 +20,11 @@ library(openxlsx)
 library(boot)
 library(LorenzRegression)
 
-
-
 a <- read_xlsx("gwas_catalog_v1.0.2.1-studies_r2024-06-07.xlsx")
 
-```
-
-Step 1: Develop the attention score using the sample size (ncase = Initial_Sample_Cases + Replication_Sample_Cases).
 
 
-```{r}
+## Step 1: Develop the attention score using the sample size (ncase = Initial_Sample_Cases + Replication_Sample_Cases).
 
 fn <- function(x) {
     # Handle NA values
@@ -86,17 +80,11 @@ a <- a %>%
 head(a)
 
 
-```
-
-Have a look at the data
-
-```{r}
+## Have a look at the data
 hist(a$`ASSOCIATION COUNT`, breaks=100)
-```
 
-Sometimes there is more than one EFO term (comma separated). Split them into separate lines
 
-```{r}
+## Sometimes there is more than one EFO term (comma separated). Split them into separate lines
 
 head(a, 10)
 
@@ -105,15 +93,10 @@ a <- a %>%
 
 head(a, 10)
 
-```
 
-Summarize total cases (ncase) by MAPPED_TRAIT_URI
-
+## Summarize total cases (ncase) by MAPPED_TRAIT_URI
 -DISEASE_TRAIT values are grouped, as this column will be used in the second stage to find matches using string functions.
-
 -PUBMEDID values are grouped and later expanded into separate rows to ensure each publication ID is represented individually.
-
-```{r}
 
 #  Group by MAPPED_TRAIT_URI, then summarize
 attention <- a %>%
@@ -133,11 +116,11 @@ attention <- attention %>%
 # check the result
 str(attention)
 
-```
 
-Step 2: Merging the GWAS attention scores with the GBD disease burden results. The GBD terms were split into first part (single gbd term, without descendants) and second parts (with descendants) because the terms in the second part have descendants. Therefore, those in the second part need to be handled differently, where we have to pull out the descendants from the tree via ontologyIndex library and then do the matching.
 
-```{r}
+## Step 2: Merging the GWAS attention scores with the GBD disease burden results. The GBD terms were split into first part (single gbd term, without descendants) and second parts (with descendants) because the terms in the second part have descendants. Therefore, those in the second part need to be handled differently, where we have to pull out the descendants from the tree via ontologyIndex library and then do the matching.
+
+## Read the data 
 
 First_part_GBD<- read_xlsx("First_part_GBD.xlsx")
 
@@ -147,22 +130,13 @@ str(First_part_GBD)
 First_part_GBD<- First_part_GBD%>%
   distinct(`GBD term`, .keep_all = TRUE)
 
- 
-```
 
-
-Include only GBD terms at levels 3 and 4 within the Communicable and Non-Communicable Diseases categories (308 terms).
-
+## Include only GBD terms at levels 3 and 4 within the Communicable and Non-Communicable Diseases categories (308 terms).
 This means:
-
 Exclude all terms at levels 0, 1, and 2 under the Communicable Diseases, Non-Communicable Diseases, Injury, and All Causes categories (32 terms).
-
 Exclude the rest of gbd terms in the Injury category at levels 3 and 4 (37 terms).
-
 Notes: The total number of GBD terms across all categories and levels is 377. All Causes category does not have gbd terms in level 3 and 4
 
-
-```{r}
 
 # List of causes in level 0, 1 and 2 to exclude in Communicable Diseases, Non-Communicable Diseases, Injury and All Causes categories
 
@@ -253,34 +227,28 @@ exclude_causes <- c(exclude_causes, additional_exclude_causes)
 First_part_GBD <- First_part_GBD %>%
   filter(!`GBD term` %in% exclude_causes)
 
-```
 
-Specify columns that contain EFO terms
 
-```{r}
+## Specify columns that contain EFO terms
 
 efo_columns <- c("EFO 1", "EFO 2", "EFO 3", "EFO 4", "EFO 5", "EFO 6", 
                  "EFO 7", "EFO 8", "EFO 9", "EFO 10", "EFO 11", "EFO 12",
                  "EFO 13", "EFO 14", "EFO 15", "EFO 16", "EFO 17", "EFO 18",
                  "EFO 19", "EFO 20", "EFO 21", "EFO 22", "EFO 23", "EFO 24",
                  "EFO 25", "EFO 26", "EFO 27", "EFO 28", "EFO 29", "EFO 30")
-```
 
-Reshape the GBD data to gather all relevant columns into key-value pairs and drop rows with NA EFO terms
 
-```{r}
+## Reshape the GBD data to gather all relevant columns into key-value pairs and drop rows with NA EFO terms
 
 gbd_long <- First_part_GBD%>%
 pivot_longer(cols = all_of(efo_columns), names_to = "EFO_number", values_to =  "MAPPED_TRAIT_URI") %>% drop_na(MAPPED_TRAIT_URI) 
 
 gbd_long
-```
 
-Ensure consistent formatting, cleaning and standardize MAPPED_TRAIT_URI in gbd_long (GBD file)
 
+## Ensure consistent formatting, cleaning and standardize MAPPED_TRAIT_URI in gbd_long (GBD file)
 -There are many functions because each time I attempted to find a matching, I was unable to do so due to the differences in the two datasets. For example, in GWAS, the identifiers have underscores, while in GBD they have colons, and so on... Therefore, the functions below are intended to unify these differences.
 
-```{r}
 
 # Ensure consistent formatting
 gbd_long$MAPPED_TRAIT_URI <- tolower(trimws(gbd_long$MAPPED_TRAIT_URI))
@@ -314,11 +282,10 @@ gbd_long$MAPPED_TRAIT_URI <- str_squish(gbd_long$MAPPED_TRAIT_URI)
 
 (head(gbd_long$MAPPED_TRAIT_URI, 20))
 
-```
 
-Ensure consistent formatting, cleaning and standardize MAPPED_TRAIT_URI in attention (GWAS file) and remove rows with NA in MAPPED_TRAIT_URI (EFO terms)
 
-```{r}
+## Ensure consistent formatting, cleaning and standardize MAPPED_TRAIT_URI in attention (GWAS file) and remove rows with NA in MAPPED_TRAIT_URI (EFO terms)
+
 # Function to clean and standardize MAPPED_TRAIT_URI
 clean_mapped_trait_uri <- function(uri) {
   # Convert to lowercase
@@ -351,11 +318,9 @@ attention <- attention %>%
 
 (head(attention$MAPPED_TRAIT_URI, 20))
 
-```
 
-step 3: Finding a match between GWAS and GBD (First_part_GBD) via identifiers (EFO terms)- for those with no descendants. Then grouping those terms by GBD term and PUBMEDID (as we need to ensure the studies are independent when we sum the n ).
+## step 3: Finding a match between GWAS and GBD (First_part_GBD) via identifiers (EFO terms)- for those with no descendants. Then grouping those terms by GBD term and PUBMEDID (as we need to ensure the studies are independent when we sum the n ).
 
-```{r}
 
 # Merge the data frames
 merged_data <- merge(attention, gbd_long, by = "MAPPED_TRAIT_URI", all.x = TRUE)
@@ -408,12 +373,9 @@ head(unique_matched_gbd_terms_First_part_GBD)
 #write.xlsx(unique_matched_gbd_terms_First_part_GBD, "unique_matched_gbd_terms_First_part_GBD.xlsx")
 #write.xlsx(unique_unmatched_gbd_terms_First_part_GBD, "unique_unmatched_gbd_terms_First_part_GBD.xlsx") 
 
-```
 
-Finding a match between GWAS and GBD (Second_part_GBD) via identifiers- for those with descendants. We need to change the format of the identifiers again to get the descendants using the ontology from the tree then reverse it again to match it with GWAS (to ensure the consistency in the matching process). Also, as we did not part one, we will group them by GBD term and PUBMEDID.
+## Finding a match between GWAS and GBD (Second_part_GBD) via identifiers- for those with descendants. We need to change the format of the identifiers again to get the descendants using the ontology from the tree then reverse it again to match it with GWAS (to ensure the consistency in the matching process). Also, as we did not part one, we will group them by GBD term and PUBMEDID.
 
-
-```{r}
 
 # Define utility functions
 format_identifier <- function(identifier) {
@@ -532,7 +494,6 @@ exclude_causes <- c(exclude_causes, additional_exclude_causes)
 # Filter the dataset to exclude the specified causes
 Second_part_GBD <- Second_part_GBD %>%
   filter(!`GBD term` %in% exclude_causes)
-
 
 
 # Extract and combine identifiers from Second_part_GBD
@@ -670,11 +631,11 @@ unique_unmatched_gbd_terms_Second_part_GBD <- Second_part_GBD %>%
 # Save the data frames to Excel files
 #write.xlsx(unique_unmatched_gbd_terms_Second_part_GBD, unique_unmatched_gbd_terms_Second_part_GBD.xlsx")
 #write.xlsx(unique_matched_gbd_terms_Second_part_GBD, "unique_matched_gbd_terms_Second_part_GBD.xlsx")
-```
 
-Combining the results for the unmatched and matched GBDs
 
-```{r}
+## Combining the results for the unmatched and matched GBDs
+
+
 # List of columns to keep for unmatched terms
 columns_unmatched <- c("GBD term")
 
@@ -716,15 +677,12 @@ combined_matched_terms <- combined_matched_terms %>%
 #write.xlsx(combined_matched_terms, combined_matched_terms.xlsx")
 #write.xlsx(combined_unmatched_terms, "combined_unmatched_terms.xlsx")
 
-```
 
-Here we could follow a partial matching approach to handle unmatched GBD terms using “str_detect” function to detect for matching but with different identifiers or GBD present within a string of traits in GWAS.
+## Here we could follow a partial matching approach to handle unmatched GBD terms using “str_detect” function to detect for matching but with different identifiers or GBD present within a string of traits in GWAS.
 
 *This approach is helpful because sometimes we may miss EFO terms in the mapping process during manual mapping i.e there are many EFO terms for a particular GBD, this will be capture using str_detect” function.
 
 To ensure consistent formatting and standardize of DISEASE/TRAIT in unmatched GBD terms and unmatched attention (GWAS) ie., both lower case for comparison, we will create new columns in both data sets
-
-```{r}
 
 
 # Create a new column for disease names to facilitate partial matching in attention
@@ -766,12 +724,9 @@ partial_matches_unique <- intermediate_summary %>%
 print(partial_matches_unique)
 
 
-```
-
-Identify the GBD terms that are not mapped via identifiers or trait with GWAS to combine them in one dataset. Now we will have final_matched_gbd and final_unmatched_gbd.
+## Identify the GBD terms that are not mapped via identifiers or trait with GWAS to combine them in one dataset. Now we will have final_matched_gbd and final_unmatched_gbd.
 
 
-```{r}
 # Identify the rows that were matched partially
 matched_partial_gbd <- partial_matches_unique %>% 
   select(`GBD term`) %>% 
@@ -816,12 +771,9 @@ if (nrow(duplicates_final_matched_gbd) > 0) {
 final_matched_gbd <- final_matched_gbd %>%
   rename(total_attention_score = total_ncase)
 
-```
 
-If there are no matches for a GBD trait then the attention score = 0. Also, we ill combine matched and unmatched GBD terms in one data set (combined dataset). It has 308 GBD terms, as we started.
+## If there are no matches for a GBD trait then the attention score = 0. Also, we ill combine matched and unmatched GBD terms in one data set (combined dataset). It has 308 GBD terms, as we started.
 
-
-```{r}
 
 #  Add 'total_attention_score' column with value 0 to final_unmatched_gbd
 final_unmatched_gbd <- final_unmatched_gbd %>%
@@ -842,21 +794,15 @@ combined_dataset <- combined_dataset %>% select(-GBD_TERM_NAME)
 # Save the combined dataset to a CSV file
 #write.csv(combined_dataset, "GBD_combined_dataset_ncase.csv", row.names = FALSE)
 
-```
 
+##Obtain the GBD hierarchies to sum the attention scores of each GBD cause name under its corresponding parent cause.
 
-Obtain the GBD hierarchies to sum the attention scores of each GBD cause name under its corresponding parent cause.
+## Read the data 
 
-
-```{r}
 h <- read_xlsx("IHME_GBD_2021_A1_HIERARCHIES_Y2024M05D15.XLSX", sheet=3)
  
 head(h)
 
-```
-
-
-```{r}
 
 # keep only those under CMNN or NCD catagorise
 h1 <- h[grep("^[AB]", h$`Cause Outline`), ]
@@ -865,11 +811,6 @@ h1 <- h[grep("^[AB]", h$`Cause Outline`), ]
 h1  <- h1 %>%
   filter(Level %in% c(3, 4))
 
-```
-
-
-
-```{r}
 
 # Count the number of zeros in the total_attention_score column
 num_zeros <- sum(combined_dataset$total_attention_score == 0)
@@ -877,9 +818,7 @@ num_zeros <- sum(combined_dataset$total_attention_score == 0)
 # Print the number of zeros
 cat("Number of zeros in total_attention_score:", num_zeros, "\n")
 
-```
 
-```{r}
 # list of GBD traits that are the tips of branches (i.e. are not parents to any other traits)
 h3 <- subset(h1, ! `Cause Name` %in% `Parent Name`)
 
@@ -967,21 +906,17 @@ combined_dataset <- combined_data
 combined_dataset <- combined_dataset %>%
   rename(`GBD term`= GBD.term)
 
-```
 
-Load the GBD DALY data
+## Load the GBD DALY data to links it the diseases to its burden
 
-```{r}
-# Load the GBD DALY data
+# Read the GBD DALY data
 gbd_daly_data <- read_csv('IHME-GBD_2021_DATA-120ebfcd-1.csv')
 
  
 # Inspect the structure of the GBD DALY data
 str(gbd_daly_data)
 
-```
 
-```{r}
 # List of causes in level 0, 1 and 2 to exclude (32)
 exclude_causes <- c(
   "All causes", 
@@ -1071,11 +1006,8 @@ gbd_daly_data <- gbd_daly_data %>%
   filter(!cause_name %in% exclude_causes)
 
 
-```
+## Assessing the relationship between GWAS attention and global need, using an inequality measure.This will be done via filtering the data by Number of DALY and then merging by GBD term.
 
-Assessing the relationship between GWAS attention and global need, using an inequality measure.This will be done via filtering the data by Number of DALY and then merging by GBD term.
-
-```{r}
 
 #2021
 gbd_daly_data <- gbd_daly_data %>%
@@ -1098,11 +1030,10 @@ summary(combined_dataset$DALY)
 
 #write.csv(combined_dataset, "combined_dataset_ncase.csv", row.names = FALSE)
 
-```
 
-Try to identify any difference or duplicates between combined dataset and the data set that we started with in the manual mapping (Duplicate check).  
 
-```{r}
+## Try to identify any difference or duplicates between combined dataset and the data set that we started with in the manual mapping (Duplicate check).  
+
 unmatched_gbd_terms <- anti_join(gbd_daly_data, combined_dataset, by = c("GBD term" = "GBD term"))
 
 unmatched_gbd_terms <- unmatched_gbd_terms %>%
@@ -1138,59 +1069,37 @@ diff_2 <- data.frame(
 #write.csv(combined_dataset, "combined_dataset_ncase.csv", row.names = FALSE)
 
 
-```
 
-Split the dataset into three categories: overall GBD terms, NCD (non-communicable diseases), and CMNN (communicable, maternal, neonatal, and nutritional diseases).
-
-```{r}
-
+## Split the dataset into three categories: overall GBD terms, NCD (non-communicable diseases), and CMNN (communicable, maternal, neonatal, and nutritional diseases).
 
 broader_categories_dataset <- read_xlsx("IHME_GBD_2021_A1_HIERARCHIES_Y2024M05D15.XLSX", sheet=3)
 
 head(broader_categories_dataset)
-```
 
-```{r}
+
 #  Rename the columns to merge 
 combined_dataset <- combined_dataset %>%
   rename(`Cause Name` = `GBD term`)
 
 merged_dataset <- merge(combined_dataset, broader_categories_dataset, by = "Cause Name", all.x = TRUE)
 
-```
 
-based on the GBD, here we should have 87 * 28 locations for the Communicable, maternal, neonatal, and nutritional diseases
-
-```{r}
+## Based on the GBD, here we should have 87 * 28 locations for the Communicable, maternal, neonatal, and nutritional diseases
 merged_dataset_CMNN <- merged_dataset %>%
   filter(substr(`Cause Outline`, 1, 1) %in% c("A"))
-
 #write.csv(merged_dataset_CMNN, "merged_dataset_CMNN.csv", row.names = FALSE)
 
-```
 
-based on the GBD, here we should have 221 * 28 for Non-communicable diseases diseases
 
-```{r}
+## based on the GBD, here we should have 221 * 28 for Non-communicable diseases diseases
 merged_dataset_NC <- merged_dataset %>%
   filter(substr(`Cause Outline`, 1, 1) %in% c("B"))
-
 #write.csv(merged_dataset_NC, "merged_dataset_NC.csv", row.names = FALSE)
-```
 
 
-based on the GBD, here we should have 308 * 28 for merged_dataset_exclude_Injuries
 
-```{r}
+## Based on the GBD, here we should have 308 * 28 for merged_dataset_exclude_Injuries
 merged_dataset_exclude_Injuries <- combined_dataset
-
 #write.csv(merged_dataset_exclude_Injuries, "Ncase_merged_dataset_exclude_Injuries.csv", row.names = FALSE)
 
-
-```
-
-
-```{r}
-
-```
 
