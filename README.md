@@ -53,20 +53,19 @@ The GWAS Catalog was obtained from https://www.ebi.ac.uk/gwas/, and the journal 
 ## 3. Merging the GWAS Attention Scores with the GBD Disease Burden Results
 
 ## A. Matching process
-The matching process was done via EFO terms of the GBD or its descendants with GWAS EFO. For GBD terms that did not have a direct EFO match, the str_detect function was used to find matches. Any matching from both methods: if multiple EFO terms match one GBD trait, sum the attention score across those EFO terms (as long as they are from independent publications). If there are no matches for a GBD trait in both methods, the attention score is set to 0.
+The matching process was done via EFO terms of the GBD or its descendants with GWAS EFO. For GBD terms that did not have a direct EFO match, the str_detect function was used to find matches between traits in GWAS and health conditions in the GBD study. Any matching from both methods: if multiple EFO terms match one GBD trait, sum the attention score across those EFO terms (as long as they are from independent publications). If there are no matches for a GBD trait in both methods, the attention score is set to 0.
 
 ###  Matching results
 
 |   | Matching process         | Terms no |
 |---|------------------------- | -------- |
-| 1 | EFO term-based matching	 |   140    |
-| 2 | String-based matching	   |   41     |
-| 3 | unmatched GBD            |   195    |
+| 1 | EFO term-based matching	 |   153    |
+| 2 | String-based matching	   |   95     |
+| 3 | Unmatched GBD conditions |   78     |
 
 
-## C. Terms aggregation
-Different attention scores for GBD causes were aggregated, with total attention scores at level 4 rolled up to their corresponding parent categories at level 3. This ensures that parent scores accurately reflect the total attention received by their associated causes.
-
+## B. Terms aggregation
+For the matched GBD conditions, attention scores were aggregated after the matching process. Scores assigned to level 4 causes were rolled up to their corresponding level 3 parent categories, ensuring that parent scores accurately reflect the total attention received by their associated causes.
 
 
 ## 4. Assessing the Relationship Between GWAS Attention and Global Need
