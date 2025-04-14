@@ -20,26 +20,28 @@ The GBD health conditions are obtained from the Global Burden of Disease data av
 
 
 
-
-
-
-
-
 ## 2. GWAS Catalog: 
+To measure the attention given to GBD health conditions by GWAS, we developed attention scores using several approaches, as outlined below:
 
-## A. Incorporating the Impact Factor to the GWAS Catalog
+## A. Developing an 'Attention Score' for each health condtiosn in the GWAS Catalog
+-Attention Score: Number of studies for that EFO term.
+-Weighted Attention Score: Sum(1 / n EFO per study), accounts for studies publishing a large number of GWASs without focusing on a specific phenotype.
+-GWAS Hits: Number of GWAS hits for that EFO term,  this could be a proxy for the attention received by the study.
+-Weighted Attention Score Impact Factor: Sum(1 / n EFO per study * impact factor), it indicates its quality and the degree to which it is valued.
+-Total number of cases from intinal and Replication samcples, ncase = Initial_Sample_Cases + Replication_Sample_Cases
+
+These approaches allow us to obtain accurate findings that are not biased toward any single method. All the approaches are based on data from the GWAS Catalog, except for the journal impact factor associated with GWAS attention, which was manually obtained from Clarivate's Journal Citation Reports (JCR).
+
+## B. Incorporating the Impact Factor to the GWAS Catalog
 Impact factors were searched using Clarivate. There are some journals that do not have impact factors, for these journals, CiteScore was used. If neither impact factor nor CiteScore was available, a value of zero was given i.e., journals are discontinued, or where studies were published in news or conferences.
 
 
-## B. Developing an 'Attention Score' for Each Ontology Term in the GWAS Catalog
-Attention Score: Number of studies for that EFO term.
-Weighted Attention Score: Sum(1 / n EFO per study) – accounts for studies publishing a large number of GWASs without focusing on a specific phenotype.
-Weighted Attention Score Impact Factor: Sum(1 / n EFO per study * impact factor) – if a study is published in a higher impact journal, it indicates its quality and the degree to which it is valued.
-GWAS Hits: Number of GWAS hits for that EFO term – this could be a proxy for the attention received by the study.
+## C. Manual Curation of traits in the GWAS Catalog
+Limiting the matching process to traits explicitly listed in the GWAS Catalog could underestimate GWAS attention. Therefore, we manually curated the traits in GWAS to align with GBD conditions, allowing us to capture diseases that might have been missed due to semantic differences. The manually curated mapping of GWAS traits to GBD conditions has been uploaded to the data folder.
 
-## C. Sources 
-Due to the large size of the file, it was added to the notebook named "gwas_catalog_v1.0.2.1-studies_r2024-06-07.xlsx" and can be accessed by clicking on this link: https://uob-my.sharepoint.com/:o:/r/personal/ih23257_bristol_ac_uk/Documents/Notebooks/GBD%20Terms%20mapping?d=wf240cee12e054a798cf8e8f4d69a8985&csf=1&web=1&e=OfNvfr
 
+## D. Sources 
+The GWAS Catalog was obtained from https://www.ebi.ac.uk/gwas/, and the journal impact factors were sourced from Clarivate's Journal Citation Reports (JCR) at https://mjl.clarivate.com/home.
 
 
 
