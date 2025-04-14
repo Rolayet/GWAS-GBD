@@ -1,6 +1,6 @@
 
 ############################################################################################################
-### Full Script includes the main steps of linking dissease in GWAS to its burden in the GBD ###
+### Full Script includes the main steps of linking diseases in GWAS to its burden in the GBD ###
 ############################################################################################################
 
 
