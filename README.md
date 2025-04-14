@@ -73,6 +73,19 @@ For the matched GBD conditions, attention scores were aggregated after the match
 ## A. Linking the dataset to their associated burden 
 Link the matched diseases to their respective burden (e.g., DALYs) using Global Burden of Disease data by filtering based on the number of DALYs and comparing values between the years 1990 and 2021.
 
+To unify the GBD conditions in 1990 and 2021, the GBD terms from both datasets were standardized to those used in 2021. This means that the following GBD terms from 1990 were replaced with the corresponding terms from 2021. This step was important to minimize discrepancies during the matching process and manual curation:
+
+
+|   | Only in 1990                                                     |Only in 2021|
+|---|---------------------------------------------------------------   |-------------------------------------------------------- |
+| 1 | Cirrhosis and other chronic liver diseases due to NAFLD          |   Nonalcoholic fatty liver disease including cirrhosis  |
+| 2 | Cirrhosis and other chronic liver diseases due to hepatitis B	   |   Chronic hepatitis B including cirrhosis               |
+| 3 | Cirrhosis and other chronic liver diseases due to hepatitis C    |   Chronic hepatitis C including cirrhosis               |
+| 4 | Cirrhosis and other chronic liver diseases due to alcohol use    |   Cirrhosis due to alcohol                              |
+| 5 | Cirrhosis and other chronic liver diseases due to other causes   |   Cirrhosis due to other causes                         |
+
+
+
 ## B. Split the dataset into three categories: 
 After linking the matched diseases to their respective burden, the health conditions were categorized into three groups—overall health conditions, NCDs (non-communicable diseases), and CMNNs (communicable, maternal, neonatal, and nutritional diseases)—by merging with the GBD hierarchy to stratify the alignment within each category.
 
