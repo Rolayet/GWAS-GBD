@@ -68,7 +68,7 @@ The matching process was done via EFO terms of the GBD or its descendants with G
 For the matched GBD conditions, attention scores were aggregated after the matching process. Scores assigned to level 4 causes were rolled up to their corresponding level 3 parent categories, ensuring that parent scores accurately reflect the total attention received by their associated causes.
 
 
-## 4. Investigating the aligned health conditions 
+## 4. Merging the aligned health conditions 
 
 ## A. Linking the dataset to their associated burden 
 Link the matched diseases to their respective burden (e.g., DALYs) using Global Burden of Disease data by filtering based on the number of DALYs and comparing values between the years 1990 and 2021.
@@ -81,11 +81,14 @@ After linking the matched diseases to their respective burden, the health condit
 The Global Burden of Disease data for the years 1990 and 2021, along with the GBD hierarchy, were obtained from the Global Burden of Disease data available at https://www.healthdata.org/research-analysis/gbd. 
 
 
+## 5. Analyzing the aligned health conditions and their associated burden (DALYs)
+
+## A. Distribution of different attention scores across DALY
+The distribution of different attention scores across DALY values was analyzed using a logarithmic scale to enhance visualization. To avoid infinite values, attention scores of zero were replaced with 0.9 × (minimum non-zero value) / 2 for each approach. Similarly, DALY values of zero were replaced using the same method based on the minimum non-zero DALY value in the dataset.
 
 
-## A. Developing concentration curve and index 
-The Conindex package in Stat is used to develop the concentration curve and index to investigate the disparities:
-
+## B. Measuring Inequality Between GWAS and GBD
+To assess disparities between GWAS attention and the global burden of disease (GBD), concentration curves and concentration indices were developed using the Conindex package in Stata. The analysis was stratified by geographic location and year (1990 and 2021), based on regional classifications and disease burden data from the GBD dataset.
 
 
 
