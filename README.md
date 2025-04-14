@@ -5,8 +5,27 @@
 This study integrates metadata from the GWAS Catalog and the Global Burden of Disease (GBD) studies to evaluate the role of genome-wide association studies (GWAS) in addressing global health outcomes. Combining data from these two sources—specifically, "traits" in GWAS and "health conditions" in the GBD study—is a complex process due to differences in disease mapping between them. Hence, we employed multiple methods to align the two datasets, we first used Experimental Factor Ontology (EFO) terms to match manually mapped EFO terms from the GBD with the corresponding traits in the GWAS Catalog. For cases where no direct match was found, we applied a string-based matching function to identify similarities between GWAS traits and GBD health conditions. This helped maximize coverage of GBD conditions and address misalignments between diseases and their mapped EFO terms. Also, we conducted manual curation of GWAS traits to identify any remaining semantic relationships with GBD health conditions, ensuring a more comprehensive alignment between the two datasets.
 
 
+## 1. GBD terms: 
 
-## 1. GWAS Catalog: 
+## A. GBD terms 
+In the latest GBD study, there are 377 diseases and injuries, grouped into several categories and levels. Initially, we excluded all causes in the injury category, as well as causes at levels 0, 1, and 2 from other categories, to provide specific insights into genetic conditions that are more likely to be investigated through GWAS. The remaining GBD terms were then split into two groups: "GBD First_part" and "GBD Second_part, as some GBD terms include other terms within them (i.e., descendants). Therefore, these terms were separated in order to extract their descendants from the ontology tree at https://www.ebi.ac.uk/efo/ using the ontologyIndex library. These extracted terms will then be matched with GWAS data.
+
+## B. GBD terms mapping
+All GBD terms were mapped to EFO manually. For entries with no specific EFO terms, broader EFO terms have been used instead. If no broader terms were found, placeholders were used, as those terms will also be matched with GWAS using the str_detect function via traits.
+
+
+## C. Sources 
+The GBD health conditions are obtained from the Global Burden of Disease data available at https://www.healthdata.org/research-analysis/gbd. Two files have been uploaded to the data folder: "First_part_GBD.xlsx" (without descendants) and "Second_part_GBD.xlsx" (with descendants). The descendant information is obtained from the efo-obo.txt file, which was sourced from https://www.ebi.ac.uk/efo/. This file could not be uploaded here due to its large size.
+
+
+
+
+
+
+
+
+
+## 2. GWAS Catalog: 
 
 ## A. Incorporating the Impact Factor to the GWAS Catalog
 Impact factors were searched using Clarivate. There are some journals that do not have impact factors, for these journals, CiteScore was used. If neither impact factor nor CiteScore was available, a value of zero was given i.e., journals are discontinued, or where studies were published in news or conferences.
@@ -22,16 +41,7 @@ GWAS Hits: Number of GWAS hits for that EFO term – this could be a proxy for t
 Due to the large size of the file, it was added to the notebook named "gwas_catalog_v1.0.2.1-studies_r2024-06-07.xlsx" and can be accessed by clicking on this link: https://uob-my.sharepoint.com/:o:/r/personal/ih23257_bristol_ac_uk/Documents/Notebooks/GBD%20Terms%20mapping?d=wf240cee12e054a798cf8e8f4d69a8985&csf=1&web=1&e=OfNvfr
 
 
-## 2. GBD terms: 
 
-## A. GBD terms splitting
-In the latest GBD study, there are 377 diseases and injuries. These GBD terms were split into "GBD First_part" and "GBD Second_part". The reason for splitting the GBD terms is that some GBD terms include other terms within them (descendants). Thus, those terms were separated to pull the descendants from the ontology tree using the library(ontologyIndex). Then those terms will be matched with GWAS as we did in part one. 
-
-## B. GBD terms mapping
-All GBD terms were mapped to EFO manually. For entries with no specific EFO terms, broader EFO terms have been used instead. If no broader terms were found, placeholders were used, as those terms will also be matched with GWAS using the str_detect function via traits.
-
-## C. Sources 
-Both "First_part_GBD.xlsx" and "Second_part_GBD.xlsx" are uploaded here. To obtin the descendants, efo-obo.txt file was added to the notebook due to its large size and can be accessed by clicking on this link:: https://uob-my.sharepoint.com/:o:/r/personal/ih23257_bristol_ac_uk/Documents/Notebooks/GBD%20Terms%20mapping?d=wf240cee12e054a798cf8e8f4d69a8985&csf=1&web=1&e=OfNvfr
 
 
 ## 3. Merging the GWAS Attention Scores with the GBD Disease Burden Results
