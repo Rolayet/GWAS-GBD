@@ -24,11 +24,15 @@ The GBD health conditions are obtained from the Global Burden of Disease data av
 To measure the attention given to GBD health conditions by GWAS, we developed attention scores using several approaches, as outlined below:
 
 ## A. Developing an 'Attention Score' for each health condtiosn in the GWAS Catalog
--Attention Score: Number of studies for that EFO term.
--Weighted Attention Score: Sum(1 / n EFO per study), accounts for studies publishing a large number of GWASs without focusing on a specific phenotype.
--GWAS Hits: Number of GWAS hits for that EFO term,  this could be a proxy for the attention received by the study.
--Weighted Attention Score Impact Factor: Sum(1 / n EFO per study * impact factor), it indicates its quality and the degree to which it is valued.
--Total number of cases from intinal and Replication samcples, ncase = Initial_Sample_Cases + Replication_Sample_Cases
+1-Attention Score: Number of studies for that EFO term.
+
+2-Weighted Attention Score: Sum(1 / n EFO per study). Accounting for studies publishing a large number of GWAS without focusing on a specific phenotype.
+
+3-GWAS Hits: Number of GWAS hits for that EFO term. This could be a proxy for the attention received by the study.
+
+4-Weighted Attention Score Impact Factor: Sum(1 / n EFO per study * impact factor). It indicates its quality and the degree to which it is valued.
+
+5-Total number of cases from intinal and Replication samcples, ncase = Initial_Sample_Cases + Replication_Sample_Cases
 
 These approaches allow us to obtain accurate findings that are not biased toward any single method. All the approaches are based on data from the GWAS Catalog, except for the journal impact factor associated with GWAS attention, which was manually obtained from Clarivate's Journal Citation Reports (JCR).
 
