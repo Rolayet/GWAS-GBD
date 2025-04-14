@@ -57,11 +57,11 @@ The matching process was done via EFO terms of the GBD or its descendants with G
 
 ###  Matching results
 
-|   | matching process              | terms no |
-|---|------------------------------ | -----    |
-| 1 | matched by identifiers GBD    |   140    |
-| 2 | partially (pattern matching)  |   41     |
-| 3 | unmatched GBD                 |   195    |
+|   | Matching process         | Terms no |
+|---|------------------------- | -------- |
+| 1 | EFO term-based matching	 |   140    |
+| 2 | String-based matching	   |   41     |
+| 3 | unmatched GBD            |   195    |
 
 
 ## C. Terms aggregation
