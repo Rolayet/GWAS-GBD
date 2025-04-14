@@ -2,6 +2,10 @@
 
 # Project Plan:
 
+This study integrates metadata from the GWAS Catalog and the Global Burden of Disease (GBD) studies to evaluate the role of genome-wide association studies (GWAS) in addressing global health outcomes. Combining data from these two sources—specifically, "traits" in GWAS and "health conditions" in the GBD study—is a complex process due to differences in disease mapping between them. Hence, we employed multiple methods to align the two datasets, we first used Experimental Factor Ontology (EFO) terms to match manually mapped EFO terms from the GBD with the corresponding traits in the GWAS Catalog. For cases where no direct match was found, we applied a string-based matching function to identify similarities between GWAS traits and GBD health conditions. This helped maximize coverage of GBD conditions and address misalignments between diseases and their mapped EFO terms. Also, we conducted manual curation of GWAS traits to identify any remaining semantic relationships with GBD health conditions, ensuring a more comprehensive alignment between the two datasets.
+
+
+
 ## 1. GWAS Catalog: 
 
 ## A. Incorporating the Impact Factor to the GWAS Catalog
