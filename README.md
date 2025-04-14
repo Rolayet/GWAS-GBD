@@ -106,7 +106,13 @@ To assess disparities between GWAS attention and the global burden of disease (G
 
 
 
+## C.Rank Difference
+Health conditions were ranked based on GWAS attention and DALY, and the difference between these rankings (rank difference) was calculated.
+Positive rank difference: Suggests the disease receives less attention than its burden warrants (under-attended).
+Negative rank difference: Indicates the disease receives more attention than its burden justifies (over-attended).
+Rank difference close to 0: Implies that the attention given to the disease is proportional to its burden, indicating a balanced attention-to-burden ratio.
 
+Note: Health conditions with zero GWAS attention were excluded from the analysis to avoid artificial ranks and distortion of the rank difference
 
 
 
