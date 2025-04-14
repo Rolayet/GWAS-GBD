@@ -14,10 +14,6 @@ In the latest GBD study, there are 377 diseases and injuries, grouped into sever
 All GBD terms were mapped to EFO manually. For entries with no specific EFO terms, broader EFO terms have been used instead. If no broader terms were found, placeholders were used, as those terms will also be matched with GWAS using the str_detect function via traits.
 
 
-## C. GBD terms aggregated
-Different attention scores for GBD causes were aggregated, with total attention scores at level 4 rolled up to their corresponding parent categories at level 3. This ensures that parent scores accurately reflect the total attention received by their associated causes.
-
-
 ## C. Sources 
 The GBD health conditions are obtained from the Global Burden of Disease data available at https://www.healthdata.org/research-analysis/gbd. Two files have been uploaded to the data folder: "First_part_GBD.xlsx" (without descendants) and "Second_part_GBD.xlsx" (with descendants). The descendant information is obtained from the efo-obo.txt file, which was sourced from https://www.ebi.ac.uk/efo/. This file could not be uploaded here due to its large size.
 
@@ -66,6 +62,11 @@ The matching process was done via EFO terms of the GBD or its descendants with G
 | 1 | matched by identifiers GBD    |   140    |
 | 2 | partially (pattern matching)  |   41     |
 | 3 | unmatched GBD                 |   195    |
+
+
+## C. Terms aggregation
+Different attention scores for GBD causes were aggregated, with total attention scores at level 4 rolled up to their corresponding parent categories at level 3. This ensures that parent scores accurately reflect the total attention received by their associated causes.
+
 
 
 ## 4. Assessing the Relationship Between GWAS Attention and Global Need
