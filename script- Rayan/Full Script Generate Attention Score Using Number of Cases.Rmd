@@ -4,6 +4,33 @@
 ############################################################################################################
 
 
+## The Main Steps are :
+1.	Generate Attention Scores from the GWAS catalog 
+Calculate the attention score based on the total number of cases: ncase = Initial_Sample_Cases + Replication_Sample_Cases
+
+2.	Match GWAS Traits to GBD Diseases Using Three Methods
+o	Method A: Match manually mapped GBD diseases (without descendants) to GWAS traits using EFO (Experimental Factor Ontology).
+o	Method B: Match manually mapped GBD diseases with descendants (obtained from the ontology tree) to GWAS traits via EFO.
+o	Method C: For traits with no match via EFO, use a string-based similarity function to match GWAS traits with GBD diseases.
+
+3.	Aggregate Attention Scores
+o	Sum the attention scores of each disease and assign them to their corresponding parent disease categories.
+
+4.	Link Disease Matches to GBD Burden Data
+o	Connect the matched diseases to their respective burden (e.g., DALYs,) from the Global Burden of Disease data.
+
+5.	Split the Dataset by GBD Classification
+Divide the final dataset into three overarching GBD condition groups:
+	Overall
+	NCD (Non-Communicable Diseases)
+	CMNN (Communicable, Maternal, Neonatal, and Nutritional Disorders)
+
+
+
+
+
+
+
 
 ## Read the GWAS Catalog data and Load necessary libraries
 library(dplyr)
