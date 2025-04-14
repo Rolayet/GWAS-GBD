@@ -68,15 +68,26 @@ The matching process was done via EFO terms of the GBD or its descendants with G
 For the matched GBD conditions, attention scores were aggregated after the matching process. Scores assigned to level 4 causes were rolled up to their corresponding level 3 parent categories, ensuring that parent scores accurately reflect the total attention received by their associated causes.
 
 
-## 4. Assessing the Relationship Between GWAS Attention and Global Need
+## 4. Investigating the aligned health conditions 
+
+## A. Linking the dataset to their associated burden 
+Link the matched diseases to their respective burden (e.g., DALYs) using Global Burden of Disease data by filtering based on the number of DALYs and comparing values between the years 1990 and 2021.
+
+## B. Split the dataset into three categories: 
+After linking the matched diseases to their respective burden, the health conditions were categorized into three groups—overall health conditions, NCDs (non-communicable diseases), and CMNNs (communicable, maternal, neonatal, and nutritional diseases)—by merging with the GBD hierarchy to stratify the alignment within each category.
+
+
+## C. Sources 
+The Global Burden of Disease data for the years 1990 and 2021, along with the GBD hierarchy, were obtained from the Global Burden of Disease data available at https://www.healthdata.org/research-analysis/gbd. 
+
+
+
 
 ## A. Developing concentration curve and index 
 The Conindex package in Stat is used to develop the concentration curve and index to investigate the disparities:
 
 
-## B. Sources 
-In the latest GBD study is uploaded here named IHME-GBD_2021_DATA-120ebfcd-1.csv
-Finally, the script for all the analysis is uploaded here as well.
+
 
 
 
