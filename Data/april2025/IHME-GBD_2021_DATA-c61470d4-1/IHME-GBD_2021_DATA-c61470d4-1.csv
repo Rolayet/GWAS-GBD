@@ -1,0 +1,109 @@
+measure_id,measure_name,location_id,location_name,sex_id,sex_name,age_id,age_name,cause_id,cause_name,metric_id,metric_name,year,val,upper,lower
+2,DALYs (Disability-Adjusted Life Years),1,Global,1,Male,22,All ages,294,All causes,1,Number,1990,1379352505.6919594,1456474875.5629754,1305261603.338604
+2,DALYs (Disability-Adjusted Life Years),1,Global,2,Female,22,All ages,294,All causes,1,Number,1990,1207082415.353985,1307265670.7749536,1120770206.0201292
+2,DALYs (Disability-Adjusted Life Years),1,Global,3,Both,22,All ages,294,All causes,1,Number,1990,2586434921.045946,2759398669.2560253,2430092558.1234035
+2,DALYs (Disability-Adjusted Life Years),1,Global,1,Male,22,All ages,294,All causes,2,Percent,1990,1.0,1.0,1.0
+2,DALYs (Disability-Adjusted Life Years),1,Global,2,Female,22,All ages,294,All causes,2,Percent,1990,1.0,1.0,1.0
+2,DALYs (Disability-Adjusted Life Years),1,Global,3,Both,22,All ages,294,All causes,2,Percent,1990,1.0,1.0,1.0
+2,DALYs (Disability-Adjusted Life Years),1,Global,1,Male,22,All ages,294,All causes,3,Rate,1990,51358.32059746032,54229.86748683539,48599.64629142427
+2,DALYs (Disability-Adjusted Life Years),1,Global,2,Female,22,All ages,294,All causes,3,Rate,1990,45586.74207471062,49370.268507527784,42327.0703449663
+2,DALYs (Disability-Adjusted Life Years),1,Global,3,Both,22,All ages,294,All causes,3,Rate,1990,48493.01712251107,51735.91101296828,45561.75725570154
+2,DALYs (Disability-Adjusted Life Years),1,Global,1,Male,22,All ages,294,All causes,1,Number,2021,1553509065.0326896,1688168028.9250653,1432529441.2169113
+2,DALYs (Disability-Adjusted Life Years),1,Global,2,Female,22,All ages,294,All causes,1,Number,2021,1329545261.3600376,1476297637.4017138,1191421255.4112449
+2,DALYs (Disability-Adjusted Life Years),1,Global,3,Both,22,All ages,294,All causes,1,Number,2021,2883054326.3927264,3147689598.012937,2635339087.2726936
+2,DALYs (Disability-Adjusted Life Years),1,Global,1,Male,22,All ages,294,All causes,2,Percent,2021,1.0,1.0,1.0
+2,DALYs (Disability-Adjusted Life Years),1,Global,2,Female,22,All ages,294,All causes,2,Percent,2021,1.0,1.0,1.0
+2,DALYs (Disability-Adjusted Life Years),1,Global,3,Both,22,All ages,294,All causes,2,Percent,2021,1.0,1.0,1.0
+2,DALYs (Disability-Adjusted Life Years),1,Global,1,Male,22,All ages,294,All causes,3,Rate,2021,39236.05657343487,42637.05811525093,36180.54600635052
+2,DALYs (Disability-Adjusted Life Years),1,Global,2,Female,22,All ages,294,All causes,3,Rate,2021,33813.78833685389,37546.08232158635,30300.93620828985
+2,DALYs (Disability-Adjusted Life Years),1,Global,3,Both,22,All ages,294,All causes,3,Rate,2021,36534.34609400553,39887.83011043433,33395.27438248002
+2,DALYs (Disability-Adjusted Life Years),44637,Low SDI,1,Male,22,All ages,294,All causes,1,Number,2021,294606111.8638622,331646070.5027584,263097259.9710415
+2,DALYs (Disability-Adjusted Life Years),44637,Low SDI,2,Female,22,All ages,294,All causes,1,Number,2021,253178120.12454352,283698441.52939975,227479838.86552298
+2,DALYs (Disability-Adjusted Life Years),44637,Low SDI,3,Both,22,All ages,294,All causes,1,Number,2021,547784231.9884057,615038728.7708489,492427163.7370739
+2,DALYs (Disability-Adjusted Life Years),44637,Low SDI,1,Male,22,All ages,294,All causes,2,Percent,2021,1.0,1.0,1.0
+2,DALYs (Disability-Adjusted Life Years),44637,Low SDI,2,Female,22,All ages,294,All causes,2,Percent,2021,1.0,1.0,1.0
+2,DALYs (Disability-Adjusted Life Years),44637,Low SDI,3,Both,22,All ages,294,All causes,2,Percent,2021,1.0,1.0,1.0
+2,DALYs (Disability-Adjusted Life Years),44637,Low SDI,1,Male,22,All ages,294,All causes,3,Rate,2021,52692.125169456616,59316.950854587325,47056.57213432611
+2,DALYs (Disability-Adjusted Life Years),44637,Low SDI,2,Female,22,All ages,294,All causes,3,Rate,2021,45350.14091566263,50817.04649115498,40746.975856163706
+2,DALYs (Disability-Adjusted Life Years),44637,Low SDI,3,Both,22,All ages,294,All causes,3,Rate,2021,49023.87388551719,55042.80574948916,44069.70073822825
+2,DALYs (Disability-Adjusted Life Years),44639,Middle SDI,1,Male,22,All ages,294,All causes,1,Number,1990,369495153.4500298,395346605.50399727,344530228.7843919
+2,DALYs (Disability-Adjusted Life Years),44639,Middle SDI,2,Female,22,All ages,294,All causes,1,Number,1990,306262122.10841537,335669151.9861077,280898722.8226398
+2,DALYs (Disability-Adjusted Life Years),44639,Middle SDI,3,Both,22,All ages,294,All causes,1,Number,1990,675757275.5584446,728459045.683585,628918525.7745366
+2,DALYs (Disability-Adjusted Life Years),44639,Middle SDI,1,Male,22,All ages,294,All causes,2,Percent,1990,1.0,1.0,1.0
+2,DALYs (Disability-Adjusted Life Years),44639,Middle SDI,2,Female,22,All ages,294,All causes,2,Percent,1990,1.0,1.0,1.0
+2,DALYs (Disability-Adjusted Life Years),44639,Middle SDI,3,Both,22,All ages,294,All causes,2,Percent,1990,1.0,1.0,1.0
+2,DALYs (Disability-Adjusted Life Years),44639,Middle SDI,1,Male,22,All ages,294,All causes,3,Rate,1990,42128.676187914185,45076.177508026325,39282.25393453934
+2,DALYs (Disability-Adjusted Life Years),44639,Middle SDI,2,Female,22,All ages,294,All causes,3,Rate,1990,36207.89017798495,39684.54116225285,33209.298091058
+2,DALYs (Disability-Adjusted Life Years),44639,Middle SDI,3,Both,22,All ages,294,All causes,3,Rate,1990,39221.92656314088,42280.81328528169,36503.33799475942
+2,DALYs (Disability-Adjusted Life Years),44634,High-middle SDI,1,Male,22,All ages,294,All causes,1,Number,2021,232146396.59942383,256306051.90598735,209619344.91558373
+2,DALYs (Disability-Adjusted Life Years),44634,High-middle SDI,2,Female,22,All ages,294,All causes,1,Number,2021,200589318.82972842,227758981.90044856,177245816.6650575
+2,DALYs (Disability-Adjusted Life Years),44634,High-middle SDI,3,Both,22,All ages,294,All causes,1,Number,2021,432735715.4291523,482066525.4280956,389941657.3774842
+2,DALYs (Disability-Adjusted Life Years),44634,High-middle SDI,1,Male,22,All ages,294,All causes,2,Percent,2021,1.0,1.0,1.0
+2,DALYs (Disability-Adjusted Life Years),44634,High-middle SDI,2,Female,22,All ages,294,All causes,2,Percent,2021,1.0,1.0,1.0
+2,DALYs (Disability-Adjusted Life Years),44634,High-middle SDI,3,Both,22,All ages,294,All causes,2,Percent,2021,1.0,1.0,1.0
+2,DALYs (Disability-Adjusted Life Years),44634,High-middle SDI,1,Male,22,All ages,294,All causes,3,Rate,2021,35574.67299097162,39276.95676403674,32122.57332954047
+2,DALYs (Disability-Adjusted Life Years),44634,High-middle SDI,2,Female,22,All ages,294,All causes,3,Rate,2021,30790.24247306409,34960.75623092304,27207.040256644865
+2,DALYs (Disability-Adjusted Life Years),44634,High-middle SDI,3,Both,22,All ages,294,All causes,3,Rate,2021,33184.458161299095,36967.404985666166,29902.78397002174
+2,DALYs (Disability-Adjusted Life Years),44634,High-middle SDI,1,Male,22,All ages,294,All causes,1,Number,1990,202503004.53926733,218138307.67110503,187376941.9449463
+2,DALYs (Disability-Adjusted Life Years),44634,High-middle SDI,2,Female,22,All ages,294,All causes,1,Number,1990,168914949.9095516,188654272.82665527,152295627.40615988
+2,DALYs (Disability-Adjusted Life Years),44634,High-middle SDI,3,Both,22,All ages,294,All causes,1,Number,1990,371417954.4488188,404666030.3651198,340111656.03500915
+2,DALYs (Disability-Adjusted Life Years),44634,High-middle SDI,1,Male,22,All ages,294,All causes,2,Percent,1990,1.0,1.0,1.0
+2,DALYs (Disability-Adjusted Life Years),44634,High-middle SDI,2,Female,22,All ages,294,All causes,2,Percent,1990,1.0,1.0,1.0
+2,DALYs (Disability-Adjusted Life Years),44634,High-middle SDI,3,Both,22,All ages,294,All causes,2,Percent,1990,1.0,1.0,1.0
+2,DALYs (Disability-Adjusted Life Years),44634,High-middle SDI,1,Male,22,All ages,294,All causes,3,Rate,1990,38262.0250941356,41216.24477174438,35404.02410853967
+2,DALYs (Disability-Adjusted Life Years),44634,High-middle SDI,2,Female,22,All ages,294,All causes,3,Rate,1990,31615.49832853469,35310.07083988591,28504.890516089963
+2,DALYs (Disability-Adjusted Life Years),44634,High-middle SDI,3,Both,22,All ages,294,All causes,3,Rate,1990,34923.05766698289,38049.25137580427,31979.442120804695
+2,DALYs (Disability-Adjusted Life Years),44636,Low-middle SDI,1,Male,22,All ages,294,All causes,1,Number,2021,401454516.0079668,437609400.2132292,370422019.39531535
+2,DALYs (Disability-Adjusted Life Years),44636,Low-middle SDI,2,Female,22,All ages,294,All causes,1,Number,2021,347298507.10348016,385916091.20309424,313523878.1865245
+2,DALYs (Disability-Adjusted Life Years),44636,Low-middle SDI,3,Both,22,All ages,294,All causes,1,Number,2021,748753023.111447,821906084.8900453,688071523.8008056
+2,DALYs (Disability-Adjusted Life Years),44636,Low-middle SDI,1,Male,22,All ages,294,All causes,2,Percent,2021,1.0,1.0,1.0
+2,DALYs (Disability-Adjusted Life Years),44636,Low-middle SDI,2,Female,22,All ages,294,All causes,2,Percent,2021,1.0,1.0,1.0
+2,DALYs (Disability-Adjusted Life Years),44636,Low-middle SDI,3,Both,22,All ages,294,All causes,2,Percent,2021,1.0,1.0,1.0
+2,DALYs (Disability-Adjusted Life Years),44636,Low-middle SDI,1,Male,22,All ages,294,All causes,3,Rate,2021,41570.179801609665,45313.97885527207,38356.798428524875
+2,DALYs (Disability-Adjusted Life Years),44636,Low-middle SDI,2,Female,22,All ages,294,All causes,3,Rate,2021,36351.6746466723,40393.770492513046,32816.49008184073
+2,DALYs (Disability-Adjusted Life Years),44636,Low-middle SDI,3,Both,22,All ages,294,All causes,3,Rate,2021,38974.97370628431,42782.82298548608,35816.30887677599
+2,DALYs (Disability-Adjusted Life Years),44635,High SDI,1,Male,22,All ages,294,All causes,1,Number,2021,184932461.90600112,205364173.20519286,167889493.77478474
+2,DALYs (Disability-Adjusted Life Years),44635,High SDI,2,Female,22,All ages,294,All causes,1,Number,2021,169922191.91915435,195120014.029652,148896303.6226799
+2,DALYs (Disability-Adjusted Life Years),44635,High SDI,3,Both,22,All ages,294,All causes,1,Number,2021,354854653.8251553,400110693.7027357,317053631.80321836
+2,DALYs (Disability-Adjusted Life Years),44635,High SDI,1,Male,22,All ages,294,All causes,2,Percent,2021,1.0,1.0,1.0
+2,DALYs (Disability-Adjusted Life Years),44635,High SDI,2,Female,22,All ages,294,All causes,2,Percent,2021,1.0,1.0,1.0
+2,DALYs (Disability-Adjusted Life Years),44635,High SDI,3,Both,22,All ages,294,All causes,2,Percent,2021,1.0,1.0,1.0
+2,DALYs (Disability-Adjusted Life Years),44635,High SDI,1,Male,22,All ages,294,All causes,3,Rate,2021,33889.51692007205,37633.69908605623,30766.333727146888
+2,DALYs (Disability-Adjusted Life Years),44635,High SDI,2,Female,22,All ages,294,All causes,3,Rate,2021,30987.596797643004,35582.758517957554,27153.24331217585
+2,DALYs (Disability-Adjusted Life Years),44635,High SDI,3,Both,22,All ages,294,All causes,3,Rate,2021,32435.024750167824,36571.593786816695,28979.871854054796
+2,DALYs (Disability-Adjusted Life Years),44639,Middle SDI,1,Male,22,All ages,294,All causes,1,Number,2021,439023718.85500336,480089575.6338703,400607913.70598245
+2,DALYs (Disability-Adjusted Life Years),44639,Middle SDI,2,Female,22,All ages,294,All causes,1,Number,2021,357409883.58074147,403781396.6514969,316225701.7851323
+2,DALYs (Disability-Adjusted Life Years),44639,Middle SDI,3,Both,22,All ages,294,All causes,1,Number,2021,796433602.4357451,879880170.6954662,717782248.64096
+2,DALYs (Disability-Adjusted Life Years),44639,Middle SDI,1,Male,22,All ages,294,All causes,2,Percent,2021,1.0,1.0,1.0
+2,DALYs (Disability-Adjusted Life Years),44639,Middle SDI,2,Female,22,All ages,294,All causes,2,Percent,2021,1.0,1.0,1.0
+2,DALYs (Disability-Adjusted Life Years),44639,Middle SDI,3,Both,22,All ages,294,All causes,2,Percent,2021,1.0,1.0,1.0
+2,DALYs (Disability-Adjusted Life Years),44639,Middle SDI,1,Male,22,All ages,294,All causes,3,Rate,2021,35600.410384763214,38930.43856169733,32485.274755797487
+2,DALYs (Disability-Adjusted Life Years),44639,Middle SDI,2,Female,22,All ages,294,All causes,3,Rate,2021,29408.090151820445,33223.59078431211,26019.40901368221
+2,DALYs (Disability-Adjusted Life Years),44639,Middle SDI,3,Both,22,All ages,294,All causes,3,Rate,2021,32526.825257642715,35934.83307628935,29314.656869297512
+2,DALYs (Disability-Adjusted Life Years),44636,Low-middle SDI,1,Male,22,All ages,294,All causes,1,Number,1990,388536542.38334256,410418760.64239675,368814784.42401695
+2,DALYs (Disability-Adjusted Life Years),44636,Low-middle SDI,2,Female,22,All ages,294,All causes,1,Number,1990,355074400.55328435,377422805.00961614,333576388.0790838
+2,DALYs (Disability-Adjusted Life Years),44636,Low-middle SDI,3,Both,22,All ages,294,All causes,1,Number,1990,743610942.9366266,786972418.9103732,704698411.6504701
+2,DALYs (Disability-Adjusted Life Years),44636,Low-middle SDI,1,Male,22,All ages,294,All causes,2,Percent,1990,1.0,1.0,1.0
+2,DALYs (Disability-Adjusted Life Years),44636,Low-middle SDI,2,Female,22,All ages,294,All causes,2,Percent,1990,1.0,1.0,1.0
+2,DALYs (Disability-Adjusted Life Years),44636,Low-middle SDI,3,Both,22,All ages,294,All causes,2,Percent,1990,1.0,1.0,1.0
+2,DALYs (Disability-Adjusted Life Years),44636,Low-middle SDI,1,Male,22,All ages,294,All causes,3,Rate,1990,65714.27751220072,69415.2785929159,62378.68115460291
+2,DALYs (Disability-Adjusted Life Years),44636,Low-middle SDI,2,Female,22,All ages,294,All causes,3,Rate,1990,62276.38596854317,66196.06550481764,58505.856411037224
+2,DALYs (Disability-Adjusted Life Years),44636,Low-middle SDI,3,Both,22,All ages,294,All causes,3,Rate,1990,64026.5495024047,67760.06864208606,60676.0943560375
+2,DALYs (Disability-Adjusted Life Years),44635,High SDI,1,Male,22,All ages,294,All causes,1,Number,1990,145405280.81817022,158840533.26373082,133941740.90521649
+2,DALYs (Disability-Adjusted Life Years),44635,High SDI,2,Female,22,All ages,294,All causes,1,Number,1990,130395743.32220106,147749465.44859326,115561016.80776249
+2,DALYs (Disability-Adjusted Life Years),44635,High SDI,3,Both,22,All ages,294,All causes,1,Number,1990,275801024.14037114,306631335.78307295,249367011.37367105
+2,DALYs (Disability-Adjusted Life Years),44635,High SDI,1,Male,22,All ages,294,All causes,2,Percent,1990,1.0,1.0,1.0
+2,DALYs (Disability-Adjusted Life Years),44635,High SDI,2,Female,22,All ages,294,All causes,2,Percent,1990,1.0,1.0,1.0
+2,DALYs (Disability-Adjusted Life Years),44635,High SDI,3,Both,22,All ages,294,All causes,2,Percent,1990,1.0,1.0,1.0
+2,DALYs (Disability-Adjusted Life Years),44635,High SDI,1,Male,22,All ages,294,All causes,3,Rate,1990,33550.0411870209,36650.019883601046,30905.004954054915
+2,DALYs (Disability-Adjusted Life Years),44635,High SDI,2,Female,22,All ages,294,All causes,3,Rate,1990,29227.837174366832,33117.62492170229,25902.675171042054
+2,DALYs (Disability-Adjusted Life Years),44635,High SDI,3,Both,22,All ages,294,All causes,3,Rate,1990,31357.64252822954,34862.94456450371,28352.18478742373
+2,DALYs (Disability-Adjusted Life Years),44637,Low SDI,1,Male,22,All ages,294,All causes,1,Number,1990,272250211.68485177,286240347.969548,259087038.63728094
+2,DALYs (Disability-Adjusted Life Years),44637,Low SDI,2,Female,22,All ages,294,All causes,1,Number,1990,245445469.27818942,256831959.51658696,235083320.38993442
+2,DALYs (Disability-Adjusted Life Years),44637,Low SDI,3,Both,22,All ages,294,All causes,1,Number,1990,517695680.96304125,543069367.1843067,494751216.4785106
+2,DALYs (Disability-Adjusted Life Years),44637,Low SDI,1,Male,22,All ages,294,All causes,2,Percent,1990,1.0,1.0,1.0
+2,DALYs (Disability-Adjusted Life Years),44637,Low SDI,2,Female,22,All ages,294,All causes,2,Percent,1990,1.0,1.0,1.0
+2,DALYs (Disability-Adjusted Life Years),44637,Low SDI,3,Both,22,All ages,294,All causes,2,Percent,1990,1.0,1.0,1.0
+2,DALYs (Disability-Adjusted Life Years),44637,Low SDI,1,Male,22,All ages,294,All causes,3,Rate,1990,107893.4017067912,113437.72574884101,102676.80514817557
+2,DALYs (Disability-Adjusted Life Years),44637,Low SDI,2,Female,22,All ages,294,All causes,3,Rate,1990,98585.14935830167,103158.62486029588,94423.1088088233
+2,DALYs (Disability-Adjusted Life Years),44637,Low SDI,3,Both,22,All ages,294,All causes,3,Rate,1990,103270.5127546639,108332.08402694408,98693.52534810334
