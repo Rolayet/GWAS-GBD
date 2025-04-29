@@ -7,16 +7,17 @@ library(ggstance)
 library(rworldmap)
 library(RColorBrewer)
 
-get_ci <- function(temp) {
+get_ci <- function(x) {
   out <- ci(
-    ineqvar = temp$total_attention_score,
-    outcome = temp$val, method = "direct"
+    ineqvar = x$total_attention_score,
+    outcome = x$val, method = "direct"
   )
   l <- tibble(
     ci = out$concentration_index,
     ci_se = sqrt(out$variance),
     ci_lci = ci - 1.96 * ci_se,
     ci_uci = ci + 1.96 * ci_se,
+    daly_sum = sum(x$val, na.rm=TRUE)
   )
   l
 }
@@ -56,7 +57,8 @@ ggplot(., aes(x = ci, y = sex_name)) +
 
 
 ##
-
+length(unique(gbd1$cause_id))
+length(unique(gbd2$cause_id))
 
 gbd2 <- fread(here("Data/april2025/by_sdi_and_year/IHME-GBD_2021_DATA-62748e2d-1.csv"))
 temp2 <- inner_join(gbd2, gwas_attention)
@@ -66,6 +68,27 @@ o2$location_name <- factor(o2$location_name, levels = c(
   "High SDI", "High-middle SDI", "Middle SDI",
   "Low-middle SDI", "Low SDI", "Global"
 ))
+
+temp <- inner_join(temp1, temp2, by=c("location_id", "cause_id", "year", "sex_name"))
+
+dim(temp)
+plot(temp$val.x, temp$val.y)
+
+otemp <- inner_join(o1, o2, by=c("location_name", "sex_name", "year"))
+
+
+
+
+
+temp_sel <- subset(temp, location_name.x == "Global" & sex_name == "Both" & year == "2019", select=c("val.x", "val.y", "total_attention_score.x", "total_attention_score.y"))
+
+
+
+
+
+subset(gbd2, location_name == "Global" & sex_name == "Both" & year == "2019")
+
+
 
 o2 %>%
 ggplot(., aes(y = ci, x = year)) +
@@ -80,7 +103,7 @@ ggplot(., aes(y = ci, x = year)) +
   theme_bw() +
   theme(axis.text.x=element_text(angle=90, vjust=0.5)) +
   labs(x="Year", y="Concentration index")
-  ggsave(here("figures/ci_by_year.pdf"), width = 10, height = 4)
+ggsave(here("figures/ci_by_year.pdf"), width = 10, height = 4)
 
 o1 %>%
   dplyr::filter(year == 2021) %>%
@@ -94,9 +117,8 @@ ggplot(., aes(y = ci, x = sex_name)) +
   facet_grid(. ~ location_name) +
   geom_smooth(se=FALSE) +
   theme_bw() +
-  theme(axis.text.y=element_blank(), axis.ticks.y=element_blank(),legend.position="bottom") +
   labs(x="Sex", y="Concentration index")
-  ggsave(here("figures/ci_by_sex.pdf"), width = 10, height = 4)
+ggsave(here("figures/ci_by_sex.pdf"), width = 10, height = 4)
 
 
 gbd3 <- fread(here("Data/april2025/by_country/IHME-GBD_2021_DATA-84f55027-1.csv"))
@@ -169,21 +191,21 @@ make_plot_dat <- function(x) {
 }
 
 dat <- bind_rows(
-  make_plot_dat(gini) %>% mutate(group = "GWAS Gini index"),
-  make_plot_dat(ci_global) %>% mutate(group = "Alignment (Global)"),
-  make_plot_dat(ci_low) %>% mutate(group = "Alignment (Low SDI)"),
-  make_plot_dat(ci_high) %>% mutate(group = "Alignment (High SDI)")
+  make_plot_dat(gini) %>% mutate(group = "GWAS attention (Gini index)"),
+  make_plot_dat(ci_global) %>% mutate(group = "DALY burden, Global"),
+  make_plot_dat(ci_low) %>% mutate(group = "DALY burden, Low SDI"),
+  make_plot_dat(ci_high) %>% mutate(group = "DALY burden, High SDI")
 )
 
 ggplot(aes(x = xCoord, y = cumdist, group = group), data = dat) +
   geom_line(aes(colour = group)) +
   geom_abline(slope = 1, intercept = 0, linetype = "dashed") +
   theme_bw() +
-  theme(legend.position = "bottom", legend.direction = "vertical") +
+  theme(legend.position = "inside", legend.position.inside=c(0.2,0.8)) +
   labs(
-    x = "Fractional rank",
-    y = "Cumulative proportion of attention score",
-    colour = ""
+    x = "Fractional rank of GWAS attention score",
+    y = "Cumulative proportion of outcome",
+    colour = "Outcome"
   ) +
   scale_colour_manual(values = c(
     "#a6cee3",
@@ -191,4 +213,81 @@ ggplot(aes(x = xCoord, y = cumdist, group = group), data = dat) +
     "#b2df8a",
     "#33a02c"
   ))
-ggsave(here("figures/lorenz_curve.pdf"), width = 5, height = 6)
+ggsave(here("figures/lorenz_curve.pdf"), width = 6, height = 6)
+table(gbd4$age_name) %>% as.data.frame
+table(gbd4$age_id) %>% as.data.frame
+
+
+
+gbd4 <- fread(here("Data/april2025/by_sdi_and_age/IHME-GBD_2021_DATA-2c936676-1.csv"))
+temp4 <- inner_join(gbd4, gwas_attention)
+temp4$age_group <- gsub(" years", "", temp4$age_name)
+temp4$age_group <- gsub(" year", "", temp4$age_group)
+temp4$age_group <- factor(temp4$age_group, levels = c("<1", "2-4", "5-9", "10-14", "15-19", "20-24", "25-29", "30-34", "35-39", "40-44", "45-49", "50-54", "55-59", "60-64", "65-69", "70-74", "75-79", "80-84", "85-89", "90-94"))
+
+table(gbd4$age_id, gbd4$location_id, gbd4$year)
+
+o4 <- temp4 %>%
+  # filter(age_group != "<1") %>%
+  group_by(location_name, age_name, age_group, age_id, year) %>%
+  do(get_ci(.)) %>%
+  ungroup() %>%
+  group_by(location_name, year) %>%
+  mutate(daly_prop = daly_sum / sum(daly_sum, na.rm=TRUE))
+o4$location_name <- factor(o4$location_name, levels = c(
+  "High SDI", "High-middle SDI", "Middle SDI",
+  "Low-middle SDI", "Low SDI", "Global"
+))
+
+o4 %>%
+  dplyr::filter(year == 2019) %>%
+  ggplot(., aes(y = ci, x = age_group)) +
+    geom_errorbar(colour="grey", aes(
+      ymin = ci_lci,
+      ymax = ci_uci),
+    width = 0) +
+    geom_hline(yintercept = 0, linetype = "dashed") + 
+    facet_grid(. ~ location_name) +
+    geom_point(aes(size=daly_prop)) +
+    theme_bw() +
+    theme(axis.text.x=element_text(angle=90, vjust=0.5, hjust=1), legend.position = "inside", legend.position.inside=c(0.08,0.2)) +
+    labs(x="Age group", y="Concentration index", size="DALY proportion") +
+    ylim(-0.7, 0.7)
+ggsave(here("figures/ci_by_age.pdf"), width = 10, height = 4)
+
+
+reg <- group_by(temp4, cause_name, year, location_name) %>%
+  do({
+    tryCatch({
+      .$val <- scale(.$val)[, 1]
+      a <- summary(lm(val ~ as.numeric(age_group), data = .))
+      b <- a$coefficients[2, 1]
+      c <- a$coefficients[2, 4]
+      d <- a$coefficients[2, 2]
+      e <- a$coefficients[2, 3]
+      tibble(
+        slope = b,
+        pval = c,
+        se = d,
+        tval = e
+      )
+    },
+    error = function(e) {
+      message("Error in regression for cause: ", unique(.$cause_name))
+      tibble(
+        slope = NA,
+        pval = NA,
+        se = NA,
+        tval = NA
+      )
+    })
+})
+
+reg$pval_adj <- p.adjust(reg$pval, method = "bonferroni")
+table(reg$pval_adj < 0.05)
+
+reg %>% arrange(pval_adj)
+
+
+reg %>% arrange(slope) %>% filter(year == 2021, pval_adj < 0.05) %>% select(cause_name, slope, location_name) %>% as.data.frame
+
