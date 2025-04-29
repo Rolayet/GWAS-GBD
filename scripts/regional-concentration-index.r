@@ -60,7 +60,7 @@ ggplot(., aes(x = ci, y = sex_name)) +
 length(unique(gbd1$cause_id))
 length(unique(gbd2$cause_id))
 
-gbd2 <- fread(here("Data/april2025/by_sdi_and_year/IHME-GBD_2021_DATA-62748e2d-1.csv"))
+gbd2 <- fread(here("Data/april2025/by_sdi_and_year/IHME-GBD_2021_DATA-45f67a86-1.csv"))
 temp2 <- inner_join(gbd2, gwas_attention)
 o2 <- group_by(temp2, location_name, sex_name, year) %>%
   do(get_ci(.))
@@ -68,27 +68,6 @@ o2$location_name <- factor(o2$location_name, levels = c(
   "High SDI", "High-middle SDI", "Middle SDI",
   "Low-middle SDI", "Low SDI", "Global"
 ))
-
-temp <- inner_join(temp1, temp2, by=c("location_id", "cause_id", "year", "sex_name"))
-
-dim(temp)
-plot(temp$val.x, temp$val.y)
-
-otemp <- inner_join(o1, o2, by=c("location_name", "sex_name", "year"))
-
-
-
-
-
-temp_sel <- subset(temp, location_name.x == "Global" & sex_name == "Both" & year == "2019", select=c("val.x", "val.y", "total_attention_score.x", "total_attention_score.y"))
-
-
-
-
-
-subset(gbd2, location_name == "Global" & sex_name == "Both" & year == "2019")
-
-
 
 o2 %>%
 ggplot(., aes(y = ci, x = year)) +
