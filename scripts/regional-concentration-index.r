@@ -36,6 +36,8 @@ o1$location_name <- factor(o1$location_name, levels = c(
 ))
 
 
+
+
 o1 %>%
   dplyr::filter(year == 2019) %>%
 ggplot(., aes(x = ci, y = sex_name)) +
@@ -105,6 +107,31 @@ temp3 <- inner_join(gbd3, gwas_attention)
 o3 <- group_by(temp3, location_name, sex_name, year) %>%
   do(get_ci(.))
 
+# Get the highest and lowest countries CI
+o3 %>% ungroup() %>% filter(year == 2021, sex_name == "Both") %>% arrange(desc(ci)) %>% select(location_name, ci, ci_se, daly_sum) %>% as.data.frame
+o3 %>% filter(year == 2021, sex_name == "Both") %>% arrange(ci)
+
+ggplot(o3, aes(x=daly_sum, y=ci)) +
+geom_point() +
+scale_x_log10()
+
+
+
+o3 %>% ungroup() %>% filter(year == 2021, sex_name == "Both") %>% arrange(desc(ci)) %>% mutate(rank=1:n()) %>%
+ggplot(., aes(x=rank, y=ci)) +
+  geom_point() +
+  geom_errorbar(aes(ymin=ci_lci, ymax=ci_uci), width=0) +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  theme_bw() +
+  labs(x="Rank of country", y="Concentration index") +
+  scale_x_continuous(breaks = seq(0, 200, by = 20)) +
+  theme(axis.text.x=element_text(angle=90, vjust=0.5))
+
+o3 %>% filter(year == 2021, sex_name == "Both") %>% arrange(ci)
+
+o3 %>% ungroup() %>% filter(year == 2021, sex_name == "Both") %>% filter(ci_lci > 0)
+
+
 colourPalette <- brewer.pal(5,'RdPu')
 
 spdf <- joinCountryData2Map(o3 %>% filter(year == 1990), joinCode="NAME", nameJoinColumn="location_name")
@@ -136,11 +163,9 @@ dev.off()
 
 
 # Gini index
-temp <- subset(temp1, !duplicated(cause_id))
-
 gini <- ci(
-  ineqvar = temp1$total_attention_score,
-  outcome = temp1$total_attention_score, method = "direct"
+  ineqvar = subset(temp1, location_name == "Global")$total_attention_score,
+  outcome = subset(temp1, location_name == "Global")$total_attention_score, method = "direct"
 )
 
 sdi_low <- subset(temp1, location_name == "Low SDI" & sex_name=="Both" & year==2019)
@@ -193,12 +218,12 @@ ggplot(aes(x = xCoord, y = cumdist, group = group), data = dat) +
     "#33a02c"
   ))
 ggsave(here("figures/lorenz_curve.pdf"), width = 6, height = 6)
-table(gbd4$age_name) %>% as.data.frame
-table(gbd4$age_id) %>% as.data.frame
 
 
 
 gbd4 <- fread(here("Data/april2025/by_sdi_and_age/IHME-GBD_2021_DATA-2c936676-1.csv"))
+table(gbd4$age_name) %>% as.data.frame
+table(gbd4$age_id) %>% as.data.frame
 temp4 <- inner_join(gbd4, gwas_attention)
 temp4$age_group <- gsub(" years", "", temp4$age_name)
 temp4$age_group <- gsub(" year", "", temp4$age_group)
@@ -229,12 +254,13 @@ o4 %>%
     facet_grid(. ~ location_name) +
     geom_point(aes(size=daly_prop)) +
     theme_bw() +
-    theme(axis.text.x=element_text(angle=90, vjust=0.5, hjust=1), legend.position = "inside", legend.position.inside=c(0.08,0.2)) +
+    theme(axis.text.x=element_text(angle=90, vjust=0.5, hjust=1, size=6), legend.position = "inside", legend.position.inside=c(0.08,0.2)) +
     labs(x="Age group", y="Concentration index", size="DALY proportion") +
     ylim(-0.7, 0.7)
 ggsave(here("figures/ci_by_age.pdf"), width = 10, height = 4)
 
 
+# Which traits have the biggest change in DALY by age group?
 reg <- group_by(temp4, cause_name, year, location_name) %>%
   do({
     tryCatch({
